@@ -1,798 +1,966 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet"/>
-    <style>
-        body {
-            margin: 0;
-            font-family: "Roboto Condensed", sans-serif;
-            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), 
-                        url("https://raw.githubusercontent.com/PBjamstar/P-B/main/background.png");
-            background-size: cover;
-            background-position: center 30%;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            color: white;
-            min-height: 100vh;
-        }
-        
-        @media (max-width: 768px) {
-            body {
-                background-attachment: scroll;
-                background-position: center 20%;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            body {
-                background-position: center 15%;
-            }
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phantom Bloodline | Est. Birmingham, 1919</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blood: #8B0000;
+    --blood-light: #c0392b;
+    --gold: #C9A84C;
+    --gold-dim: #8a6f2e;
+    --ash: #1a1a1a;
+    --smoke: #111111;
+    --fog: #2a2a2a;
+    --bone: #e8dcc8;
+    --pale: #a89880;
+    --white: #f5f0e8;
+  }
 
-        header {
-            background-color: rgba(0, 0, 0, 0.5);
-            padding: 2rem 1rem;
-            text-align: center;
-            border-bottom: 2px solid #e63946;
-            color: #e63946;
-            font-family: 'Georgia', serif;
-            text-shadow: 1px 1px 3px #7f0000;
-        }
-        header img {
-            height: 150px;
-            width: 150px;
-            border-radius: 50%;
-            border: 3px solid #e63946;
-            animation: pulse 2s infinite ease-in-out;
-            box-shadow: 0 0 15px #e63946, 0 0 30px rgba(230, 57, 70, 0.3);
-            filter: drop-shadow(0 0 10px rgba(230, 57, 70, 0.6));
-        }
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 0.2rem;
-            letter-spacing: 4px;
-            color: #e63946;
-        }
-        header p {
-            font-size: 1.3rem;
-            font-style: italic;
-            letter-spacing: 2px;
-            margin-top: 0;
-        }
-        .tabs {
-            display: flex;
-            background-color: rgba(0, 0, 0, 0.85);
-            border-bottom: 2px solid #e63946;
-            margin: 1rem;
-            border-radius: 10px 10px 0 0;
-            overflow-x: auto;
-        }
-        .tab-button {
-            flex: 1;
-            padding: 1rem 1.5rem;
-            background: transparent;
-            color: white;
-            border: none;
-            border-bottom: 3px solid transparent;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-align: center;
-            white-space: nowrap;
-            min-height: 48px;
-            pointer-events: auto;
-            z-index: 10;
-        }
-        .tab-button:hover,
-        .tab-button:focus {
-            background-color: #330000;
-            outline: none;
-        }
-        .tab-button.active {
-            border-bottom-color: #e63946;
-            background-color: rgba(255, 0, 0, 0.15);
-            font-weight: 900;
-        }
-        .tab-content {
-            display: none;
-            padding: 2rem;
-            background-color: rgba(0, 0, 0, 0.7);
-            margin: 0 1rem 1rem 1rem;
-            border: 2px solid #e63946;
-            border-radius: 0 0 10px 10px;
-        }
-        .tab-content.active {
-            display: block;
-        }
-        .discord-button {
-            display: inline-flex;
-            align-items: center;
-            background: linear-gradient(145deg, #e63946, #a71d2a);
-            color: #f1faee;
-            font-family: 'Georgia', serif;
-            font-size: 1.25rem;
-            font-weight: 700;
-            padding: 0.75rem 2rem;
-            border-radius: 12px;
-            box-shadow: 0 8px 15px rgba(230, 57, 70, 0.6),
-            inset 0 -4px 8px #7f0000,
-            inset 0 6px 8px #ff5252;
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            user-select: none;
-            cursor: pointer;
-            border: 2px solid #e63946;
-        }
-        .discord-button:hover {
-            box-shadow: 0 10px 20px rgba(230, 57, 70, 0.8),
-            inset 0 -5px 10px #9b0f15,
-            inset 0 7px 12px #ff6b6b;
-            transform: translateY(-2px);
-            text-shadow: 1px 1px 3px #7f0000;
-        }
-        .discord-button:active {
-            transform: translateY(3px);
-            box-shadow: 0 4px 7px rgba(230, 57, 70, 0.4),
-            inset 0 4px 6px #7f0000,
-            inset 0 -6px 8px #ff5252;
-        }
-        .discord-widget-3d {
-            max-width: 650px;
-            margin: 0 auto;
-            padding: 1rem;
-            background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
-            border-radius: 16px;
-            border: 3px solid #e63946;
-            box-shadow: 0 8px 15px rgba(230, 57, 70, 0.4),
-            inset 0 -4px 8px #7f0000,
-            inset 0 6px 8px #ff5252,
-            0 0 25px #e63946;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        .discord-widget-3d:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(230, 57, 70, 0.6),
-            inset 0 -6px 10px #7f0000,
-            inset 0 8px 10px #ff6b6b,
-            0 0 35px #ff1f3d;
-        }
-        .discord-widget-3d:before {
-            content: '📡';
-            position: absolute;
-            top: 1rem;
-            left: 1rem;
-            font-size: 1.5rem;
-            color: #e63946;
-            text-shadow: 1px 1px 2px #000;
-        }
-        #tab-discord h2 {
-            color: #e63946;
-            font-family: 'Georgia', serif;
-            text-align: center;
-            margin-bottom: 1.5rem;
-            font-size: 2.2rem;
-            letter-spacing: 2px;
-            text-shadow: 1px 1px 3px #000;
-        }
-        .fivem-stats-3d {
-            max-width: 650px;
-            margin: 0 auto;
-            padding: 1.5rem;
-            background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
-            border-radius: 16px;
-            border: 3px solid #e63946;
-            box-shadow: 0 8px 15px rgba(230, 57, 70, 0.4),
-            inset 0 -4px 8px #7f0000,
-            inset 0 6px 8px #ff5252,
-            0 0 25px #e63946;
-            text-align: left;
-            color: #f1faee;
-            font-family: 'Georgia', serif;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-        .fivem-stats-3d:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(230, 57, 70, 0.6),
-            inset 0 -6px 10px #7f0000,
-            inset 0 8px 10px #ff6b6b,
-            0 0 35px #ff1f3d;
-        }
-        #tab-fivem h2 {
-            color: #e63946;
-            font-family: 'Georgia', serif;
-            text-align: center;
-            margin-bottom: 1.5rem;
-            font-size: 2.2rem;
-            letter-spacing: 2px;
-            text-shadow: 1px 1px 3px #000;
-        }
-        #fivem-stats ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        #fivem-stats li {
-            background-color: #1b1b1b;
-            border-left: 6px solid #e63946;
-            margin-bottom: 0.8rem;
-            padding: 1rem 1.5rem;
-            border-radius: 4px;
-            box-shadow: inset 0 0 8px #7f0000;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            font-size: 1.1rem;
-            color: #f1faee;
-        }
-        #fivem-stats li:hover {
-            background-color: #2f1218;
-            transform: translateX(5px);
-            box-shadow: inset 0 0 12px #e63946;
-        }
-        #fivem-stats li.error {
-            color: #ff6666;
-            font-style: italic;
-        }
-        #tab-gallery {
-            background-color: #0a0a0a;
-            color: #e63946;
-            font-family: 'Georgia', serif;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 0 15px rgba(230, 57, 70, 0.5);
-            max-width: 900px;
-            margin: 2rem auto;
-        }
-        #tab-gallery h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            color: #f1faee;
-            text-align: center;
-            text-shadow: 1px 1px 2px #b00000;
-        }
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1.2rem;
-            background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
-            padding: 1rem;
-            border-radius: 8px;
-            box-shadow: inset 0 0 10px #7f0000;
-        }
-        .gallery-grid img {
-            width: 100%;
-            height: 150px;
-            object-fit: cover;
-            border: 2px solid #e63946;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 4px 8px rgba(230, 57, 70, 0.3);
-        }
-        .gallery-grid img:hover {
-            transform: scale(1.05);
-            border-color: #ff0000cc;
-            box-shadow: 0 6px 12px rgba(230, 57, 70, 0.5);
-        }
-        #tab-about, #tab-founder, #tab-timeline, #tab-rules, #tab-ranks {
-            background-color: #0a0a0a;
-            color: #e63946;
-            font-family: 'Georgia', serif;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 0 15px rgba(230, 57, 70, 0.5);
-            max-width: 700px;
-            margin: 2rem auto;
-        }
-        #tab-about h2, #tab-founder h2, #tab-timeline h2, #tab-rules h2, #tab-ranks h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            color: #f1faee;
-            text-align: center;
-            text-shadow: 1px 1px 2px #b00000;
-        }
-        #tab-founder h3 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: #e63946;
-            text-align: center;
-            text-shadow: 1px 1px 2px #000;
-        }
-        #tab-about .section, #tab-founder .section {
-            background-color: #1b1b1b;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: inset 0 0 8px #7f0000, 0 4px 10px rgba(230, 57, 70, 0.3);
-            margin-bottom: 1.5rem;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-        }
-        #tab-about .section:hover, #tab-founder .section:hover {
-            background-color: #2f1218;
-            transform: translateY(-3px);
-            box-shadow: inset 0 0 12px #e63946, 0 6px 15px rgba(230, 57, 70, 0.5);
-        }
-        #tab-about p, #tab-founder p {
-            line-height: 1.6;
-            font-size: 1.1rem;
-            color: #f1faee;
-            margin: 0;
-        }
-        #tab-timeline ul, #tab-rules ol, #tab-ranks ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        #tab-timeline li, #tab-rules li, #tab-ranks li {
-            background-color: #1b1b1b;
-            border-left: 6px solid #e63946;
-            margin-bottom: 1rem;
-            padding: 1rem 1.5rem;
-            border-radius: 8px;
-            box-shadow: inset 0 0 8px #7f0000, 0 4px 10px rgba(230, 57, 70, 0.3);
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            color: #f1faee;
-            position: relative;
-            padding-left: 3rem;
-        }
-        #tab-timeline li:hover, #tab-rules li:hover, #tab-ranks li:hover {
-            background-color: #2f1218;
-            transform: translateX(5px);
-            box-shadow: inset 0 0 12px #e63946, 0 6px 15px rgba(230, 57, 70, 0.5);
-        }
-        #tab-timeline li:before {
-            content: '🕰️';
-            position: absolute;
-            left: 1rem;
-            top: 1.2rem;
-            font-size: 1.2rem;
-            color: #e63946;
-            text-shadow: 1px 1px 2px #000;
-        }
-        #tab-rules li:before {
-            content: '📜';
-            position: absolute;
-            left: 1rem;
-            top: 1.2rem;
-            font-size: 1.2rem;
-            color: #e63946;
-            text-shadow: 1px 1px 2px #000;
-        }
-        #tab-ranks li:before {
-            content: '💉';
-            position: absolute;
-            left: 1rem;
-            top: 1.2rem;
-            font-size: 1.2rem;
-            color: #e63946;
-            text-shadow: 1px 1px 2px #000;
-        }
-        #tab-timeline strong, #tab-ranks strong {
-            color: #e63946;
-            font-size: 1.3rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-right: 0.5rem;
-            display: block;
-            margin-bottom: 0.3rem;
-        }
-        #tab-rules strong {
-            color: #e63946;
-            font-size: 1.3rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-right: 0.5rem;
-        }
-        .lightbox-modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            padding-top: 60px;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.9);
-        }
-        .lightbox-content {
-            margin: auto;
-            display: block;
-            max-width: 90%;
-            max-height: 80vh;
-            border: 3px solid #e63946;
-            border-radius: 10px;
-        }
-        #lightbox-caption {
-            margin: 15px auto;
-            text-align: center;
-            color: #f1faee;
-            font-size: 1.1rem;
-        }
-        .close-btn {
-            position: absolute;
-            top: 20px;
-            right: 35px;
-            color: white;
-            font-size: 40px;
-            font-weight: bold;
-            cursor: pointer;
-            user-select: none;
-        }
-        .close-btn:hover,
-        .close-btn:focus {
-            color: #ff0000cc;
-        }
-        footer {
-            text-align: center;
-            padding: 1rem;
-            font-size: 0.9rem;
-            color: #ccc;
-            background-color: rgba(0, 0, 0, 0.85);
-        }
-        @keyframes pulse {
-            0%, 100% {
-                box-shadow: 0 0 15px #e63946;
-            }
-            50% {
-                box-shadow: 0 0 30px #a71d2a;
-            }
-        }
-        @media (max-width: 600px) {
-            .tab-button {
-                padding: 1.2rem 1rem;
-                min-height: 48px;
-            }
-            #tab-gallery, #tab-about, #tab-founder, #tab-timeline, #tab-rules, #tab-ranks {
-                padding: 1rem;
-                max-width: 95%;
-            }
-            #tab-gallery h2, #tab-about h2, #tab-founder h2, #tab-timeline h2, #tab-rules h2, #tab-ranks h2 {
-                font-size: 1.8rem;
-            }
-            header img {
-                height: 120px;
-                width: 120px;
-            }
-            h1 {
-                font-size: 2.5rem;
-            }
-        }
-        .tabs::-webkit-scrollbar {
-            height: 6px;
-        }
-        .tabs::-webkit-scrollbar-thumb {
-            background: #e63946;
-            border-radius: 3px;
-        }
-        .tabs::-webkit-scrollbar-track {
-            background: transparent;
-        }
-    </style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--smoke);
+    color: var(--bone);
+    font-family: 'Crimson Text', serif;
+    font-size: 18px;
+    line-height: 1.7;
+    cursor: default;
+    overflow-x: hidden;
+  }
+
+  /* ── GRAIN OVERLAY ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.4;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 4rem;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.95), transparent);
+    transition: background 0.3s;
+  }
+
+  nav.scrolled {
+    background: rgba(8,8,8,0.97);
+    border-bottom: 1px solid rgba(139,0,0,0.3);
+  }
+
+  .nav-logo {
+    font-family: 'Cinzel', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 0.15em;
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: var(--pale);
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.2s;
+    position: relative;
+  }
+
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px; left: 0;
+    width: 0; height: 1px;
+    background: var(--blood-light);
+    transition: width 0.3s;
+  }
+
+  .nav-links a:hover { color: var(--white); }
+  .nav-links a:hover::after { width: 100%; }
+
+  /* ── HERO ── */
+  #hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 50% 60%, rgba(139,0,0,0.15) 0%, transparent 60%),
+      radial-gradient(ellipse at 20% 80%, rgba(139,0,0,0.08) 0%, transparent 50%),
+      linear-gradient(to bottom, #0a0a0a 0%, #111 50%, #0a0a0a 100%);
+  }
+
+  .hero-lines {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(139,0,0,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(139,0,0,0.06) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse at center, black 20%, transparent 70%);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-emblem {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 2rem;
+    border: 2px solid var(--gold-dim);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    animation: pulse-ring 3s ease-in-out infinite;
+  }
+
+  .hero-emblem::before {
+    content: '';
+    position: absolute;
+    inset: -8px;
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 50%;
+  }
+
+  .hero-emblem img {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 20px rgba(139,0,0,0.5));
+  }
+
+  @keyframes pulse-ring {
+    0%, 100% { box-shadow: 0 0 20px rgba(139,0,0,0.2); }
+    50% { box-shadow: 0 0 40px rgba(139,0,0,0.4), 0 0 80px rgba(139,0,0,0.1); }
+  }
+
+  .hero-eyebrow {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.4em;
+    color: var(--blood-light);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    opacity: 0;
+    animation: fade-up 0.8s 0.3s forwards;
+  }
+
+  .hero-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(3rem, 8vw, 7rem);
+    font-weight: 900;
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+    opacity: 0;
+    animation: fade-up 0.8s 0.5s forwards;
+  }
+
+  .hero-title span {
+    color: var(--blood-light);
+    display: block;
+  }
+
+  .hero-sub {
+    font-family: 'Crimson Text', serif;
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--pale);
+    letter-spacing: 0.1em;
+    margin-bottom: 3rem;
+    opacity: 0;
+    animation: fade-up 0.8s 0.7s forwards;
+  }
+
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1rem 2.5rem;
+    background: transparent;
+    border: 1px solid var(--blood);
+    color: var(--white);
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    animation: fade-up 0.8s 0.9s forwards;
+  }
+
+  .hero-cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--blood);
+    transform: translateX(-100%);
+    transition: transform 0.3s;
+  }
+
+  .hero-cta:hover::before { transform: translateX(0); }
+  .hero-cta span { position: relative; z-index: 1; }
+
+  .scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    opacity: 0.4;
+    animation: fade-up 1s 1.5s forwards;
+  }
+
+  .scroll-indicator span {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.3em;
+    color: var(--pale);
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--gold-dim), transparent);
+    animation: scroll-pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes scroll-pulse {
+    0%, 100% { opacity: 0.3; transform: scaleY(1); }
+    50% { opacity: 1; transform: scaleY(1.2); }
+  }
+
+  /* ── SECTION BASE ── */
+  section {
+    padding: 6rem 0;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 3rem;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .section-label {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.4em;
+    color: var(--blood-light);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 0.8rem;
+  }
+
+  .section-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.1;
+  }
+
+  .divider {
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--blood), transparent);
+    margin: 1.5rem auto 0;
+  }
+
+  /* ── ABOUT ── */
+  #about {
+    background: var(--ash);
+    position: relative;
+  }
+
+  #about::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--blood-light), transparent);
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .about-text p {
+    color: var(--pale);
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+  }
+
+  .about-text p strong {
+    color: var(--gold);
+    font-weight: 600;
+  }
+
+  .about-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .stat-box {
+    border: 1px solid rgba(139,0,0,0.3);
+    padding: 1.8rem;
+    text-align: center;
+    position: relative;
+    background: rgba(139,0,0,0.03);
+    transition: border-color 0.3s, background 0.3s;
+  }
+
+  .stat-box:hover {
+    border-color: var(--blood);
+    background: rgba(139,0,0,0.07);
+  }
+
+  .stat-number {
+    font-family: 'Cinzel', serif;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--blood-light);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    color: var(--pale);
+    text-transform: uppercase;
+    margin-top: 0.5rem;
+  }
+
+  /* ── TIMELINE ── */
+  #timeline {
+    background: var(--smoke);
+    position: relative;
+  }
+
+  .timeline {
+    position: relative;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0; bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, var(--blood), var(--blood), transparent);
+    transform: translateX(-50%);
+  }
+
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 1fr 40px 1fr;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    align-items: start;
+  }
+
+  .timeline-item:nth-child(odd) .timeline-content { grid-column: 1; text-align: right; }
+  .timeline-item:nth-child(odd) .timeline-dot { grid-column: 2; }
+  .timeline-item:nth-child(odd) .timeline-empty { grid-column: 3; }
+
+  .timeline-item:nth-child(even) .timeline-empty { grid-column: 1; }
+  .timeline-item:nth-child(even) .timeline-dot { grid-column: 2; }
+  .timeline-item:nth-child(even) .timeline-content { grid-column: 3; text-align: left; }
+
+  .timeline-dot {
+    width: 12px;
+    height: 12px;
+    background: var(--blood);
+    border: 2px solid var(--blood-light);
+    border-radius: 50%;
+    margin: 0.4rem auto;
+    box-shadow: 0 0 15px rgba(139,0,0,0.5);
+  }
+
+  .timeline-year {
+    font-family: 'Cinzel', serif;
+    font-size: 0.8rem;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    margin-bottom: 0.3rem;
+  }
+
+  .timeline-text {
+    color: var(--pale);
+    font-size: 1rem;
+  }
+
+  /* ── DISCORD ── */
+  #discord {
+    background: var(--ash);
+    position: relative;
+  }
+
+  .discord-widget-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+
+  .discord-widget-wrapper iframe {
+    border-radius: 4px;
+    border: 1px solid rgba(139,0,0,0.2);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  }
+
+  /* ── RULES ── */
+  #rules {
+    background: var(--smoke);
+  }
+
+  .rules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .rule-card {
+    display: flex;
+    gap: 1.2rem;
+    padding: 1.5rem;
+    border: 1px solid rgba(139,0,0,0.2);
+    background: rgba(139,0,0,0.03);
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .rule-card::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 2px;
+    background: var(--blood);
+    transform: scaleY(0);
+    transition: transform 0.3s;
+    transform-origin: bottom;
+  }
+
+  .rule-card:hover { border-color: rgba(139,0,0,0.5); background: rgba(139,0,0,0.06); }
+  .rule-card:hover::before { transform: scaleY(1); }
+
+  .rule-number {
+    font-family: 'Cinzel', serif;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: rgba(139,0,0,0.3);
+    line-height: 1;
+    flex-shrink: 0;
+    min-width: 2rem;
+  }
+
+  .rule-title {
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+    color: var(--gold);
+    letter-spacing: 0.05em;
+    margin-bottom: 0.4rem;
+  }
+
+  .rule-text {
+    font-size: 0.95rem;
+    color: var(--pale);
+    line-height: 1.5;
+  }
+
+  /* ── RANKS ── */
+  #ranks {
+    background: var(--ash);
+  }
+
+  .ranks-list {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .rank-item {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    border-bottom: 1px solid rgba(139,0,0,0.15);
+    padding: 1.8rem 0;
+    gap: 2rem;
+    transition: background 0.2s;
+  }
+
+  .rank-item:hover {
+    background: rgba(139,0,0,0.03);
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin: 0 -1rem;
+  }
+
+  .rank-name {
+    font-family: 'Cinzel', serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 0.05em;
+    padding-top: 0.2rem;
+  }
+
+  .rank-desc {
+    color: var(--pale);
+    font-size: 1rem;
+    font-style: italic;
+    line-height: 1.5;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #080808;
+    border-top: 1px solid rgba(139,0,0,0.2);
+    padding: 3rem;
+    text-align: center;
+  }
+
+  .footer-logo {
+    font-family: 'Cinzel', serif;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-sub {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    color: rgba(139,0,0,0.6);
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+  }
+
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .footer-links a {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    color: var(--pale);
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--blood-light); }
+
+  .footer-copy {
+    font-size: 0.85rem;
+    color: rgba(168,152,128,0.4);
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── MOBILE ── */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .container { padding: 0 1.5rem; }
+    section { padding: 4rem 0; }
+    .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .timeline::before { left: 20px; }
+    .timeline-item { grid-template-columns: 40px 1fr; }
+    .timeline-item:nth-child(odd) .timeline-content,
+    .timeline-item:nth-child(even) .timeline-content { grid-column: 2; text-align: left; }
+    .timeline-item:nth-child(odd) .timeline-dot,
+    .timeline-item:nth-child(even) .timeline-dot { grid-column: 1; }
+    .timeline-empty { display: none; }
+    .rank-item { grid-template-columns: 1fr; gap: 0.5rem; }
+    .rules-grid { grid-template-columns: 1fr; }
+  }
+</style>
 </head>
 <body>
-    <header>
-        <a href="index.html" style="display: inline-block; margin-bottom: 1rem;">
-            <!-- ✅ PERMANENT LOGO URL -->
-            <img src="https://raw.githubusercontent.com/PBjamstar/P-B/main/logo.png" alt="Phantom Bloodline Logo"/>
-        </a>
-        <h1>PB</h1>
-        <p>Born of Blood, Veins & Shadows — The Phantom Bloodline Empire</p>
-        <a href="https://discord.gg/gjkN2K7AaW" class="discord-button" target="_blank" rel="noopener noreferrer">Join our Discord</a>
-    </header>
 
-    <nav class="tabs" role="tablist" aria-label="Main content tabs">
-        <button class="tab-button active" role="tab" aria-selected="true" aria-controls="tab-about" id="tab-about-btn" tabindex="0">About</button>
-        <button class="tab-button" role="tab" aria-selected="false" aria-controls="tab-founder" id="tab-founder-btn" tabindex="-1">Founder</button>
-        <button class="tab-button" role="tab" aria-selected="false" aria-controls="tab-timeline" id="tab-timeline-btn" tabindex="-1">Timeline</button>
-        <button class="tab-button" role="tab" aria-selected="false" aria-controls="tab-discord" id="tab-discord-btn" tabindex="-1">Discord Stats</button>
-        <button class="tab-button" role="tab" aria-selected="false" aria-controls="tab-fivem" id="tab-fivem-btn" tabindex="-1">FiveM Server Stats</button>
-        <button class="tab-button" role="tab" aria-selected="false" aria-controls="tab-rules" id="tab-rules-btn" tabindex="-1">Rules</button>
-        <button class="tab-button" role="tab" aria-selected="false" aria-controls="tab-ranks" id="tab-ranks-btn" tabindex="-1">Ranks</button>
-        <button class="tab-button" role="tab" aria-selected="false" aria-controls="tab-gallery" id="tab-gallery-btn" tabindex="-1">Gallery</button>
-    </nav>
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">P·B</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#timeline">History</a></li>
+    <li><a href="#discord">Discord</a></li>
+    <li><a href="#rules">Rules</a></li>
+    <li><a href="#ranks">Ranks</a></li>
+    <li><a href="https://discord.gg/gjkN2K7AaW" target="_blank">Join Us</a></li>
+  </ul>
+</nav>
 
-    <section id="tab-about" class="tab-content active" role="tabpanel" aria-labelledby="tab-about-btn" tabindex="0">
-        <div class="section">
-            <h2>About the Crew</h2>
-            <p>We are a respectful and fun-loving Cops & Robbers crew on FiveM EU1. Our mission is to create an enjoyable experience with friendly players who support and look out for each other. Join us and become part of the Phantom Bloodline legacy.</p>
-        </div>
-        <div class="section">
-            <h2>About Us</h2>
-            <p>PB CNR crew was founded with one goal: to dominate the streets of FiveM with style, respect, and brotherhood. We value teamwork, loyalty, and top-tier Player. Whether you're a seasoned veteran or a new recruit, if you wear the PB tag — you're family.</p>
-        </div>
-    </section>
-
-    <section id="tab-founder" class="tab-content" role="tabpanel" aria-labelledby="tab-founder-btn" tabindex="0">
-        <div class="section">
-            <h2>Founder</h2>
-            <p>The founder of the PB crew and this website iS <strong>jamstar</strong>.</p>
-            <h3>The Unbreakable Spirit of PB</h3>
-            <p>In the shadowed alleys of the GTA CNR world, PB crew, known as PB, faced relentless assaults from rival gangs envious of their dominance. Whispers of betrayal echoed through the servers as enemies plotted to dismantle the empire built by jamstar. Ambushes in high-stakes heists, sabotage in races, and even attempts to infiltrate the ranks—all failed spectacularly. With unwavering loyalty and razor-sharp strategy, PB not only survived but thrived, turning every attack into a legend that solidified their unbreakable bond.</p>
-        </div>
-    </section>
-
-    <section id="tab-timeline" class="tab-content" role="tabpanel" aria-labelledby="tab-timeline-btn" tabindex="0">
-        <div class="section">
-            <h2>Crew Timeline</h2>
-            <ul>
-                <li><strong>2024:</strong> PB Crew founded and began growing in CNR servers.</li>
-                <li><strong>2025:</strong> Reached 150+ members. Became one of the top respected crews.</li>
-                <li><strong>Mid-2025:</strong> Launched website, new media campaign, and gallery system.</li>
-                <li><strong>Future:</strong> Major expansion, event hosting, and strategic alliances.</li>
-            </ul>
-        </div>
-    </section>
-
-    <section id="tab-discord" class="tab-content" role="tabpanel" aria-labelledby="tab-discord-btn" tabindex="0">
-        <div class="section">
-            <h2>Discord Stats</h2>
-            <div class="discord-widget-3d">
-                <iframe src="https://discord.com/widget?id=1206571308456878100&theme=dark" width="100%" height="400" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts" title="Discord Server Widget"></iframe>
-            </div>
-        </div>
-    </section>
-
-    <section id="tab-fivem" class="tab-content" role="tabpanel" aria-labelledby="tab-fivem-btn" tabindex="0">
-        <div class="section">
-            <h2>FiveM Server Stats</h2>
-            <div class="fivem-stats-3d">
-                <ul id="fivem-stats">
-                    <li>Loading PB Members...</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <section id="tab-rules" class="tab-content" role="tabpanel" aria-labelledby="tab-rules-btn" tabindex="0">
-        <div class="section">
-            <h2>Rules</h2>
-            <ol>
-                <li><strong>Respect & Behavior:</strong> Show respect to all crew members, staff, allies, and enemies. No toxic behavior, threats, or drama.</li>
-                <li><strong>Crew Loyalty:</strong> PB is family — disloyalty or double-clanning is not allowed.</li>
-                <li><strong>Activity:</strong> Stay active in Discord and in-game. Inactivity for 14+ days may lead to removal.</li>
-                <li><strong>Gameplay:</strong> Follow all CNR rules. No cheating or exploiting.</li>
-                <li><strong>Voice:</strong> Use correct channels, avoid spam, and stay organized during events.</li>
-                <li><strong>Identity:</strong> Use PB tags and represent the crew properly.</li>
-                <li><strong>Media & Content:</strong> Don't share private content without permission. Protect PB's image.</li>
-                <li><strong>Age Requirement:</strong> You must meet the minimum age set by PB admins (16+ or 18+).</li>
-                <li><strong>Name & Tag Usage:</strong> Use crew tags properly. Misuse leads to action.</li>
-                <li><strong>Final Word:</strong> PB leadership has the final say. Terms can change anytime.</li>
-                <li><strong>Rank & Advancement:</strong> Respect the hierarchy. Rank promotions are earned through activity and conduct.</li>
-            </ol>
-        </div>
-    </section>
-
-    <section id="tab-ranks" class="tab-content" role="tabpanel" aria-labelledby="tab-ranks-btn" tabindex="0">
-        <div class="section">
-            <h2>Ranks</h2>
-            <ul>
-                <li><strong>Founder:</strong> The visionary who forged the crew from the fires of ambition. Eternal guardian of the Phantom Bloodline legacy.</li>
-                <li><strong>The Leader:</strong> The one who built it from the ashes. The brain of the operation, the heart of the family. Runs this crew like a razor-sharp empire. Orders flow from him—and they don't get questioned.</li>
-                <li><strong>The Boss:</strong> The iron fists beneath the velvet gloves. When there's trouble, they're the ones who knock. They speak for the top and don't waste time. Think of them as our JoJo's—brutal, loyal, and feared.</li>
-                <li><strong>The Senior Capos:</strong> Whispers travel through them. They guide Caporegimes, vote in the smoke-filled backrooms, and keep the crew's wheels turning. They hold the balance between chaos and command.</li>
-                <li><strong>The Caporegimes:</strong> They bring new blood into the fold. Show them the ropes, show them the rules—and if needed, show them the door. The sharp-dressed mentors of PB, with grit under their fingernails.</li>
-                <li><strong>The Lieutenants:</strong> The boots on the cobblestones. They lead by action—whether it's a job, a race, or a showdown. When things go sideways, they bring it back in line. Every street needs its enforcers.</li>
-                <li><strong>The Soldiers:</strong> They've earned their stripes. Trusted hands, loyal hearts, and steady shots. They guide newcomers like brothers. They're the first in and the last out. The Stand Users of this outfit.</li>
-                <li><strong>The Associates:</strong> Fresh faces with fire in their eyes. Just stepped into the shadows, still smelling of ambition. Watch, learn, earn your stand—and maybe, just maybe, you'll rise through the bloodline.</li>
-            </ul>
-        </div>
-    </section>
-
-    <section id="tab-gallery" class="tab-content" role="tabpanel" aria-labelledby="tab-gallery-btn" tabindex="0">
-        <div class="section">
-            <h2>Gallery</h2>
-            <div id="gallery-grid" class="gallery-grid"></div>
-        </div>
-    </section>
-
-    <div id="lightbox-modal" class="lightbox-modal" aria-hidden="true" role="dialog" aria-modal="true">
-        <span class="close-btn" id="lightbox-close" aria-label="Close">×</span>
-        <img class="lightbox-content" id="lightbox-img" alt=""/>
-        <div id="lightbox-caption"></div>
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-lines"></div>
+  <div class="hero-content">
+    <div class="hero-emblem">
+      <img src="https://raw.githubusercontent.com/PBjamstar/P-B/main/logo.png" alt="PB Logo">
     </div>
+    <p class="hero-eyebrow">Est. Birmingham · 1919</p>
+    <h1 class="hero-title">
+      Phantom
+      <span>Bloodline</span>
+    </h1>
+    <p class="hero-sub">Born of Blood, Veins & Shadows</p>
+    <a href="https://discord.gg/gjkN2K7AaW" target="_blank" class="hero-cta">
+      <span>Join the Crew</span>
+    </a>
+  </div>
+  <div class="scroll-indicator">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
 
-    <footer>
-        © 2025 Phantom Bloodline Crew. All rights reserved.
-    </footer>
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <span class="section-label">The Crew</span>
+        <h2 class="section-title" style="text-align:left; margin-bottom: 1.5rem;">Who We Are</h2>
+        <p>We are a <strong>respectful and elite</strong> Cops & Robbers crew operating on FiveM EU1. Built on loyalty, brotherhood, and dominance — Phantom Bloodline is not just a crew. It is a legacy.</p>
+        <p>Founded by <strong>jamstar</strong>, the crew was forged from ambition and shaped by every challenge thrown against us. Rivals fell. The Bloodline stood.</p>
+        <p>Whether you're a veteran of the streets or a rising soldier — if you wear the PB tag, <strong>you are family.</strong></p>
+      </div>
+      <div class="about-stats reveal">
+        <div class="stat-box">
+          <div class="stat-number">150+</div>
+          <div class="stat-label">Members</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number">2024</div>
+          <div class="stat-label">Founded</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number">EU1</div>
+          <div class="stat-label">Primary Server</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number">#1</div>
+          <div class="stat-label">CNR Crew</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const tabs = document.querySelectorAll(".tab-button");
-            const contents = document.querySelectorAll(".tab-content");
-            tabs.forEach((tab) => {
-                tab.addEventListener("click", function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    tabs.forEach((btn) => {
-                        btn.classList.remove("active");
-                        btn.setAttribute("aria-selected", "false");
-                        btn.setAttribute("tabindex", "-1");
-                    });
-                    contents.forEach((content) => {
-                        content.classList.remove("active");
-                        content.setAttribute("tabindex", "-1");
-                    });
-                    this.classList.add("active");
-                    this.setAttribute("aria-selected", "true");
-                    this.setAttribute("tabindex", "0");
-                    const panelId = this.getAttribute("aria-controls");
-                    const panel = document.getElementById(panelId);
-                    if (panel) {
-                        panel.classList.add("active");
-                        panel.setAttribute("tabindex", "0");
-                        panel.focus();
-                    }
-                });
-                tab.addEventListener("keydown", function(e) {
-                    if (e.key === "Enter" || e.key === " ") {
-                        e.preventDefault();
-                        this.click();
-                    }
-                });
-            });
-        });
-    </script>
+<!-- TIMELINE -->
+<section id="timeline">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">Our History</span>
+      <h2 class="section-title">The Bloodline Chronicle</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item reveal">
+        <div class="timeline-content">
+          <div class="timeline-year">2024</div>
+          <div class="timeline-text">Phantom Bloodline founded. The streets of FiveM EU1 would never be the same.</div>
+        </div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-empty"></div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-empty"></div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-year">Early 2025</div>
+          <div class="timeline-text">Reached 150+ members. Became one of the most respected crews on the server.</div>
+        </div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-content">
+          <div class="timeline-year">Mid 2025</div>
+          <div class="timeline-text">Launched the official website, new media campaign, and a full gallery system.</div>
+        </div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-empty"></div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-empty"></div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-year">Future</div>
+          <div class="timeline-text">Major expansion, event hosting, strategic alliances, and global dominance.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <script>
-        const galleryImages = [
-            { src: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop", alt: "City Night Scene", caption: "Phantom Bloodline dominating the streets" },
-            { src: "https://images.unsplash.com/photo-1551650975-87deedd944b3?w=400&h=300&fit=crop", alt: "Car Action", caption: "High-speed pursuit by PB crew" },
-            { src: "https://images.unsplash.com/photo-1494905998402-395d579af36f?w=400&h=300&fit=crop", alt: "Urban Night", caption: "PB crew owning the night" },
-            { src: "https://images.unsplash.com/photo-1558618047-3c8c75a13f69?w=400&h=300&fit=crop", alt: "Street Action", caption: "PB in action" }
-        ];
-        
-        const galleryGrid = document.getElementById("gallery-grid");
-        const lightboxModal = document.getElementById("lightbox-modal");
-        const lightboxImg = document.getElementById("lightbox-img");
-        const lightboxCaption = document.getElementById("lightbox-caption");
-        const lightboxClose = document.getElementById("lightbox-close");
+<!-- DISCORD -->
+<section id="discord">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">Community</span>
+      <h2 class="section-title">Join the Brotherhood</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="discord-widget-wrapper reveal">
+      <iframe src="https://discord.com/widget?id=1206571308456878100&theme=dark"
+        width="350" height="500" allowtransparency="true" frameborder="0"
+        sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts">
+      </iframe>
+    </div>
+  </div>
+</section>
 
-        galleryImages.forEach(({src, alt, caption}) => {
-            const img = document.createElement("img");
-            img.src = src;
-            img.alt = alt;
-            img.setAttribute("data-caption", caption);
-            img.setAttribute("loading", "lazy");
-            img.tabIndex = 0;
-            img.addEventListener("click", () => openLightbox(src, alt, caption));
-            img.addEventListener("keypress", (e) => {
-                if (e.key === "Enter" || e.key === " ") {
-                    e.preventDefault();
-                    openLightbox(src, alt, caption);
-                }
-            });
-            galleryGrid.appendChild(img);
-        });
+<!-- RULES -->
+<section id="rules">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">The Code</span>
+      <h2 class="section-title">Laws of the Bloodline</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="rules-grid">
+      <div class="rule-card reveal">
+        <div class="rule-number">01</div>
+        <div>
+          <div class="rule-title">Respect & Behaviour</div>
+          <div class="rule-text">Show respect to all crew members, staff, allies, and enemies. No toxic behaviour, threats, or drama.</div>
+        </div>
+      </div>
+      <div class="rule-card reveal">
+        <div class="rule-number">02</div>
+        <div>
+          <div class="rule-title">Crew Loyalty</div>
+          <div class="rule-text">PB is family — disloyalty or double-clanning is not tolerated under any circumstances.</div>
+        </div>
+      </div>
+      <div class="rule-card reveal">
+        <div class="rule-number">03</div>
+        <div>
+          <div class="rule-title">Activity</div>
+          <div class="rule-text">Stay active in Discord and in-game. Inactivity for 14+ days without notice may lead to removal.</div>
+        </div>
+      </div>
+      <div class="rule-card reveal">
+        <div class="rule-number">04</div>
+        <div>
+          <div class="rule-title">Fair Gameplay</div>
+          <div class="rule-text">Follow all CNR server rules. No cheating, exploiting, or unsportsmanlike conduct.</div>
+        </div>
+      </div>
+      <div class="rule-card reveal">
+        <div class="rule-number">05</div>
+        <div>
+          <div class="rule-title">Voice & Comms</div>
+          <div class="rule-text">Use correct channels, avoid spam, and stay organised during operations and events.</div>
+        </div>
+      </div>
+      <div class="rule-card reveal">
+        <div class="rule-number">06</div>
+        <div>
+          <div class="rule-title">Identity</div>
+          <div class="rule-text">Use PB tags properly and represent the crew with pride at all times.</div>
+        </div>
+      </div>
+      <div class="rule-card reveal">
+        <div class="rule-number">07</div>
+        <div>
+          <div class="rule-title">Media & Content</div>
+          <div class="rule-text">Don't share private crew content without permission. Protect the Phantom Bloodline image.</div>
+        </div>
+      </div>
+      <div class="rule-card reveal">
+        <div class="rule-number">08</div>
+        <div>
+          <div class="rule-title">Age Requirement</div>
+          <div class="rule-text">You must meet the minimum age set by PB leadership. Maturity is non-negotiable.</div>
+        </div>
+      </div>
+      <div class="rule-card reveal">
+        <div class="rule-number">09</div>
+        <div>
+          <div class="rule-title">Rank & Hierarchy</div>
+          <div class="rule-text">Respect the chain of command. Rank is earned through loyalty, conduct, and dedication.</div>
+        </div>
+      </div>
+      <div class="rule-card reveal">
+        <div class="rule-number">10</div>
+        <div>
+          <div class="rule-title">Final Word</div>
+          <div class="rule-text">PB leadership has the final say on all matters. Terms may change. The Bloodline endures.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        function openLightbox(src, alt, caption) {
-            lightboxImg.src = src;
-            lightboxImg.alt = alt;
-            lightboxCaption.textContent = caption;
-            lightboxModal.style.display = "block";
-            lightboxModal.setAttribute("aria-hidden", "false");
-            lightboxClose.focus();
-        }
+<!-- RANKS -->
+<section id="ranks">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">Hierarchy</span>
+      <h2 class="section-title">The Chain of Command</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="ranks-list">
+      <div class="rank-item reveal">
+        <div class="rank-name">👑 Founder</div>
+        <div class="rank-desc">The visionary who forged the crew from the fires of ambition. Eternal guardian of the Phantom Bloodline legacy.</div>
+      </div>
+      <div class="rank-item reveal">
+        <div class="rank-name">🎩 Manager</div>
+        <div class="rank-desc">The architect of operations. Runs the empire with precision and commands absolute trust.</div>
+      </div>
+      <div class="rank-item reveal">
+        <div class="rank-name">🔱 Boss</div>
+        <div class="rank-desc">The iron fists beneath the velvet gloves. When there's trouble, they knock. They speak for the top and don't waste time.</div>
+      </div>
+      <div class="rank-item reveal">
+        <div class="rank-name">🎯 Head of Recruitment</div>
+        <div class="rank-desc">The gatekeeper of the Bloodline. Decides who is worthy to carry the PB name.</div>
+      </div>
+      <div class="rank-item reveal">
+        <div class="rank-name">⚔️ Senior Capo</div>
+        <div class="rank-desc">Whispers travel through them. They guide Caporegimes and keep the crew's wheels turning in the backrooms.</div>
+      </div>
+      <div class="rank-item reveal">
+        <div class="rank-name">🗡️ Caporegime</div>
+        <div class="rank-desc">They bring new blood into the fold. Sharp-dressed mentors with grit under their fingernails.</div>
+      </div>
+      <div class="rank-item reveal">
+        <div class="rank-name">📋 Recruiter</div>
+        <div class="rank-desc">They find the diamonds in the rough. Scouts of the Bloodline who seek out the next generation.</div>
+      </div>
+      <div class="rank-item reveal">
+        <div class="rank-name">🎖️ Lieutenant</div>
+        <div class="rank-desc">The boots on the cobblestones. They lead by action — whether it's a job, a race, or a showdown.</div>
+      </div>
+      <div class="rank-item reveal">
+        <div class="rank-name">💂 Soldier</div>
+        <div class="rank-desc">They've earned their stripes. Trusted hands, loyal hearts, and steady shots. The first in and the last out.</div>
+      </div>
+      <div class="rank-item reveal">
+        <div class="rank-name">🤝 Associate</div>
+        <div class="rank-desc">Fresh faces with fire in their eyes. Just stepped into the shadows — watch, learn, and earn your place.</div>
+      </div>
+      <div class="rank-item reveal">
+        <div class="rank-name">⏳ Trial</div>
+        <div class="rank-desc">Proving themselves under the watchful eye of the Bloodline. Every legend starts here.</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        function closeLightbox() {
-            lightboxModal.style.display = "none";
-            lightboxModal.setAttribute("aria-hidden", "true");
-        }
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">PHANTOM BLOODLINE</div>
+  <div class="footer-sub">Est. Birmingham · 1919 · FiveM EU1</div>
+  <div class="footer-links">
+    <a href="#about">About</a>
+    <a href="#timeline">History</a>
+    <a href="#rules">Rules</a>
+    <a href="#ranks">Ranks</a>
+    <a href="https://discord.gg/gjkN2K7AaW" target="_blank">Discord</a>
+  </div>
+  <p class="footer-copy">© 2026 Phantom Bloodline Crew. All rights reserved.</p>
+</footer>
 
-        lightboxClose.addEventListener("click", closeLightbox);
-        lightboxModal.addEventListener("click", (e) => {
-            if (e.target === lightboxModal) {
-                closeLightbox();
-            }
-        });
-        document.addEventListener("keydown", (e) => {
-            if (e.key === "Escape" && lightboxModal.style.display === "block") {
-                closeLightbox();
-            }
-        });
-    </script>
+<script>
+  // Nav scroll effect
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 50);
+  });
 
-    <script>
-        const serverIds = ["EU1", "EU2", "US1", "US2"];
-        const endpointBase = "https://api.gtacnr.net/cnr/players?serverId=";
-        const seaEndpoint = "https://sea.gtacnr.net/cnr/players?serverId=SEA";
-        const listElement = document.getElementById("fivem-stats");
-        const refetchingInterval = 60;
-        const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
-        let isFirstLoad = true;
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
 
-        async function fetchAllServersSequentially() {
-            const allPlayers = [];
-            for (const serverId of serverIds) {
-                try {
-                    const response = await fetch(`${endpointBase}${serverId}`);
-                    console.log(`[${serverId}] Status: ${response.status}`);
-                    if (response.status === 429) {
-                        throw new Error(`[${serverId}] Too many requests (429), try again later.`);
-                    }
-                    if (!response.ok) {
-                        throw new Error(`[${serverId}] HTTP Error (${response.status})`);
-                    }
-                    const data = await response.json();
-                    const playersPB = data
-                        .filter(player => player?.Username?.Username?.startsWith("PB"))
-                        .map(player => ({
-                            name: player?.Username?.Username,
-                            serverId: serverId
-                        }));
-                    allPlayers.push(...playersPB);
-                } catch (error) {
-                    console.warn(error.message);
-                    allPlayers.push({name: `⚠ ${error.message}`, serverId: serverId, isError: true});
-                }
-                await wait(1000);
-            }
-
-            try {
-                const response = await fetch(seaEndpoint);
-                console.log(`[SEA] Status: ${response.status}`);
-                if (response.status === 429) {
-                    throw new Error(`[SEA] Too many requests (429), try again later.`);
-                }
-                if (!response.ok) {
-                    throw new Error(`[SEA] HTTP Error (${response.status})`);
-                }
-                const data = await response.json();
-                const playersPB = data
-                    .filter(player => player?.Username?.Username?.startsWith("PB"))
-                    .map(player => ({
-                        name: player?.Username?.Username,
-                        serverId: "SEA"
-                    }));
-                allPlayers.push(...playersPB);
-            } catch (error) {
-                console.warn(error.message);
-                allPlayers.push({name: `⚠ ${error.message}`, serverId: "SEA", isError: true});
-            }
-            await wait(1000);
-            displaySortedPlayers(allPlayers);
-        }
-
-        function displaySortedPlayers(players) {
-            listElement.innerHTML = '';
-            if (players.length === 0) {
-                const li = document.createElement('li');
-                li.textContent = 'No "PB" players found on the servers.';
-                li.classList.add('error');
-                listElement.appendChild(li);
-                return;
-            }
-            const sortOrder = [...serverIds, "SEA"];
-            players.sort((a, b) => {
-                const orderA = sortOrder.indexOf(a.serverId);
-                const orderB = sortOrder.indexOf(b.serverId);
-                if (orderA !== orderB) return orderA - orderB;
-                return a.name.localeCompare(b.name, 'fr');
-            });
-            players.forEach(player => {
-                const li = document.createElement('li');
-                li.textContent = `${player.name} (${player.serverId})`;
-                if (player.isError) {
-                    li.classList.add('error');
-                }
-                listElement.appendChild(li);
-            });
-        }
-
-        async function startFetchingLoop() {
-            if (isFirstLoad) {
-                listElement.innerHTML = '<li>Loading PB Members...</li>';
-            }
-            await fetchAllServersSequentially();
-            isFirstLoad = false;
-            setTimeout(startFetchingLoop, refetchingInterval * 1000);
-        }
-
-        document.addEventListener("DOMContentLoaded", () => {
-            startFetchingLoop();
-        });
-    </script>
+  reveals.forEach(el => observer.observe(el));
+</script>
 </body>
 </html>
+
