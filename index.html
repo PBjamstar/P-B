@@ -120,7 +120,7 @@ body::after {
 }
 .hero-badge::after { transform:scaleX(-1); }
 .hero-logo-wrap {
-  margin:0 auto 1.5rem; width:130px; height:130px; position:relative;
+  margin:0 auto 1.5rem; width:200px; height:200px; position:relative;
   opacity:0; animation:rise 0.9s 0.4s cubic-bezier(0.16,1,0.3,1) forwards;
 }
 .hero-logo-wrap img {
@@ -128,13 +128,13 @@ body::after {
   filter:drop-shadow(0 0 30px rgba(122,0,0,0.6)) drop-shadow(0 0 60px rgba(122,0,0,0.2));
 }
 .hero-ring {
-  position:absolute; inset:-12px;
+  position:absolute; inset:-14px;
   border:1px solid rgba(201,168,76,0.25); border-radius:50%;
   animation:spin-slow 30s linear infinite;
 }
 .hero-ring::before {
   content:''; position:absolute; top:-3px; left:50%;
-  width:5px; height:5px; background:var(--gold); border-radius:50%; transform:translateX(-50%);
+  width:6px; height:6px; background:var(--gold); border-radius:50%; transform:translateX(-50%);
 }
 @keyframes spin-slow { to{transform:rotate(360deg)} }
 h1.hero-title {
