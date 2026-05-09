@@ -250,7 +250,7 @@ document.getElementById('apply-form').addEventListener('submit', async function(
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        content: '🩸 **New website application received!** Use `/website-open` in the Application channel to open a thread for this applicant.',
+        content: '🩸 **New website application received!** Use `/website-open` to open a thread for this applicant.',
         embeds: [embed]
       })
     });
@@ -260,9 +260,12 @@ document.getElementById('apply-form').addEventListener('submit', async function(
       this.reset();
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
-      throw new Error('Webhook failed');
+      const errText = await res.text();
+      errorEl.innerHTML = '❌ Error ' + res.status + ': ' + errText;
+      errorEl.classList.add('show');
     }
   } catch (err) {
+    errorEl.innerHTML = '❌ Network error: ' + err.message;
     errorEl.classList.add('show');
   }
 
