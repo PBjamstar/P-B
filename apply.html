@@ -226,9 +226,9 @@ document.getElementById('apply-form').addEventListener('submit', async function(
   const data = new FormData(this);
   const fields = Object.fromEntries(data.entries());
 
-  // Encode applicant data for the button customId
-  const encoded = btoa(JSON.stringify(fields)).replace(/\+/g,'-').replace(/\//g,'_').replace(/=/g,'');
-  const customId = 'website_apply_' + encoded.substring(0, 80); // Discord limit 100 chars
+  // Use a timestamp-based ID - all data is in the embed itself
+  const appId = Date.now().toString(36);
+  const customId = 'website_apply_' + appId; // Short unique ID under 100 chars
 
   const embed = {
     title: '📋 New Website Application',
