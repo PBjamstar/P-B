@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-05-08T23:24:40.393Z",
+  "updatedAt": "2026-05-09T02:06:40.384Z",
   "totalMembers": 51,
-  "trialCount": 1,
+  "trialCount": 0,
   "guildName": "P-B x Phantom Bloodline",
   "guildIcon": "https://cdn.discordapp.com/icons/1206571308456878100/e1cc24c334d945424b974f52ba89e727.webp?size=128",
   "approximateMemberCount": 178,
-  "approximatePresenceCount": 51,
+  "approximatePresenceCount": 26,
   "ranks": [
     {
       "id": "1414318647836676146",
@@ -357,13 +357,6 @@
           "isTrial": false
         },
         {
-          "id": "1364377696888426617",
-          "username": "kinglawbinder.",
-          "displayName": "P-B x kinglawbinder.",
-          "avatar": "https://cdn.discordapp.com/avatars/1364377696888426617/16d78aa499ac533cf1114ecee7e498da.webp?size=64",
-          "isTrial": false
-        },
-        {
           "id": "313354970206306317",
           "username": "l1ma0",
           "displayName": "P-B x Limao",
@@ -382,6 +375,13 @@
           "username": "barakat74",
           "displayName": "P-B x Playboi",
           "avatar": "https://cdn.discordapp.com/avatars/354361606441795584/37e73329064023b45e8b3d02752fc022.webp?size=64",
+          "isTrial": false
+        },
+        {
+          "id": "1364377696888426617",
+          "username": "kinglawbinder.",
+          "displayName": "P-B x Rag Nar.",
+          "avatar": "https://cdn.discordapp.com/avatars/1364377696888426617/16d78aa499ac533cf1114ecee7e498da.webp?size=64",
           "isTrial": false
         },
         {
@@ -428,21 +428,6 @@
         }
       ],
       "count": 25
-    },
-    {
-      "id": "1393326878315516045",
-      "name": "Trial",
-      "emoji": "⏳",
-      "members": [
-        {
-          "id": "1287864265214005370",
-          "username": "2jzstockengine",
-          "displayName": "P-B T x OFFICAL TEST",
-          "avatar": "https://cdn.discordapp.com/avatars/1287864265214005370/ccd1553a6fd2c52a6ed67e363bbcd6e4.webp?size=64",
-          "isTrial": true
-        }
-      ],
-      "count": 1
     }
   ]
 }
