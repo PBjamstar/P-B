@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-05-09T22:18:53.042Z",
-  "totalMembers": 51,
-  "trialCount": 0,
+  "updatedAt": "2026-05-10T02:07:50.178Z",
+  "totalMembers": 52,
+  "trialCount": 1,
   "guildName": "P-B x Phantom Bloodline",
   "guildIcon": "https://cdn.discordapp.com/icons/1206571308456878100/e1cc24c334d945424b974f52ba89e727.webp?size=128",
-  "approximateMemberCount": 187,
-  "approximatePresenceCount": 66,
+  "approximateMemberCount": 188,
+  "approximatePresenceCount": 39,
   "ranks": [
     {
       "id": "1414318647836676146",
@@ -428,6 +428,21 @@
         }
       ],
       "count": 25
+    },
+    {
+      "id": "1393326878315516045",
+      "name": "Trial",
+      "emoji": "⏳",
+      "members": [
+        {
+          "id": "762051534749696011",
+          "username": "kisses4cinna",
+          "displayName": "P-B T x kisses4cinna",
+          "avatar": "https://cdn.discordapp.com/avatars/762051534749696011/22c0bca87a3071686beb790f2c5ca9ff.webp?size=64",
+          "isTrial": true
+        }
+      ],
+      "count": 1
     }
   ]
 }
