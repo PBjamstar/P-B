@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-05-10T18:50:06.192Z",
-  "totalMembers": 52,
+  "updatedAt": "2026-05-10T23:04:48.389Z",
+  "totalMembers": 53,
   "trialCount": 0,
   "guildName": "P-B x Phantom Bloodline",
   "guildIcon": "https://cdn.discordapp.com/icons/1206571308456878100/e1cc24c334d945424b974f52ba89e727.webp?size=128",
   "approximateMemberCount": 188,
-  "approximatePresenceCount": 69,
+  "approximatePresenceCount": 43,
   "ranks": [
     {
       "id": "1414318647836676146",
@@ -315,6 +315,13 @@
           "isTrial": false
         },
         {
+          "id": "679159490377023499",
+          "username": "leftinsmoke1",
+          "displayName": "P-B x Conner g",
+          "avatar": "https://cdn.discordapp.com/avatars/679159490377023499/bf4bda41e4caa8096bd221fe3de24489.webp?size=64",
+          "isTrial": false
+        },
+        {
           "id": "718478536075378709",
           "username": "modernanxiety.",
           "displayName": "P-B x Damocles Faulkner",
@@ -434,7 +441,7 @@
           "isTrial": false
         }
       ],
-      "count": 26
+      "count": 27
     }
   ]
 }
