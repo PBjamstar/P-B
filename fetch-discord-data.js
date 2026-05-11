@@ -60,9 +60,12 @@ async function main() {
 
   const [allMembers, guild] = await Promise.all([fetchAllMembers(), fetchGuild()]);
 
-  // Filter to P-B members only (have PB_MEMBER_ROLE_ID)
+  // All P-B rank role IDs
+  const ALL_RANK_ROLE_IDS = new Set(Object.keys(ROLE_MAP));
+
+  // Filter to P-B members - anyone with any rank role
   const pbMembers = allMembers.filter(m =>
-    !m.user.bot && m.roles.includes(PB_MEMBER_ROLE_ID)
+    !m.user.bot && m.roles.some(r => ALL_RANK_ROLE_IDS.has(r))
   );
 
   // Group by highest rank
