@@ -5,6 +5,7 @@ on:
     - cron: '0 */6 * * *'  # Every 6 hours
   workflow_dispatch:        # Manual trigger from GitHub Actions tab
 
+
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
@@ -36,6 +37,7 @@ jobs:
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git pull --rebase origin main
           git add data/
           git diff --staged --quiet || git commit -m 'chore: update Discord data'
           git push
