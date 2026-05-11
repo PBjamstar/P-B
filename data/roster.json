@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-05-10T23:04:48.389Z",
+  "updatedAt": "2026-05-11T02:26:27.480Z",
   "totalMembers": 53,
   "trialCount": 0,
   "guildName": "P-B x Phantom Bloodline",
   "guildIcon": "https://cdn.discordapp.com/icons/1206571308456878100/e1cc24c334d945424b974f52ba89e727.webp?size=128",
   "approximateMemberCount": 188,
-  "approximatePresenceCount": 43,
+  "approximatePresenceCount": 30,
   "ranks": [
     {
       "id": "1414318647836676146",
@@ -121,9 +121,16 @@
           "displayName": "P-B x Mouse_st",
           "avatar": "https://cdn.discordapp.com/avatars/556890762017505291/8cc9164969275c3caa94f37200eb3c57.webp?size=64",
           "isTrial": false
+        },
+        {
+          "id": "260465946576158731",
+          "username": "aucun_",
+          "displayName": "P-B x SMEEF ❤️ - 🕊️ DYNAMIX🕊️",
+          "avatar": "https://cdn.discordapp.com/avatars/260465946576158731/302522cb5303b96b2725d10d9d2ac3fd.webp?size=64",
+          "isTrial": false
         }
       ],
-      "count": 2
+      "count": 3
     },
     {
       "id": "1393326769725247710",
@@ -209,13 +216,6 @@
           "isTrial": false
         },
         {
-          "id": "260465946576158731",
-          "username": "aucun_",
-          "displayName": "P-B x SMEEF ❤️ - 🕊️ DYNAMIX🕊️",
-          "avatar": "https://cdn.discordapp.com/avatars/260465946576158731/302522cb5303b96b2725d10d9d2ac3fd.webp?size=64",
-          "isTrial": false
-        },
-        {
           "id": "611870320080453644",
           "username": "sosyedidi",
           "displayName": "P-B x sosyedidi",
@@ -244,7 +244,7 @@
           "isTrial": false
         }
       ],
-      "count": 14
+      "count": 13
     },
     {
       "id": "1393326848498209009",
@@ -317,7 +317,7 @@
         {
           "id": "679159490377023499",
           "username": "leftinsmoke1",
-          "displayName": "P-B x Conner g",
+          "displayName": "P-B x Connor g",
           "avatar": "https://cdn.discordapp.com/avatars/679159490377023499/bf4bda41e4caa8096bd221fe3de24489.webp?size=64",
           "isTrial": false
         },
