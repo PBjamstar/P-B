@@ -20,7 +20,27 @@ const ROLE_MAP = {
 };
 
 const PB_MEMBER_ROLE_ID = '1393326899559661588';
-const TRIAL_ROLE_ID = '1393326878315516045';
+const TRIAL_ROLE_ID     = '1393326878315516045';
+
+// Default Discord avatar index — must use BigInt for snowflake precision
+function defaultAvatarIndex(userId) {
+  try {
+    return Number(BigInt(userId) % 5n);
+  } catch {
+    return 0;
+  }
+}
+
+function avatarUrl(member) {
+  if (member.user.avatar) {
+    return `https://cdn.discordapp.com/avatars/${member.user.id}/${member.user.avatar}.webp?size=64`;
+  }
+  // Members with a per-guild avatar (member.avatar) take priority over user avatar
+  if (member.avatar) {
+    return `https://cdn.discordapp.com/guilds/${GUILD_ID}/users/${member.user.id}/avatars/${member.avatar}.webp?size=64`;
+  }
+  return `https://cdn.discordapp.com/embed/avatars/${defaultAvatarIndex(member.user.id)}.png`;
+}
 
 async function fetchAllMembers() {
   let members = [];
@@ -40,6 +60,7 @@ async function fetchAllMembers() {
     const batch = await res.json();
     if (!batch.length) break;
     members = members.concat(batch);
+    // Only continue paginating if we got a full page
     if (batch.length < 1000) break;
     after = batch[batch.length - 1].user.id;
   }
@@ -52,6 +73,7 @@ async function fetchGuild() {
     `https://discord.com/api/v10/guilds/${GUILD_ID}?with_counts=true`,
     { headers: { Authorization: `Bot ${TOKEN}` } }
   );
+  if (!res.ok) throw new Error(`Failed to fetch guild: ${res.status}`);
   return res.json();
 }
 
@@ -60,13 +82,18 @@ async function main() {
 
   const [allMembers, guild] = await Promise.all([fetchAllMembers(), fetchGuild()]);
 
-  // All P-B rank role IDs
+  console.log(`Total members fetched from API: ${allMembers.length}`);
+
   const ALL_RANK_ROLE_IDS = new Set(Object.keys(ROLE_MAP));
 
-  // Filter to P-B members - anyone with any rank role
+  // Count everyone with ANY rank role OR the P-B member role
+  // (catches people whose rank role assignment is pending but already have PB_MEMBER)
   const pbMembers = allMembers.filter(m =>
-    !m.user.bot && m.roles.some(r => ALL_RANK_ROLE_IDS.has(r))
+    !m.user.bot &&
+    (m.roles.some(r => ALL_RANK_ROLE_IDS.has(r)) || m.roles.includes(PB_MEMBER_ROLE_ID))
   );
+
+  console.log(`P-B members found: ${pbMembers.length}`);
 
   // Group by highest rank
   const ranked = {};
@@ -74,8 +101,10 @@ async function main() {
     ranked[roleId] = [];
   }
 
+  // Fallback bucket for members with PB_MEMBER role but no rank role yet
+  const unranked = [];
+
   for (const member of pbMembers) {
-    // Find highest rank role
     let highestRole = null;
     let highestOrder = 999;
 
@@ -86,28 +115,37 @@ async function main() {
       }
     }
 
+    const entry = {
+      id: member.user.id,
+      username: member.user.username,
+      displayName: member.nick || member.user.global_name || member.user.username,
+      avatar: avatarUrl(member),
+      isTrial: member.roles.includes(TRIAL_ROLE_ID),
+    };
+
     if (highestRole) {
-      ranked[highestRole].push({
-        id: member.user.id,
-        username: member.user.username,
-        displayName: member.nick || member.user.global_name || member.user.username,
-        avatar: member.user.avatar
-          ? `https://cdn.discordapp.com/avatars/${member.user.id}/${member.user.avatar}.webp?size=64`
-          : `https://cdn.discordapp.com/embed/avatars/${parseInt(member.user.id) % 5}.png`,
-        isTrial: member.roles.includes(TRIAL_ROLE_ID),
-      });
+      ranked[highestRole].push(entry);
+    } else {
+      // Has PB_MEMBER role but no rank — log for visibility
+      console.warn(`⚠️  Member ${entry.displayName} (${entry.id}) has PB_MEMBER role but no rank role`);
+      unranked.push(entry);
     }
   }
 
-  // Sort members alphabetically within each rank
+  // Sort alphabetically within each rank
   for (const roleId of Object.keys(ranked)) {
     ranked[roleId].sort((a, b) => a.displayName.localeCompare(b.displayName));
   }
 
-  // Count active trials
   const trialCount = ranked[TRIAL_ROLE_ID]?.length || 0;
+  const activeRanksCount = Object.values(ranked).filter(arr => arr.length > 0).length;
 
-  // Build final roster structure
+  console.log(`Active trials: ${trialCount}`);
+  console.log(`Active ranks: ${activeRanksCount}`);
+  if (unranked.length > 0) {
+    console.warn(`⚠️  ${unranked.length} members have PB_MEMBER role but no rank — they will not appear on the roster`);
+  }
+
   const roster = {
     updatedAt: new Date().toISOString(),
     totalMembers: pbMembers.length,
@@ -134,11 +172,11 @@ async function main() {
   fs.writeFileSync('data/roster.json', JSON.stringify(roster, null, 2));
   console.log(`✅ Saved ${pbMembers.length} P-B members across ${roster.ranks.length} ranks`);
 
-  // Also save stats
   const stats = {
     updatedAt: new Date().toISOString(),
     totalMembers: pbMembers.length,
     trialCount,
+    activeRanks: activeRanksCount,
     onlineCount: guild.approximate_presence_count || 0,
     totalServerCount: guild.approximate_member_count || 0,
   };
