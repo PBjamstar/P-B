@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-05-13T14:10:18.164Z",
-  "totalMembers": 55,
+  "updatedAt": "2026-05-13T19:42:50.373Z",
+  "totalMembers": 56,
   "trialCount": 2,
   "guildName": "P-B x Phantom Bloodline",
   "guildIcon": "https://cdn.discordapp.com/icons/1206571308456878100/e1cc24c334d945424b974f52ba89e727.webp?size=128",
-  "approximateMemberCount": 189,
-  "approximatePresenceCount": 59,
+  "approximateMemberCount": 190,
+  "approximatePresenceCount": 74,
   "ranks": [
     {
       "id": "1414318647836676146",
@@ -413,6 +413,13 @@
           "isTrial": false
         },
         {
+          "id": "898850579101646878",
+          "username": "nekovampire",
+          "displayName": "P-B x Sky Life",
+          "avatar": "https://cdn.discordapp.com/avatars/898850579101646878/a_15ae467305fc04f3ddfa25d83c2d826c.webp?size=64",
+          "isTrial": false
+        },
+        {
           "id": "652615186062245908",
           "username": "sniped_dildo",
           "displayName": "P-B x Sniped Dildo",
@@ -448,7 +455,7 @@
           "isTrial": false
         }
       ],
-      "count": 27
+      "count": 28
     },
     {
       "id": "1393326878315516045",
