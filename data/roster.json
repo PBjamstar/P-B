@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-05-13T08:35:52.683Z",
-  "totalMembers": 54,
-  "trialCount": 1,
+  "updatedAt": "2026-05-13T14:10:18.164Z",
+  "totalMembers": 55,
+  "trialCount": 2,
   "guildName": "P-B x Phantom Bloodline",
   "guildIcon": "https://cdn.discordapp.com/icons/1206571308456878100/e1cc24c334d945424b974f52ba89e727.webp?size=128",
-  "approximateMemberCount": 188,
-  "approximatePresenceCount": 36,
+  "approximateMemberCount": 189,
+  "approximatePresenceCount": 59,
   "ranks": [
     {
       "id": "1414318647836676146",
@@ -322,6 +322,13 @@
           "isTrial": false
         },
         {
+          "id": "1364377696888426617",
+          "username": "kinglawbinder.",
+          "displayName": "P-B x Come In Peace | RagNar",
+          "avatar": "https://cdn.discordapp.com/avatars/1364377696888426617/16d78aa499ac533cf1114ecee7e498da.webp?size=64",
+          "isTrial": false
+        },
+        {
           "id": "679159490377023499",
           "username": "leftinsmoke1",
           "displayName": "P-B x Connor g",
@@ -399,13 +406,6 @@
           "isTrial": false
         },
         {
-          "id": "1364377696888426617",
-          "username": "kinglawbinder.",
-          "displayName": "P-B x Rag Nar.",
-          "avatar": "https://cdn.discordapp.com/avatars/1364377696888426617/16d78aa499ac533cf1114ecee7e498da.webp?size=64",
-          "isTrial": false
-        },
-        {
           "id": "398066539250712577",
           "username": "simonk6551",
           "displayName": "P-B x Simon",
@@ -456,6 +456,13 @@
       "emoji": "⏳",
       "members": [
         {
+          "id": "404246293364604951",
+          "username": "czri2974",
+          "displayName": "P-B T x czri2974",
+          "avatar": "https://cdn.discordapp.com/avatars/404246293364604951/a2cae3463ef2ddddf611057f8d267df6.webp?size=64",
+          "isTrial": true
+        },
+        {
           "id": "1287864265214005370",
           "username": "2jzstockengine",
           "displayName": "P-B T x OFFICAL TEST",
@@ -463,7 +470,7 @@
           "isTrial": true
         }
       ],
-      "count": 1
+      "count": 2
     }
   ]
 }
