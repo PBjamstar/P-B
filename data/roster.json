@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-05-15T08:40:28.856Z",
-  "totalMembers": 57,
+  "updatedAt": "2026-05-15T13:47:03.407Z",
+  "totalMembers": 58,
   "trialCount": 2,
   "guildName": "P-B x Phantom Bloodline",
   "guildIcon": "https://cdn.discordapp.com/icons/1206571308456878100/e1cc24c334d945424b974f52ba89e727.webp?size=128",
-  "approximateMemberCount": 191,
-  "approximatePresenceCount": 37,
+  "approximateMemberCount": 192,
+  "approximatePresenceCount": 67,
   "ranks": [
     {
       "id": "1414318647836676146",
@@ -66,7 +66,7 @@
         {
           "id": "518084411342848000",
           "username": "lf9123",
-          "displayName": "P-B x lucaf2850 -🕊️ DYNAMIX🕊️",
+          "displayName": "P-B x lucaf2850 - 🕊️ DYNAMIX🕊️",
           "avatar": "https://cdn.discordapp.com/avatars/518084411342848000/237de0222eeffe8e6f829ea6e53a7d2e.webp?size=64",
           "isTrial": false
         }
@@ -336,6 +336,13 @@
           "isTrial": false
         },
         {
+          "id": "404246293364604951",
+          "username": "czri2974",
+          "displayName": "P-B x czri2974",
+          "avatar": "https://cdn.discordapp.com/avatars/404246293364604951/a2cae3463ef2ddddf611057f8d267df6.webp?size=64",
+          "isTrial": false
+        },
+        {
           "id": "718478536075378709",
           "username": "modernanxiety.",
           "displayName": "P-B x Damocles Faulkner",
@@ -455,7 +462,7 @@
           "isTrial": false
         }
       ],
-      "count": 28
+      "count": 29
     },
     {
       "id": "1393326878315516045",
@@ -463,10 +470,10 @@
       "emoji": "⏳",
       "members": [
         {
-          "id": "404246293364604951",
-          "username": "czri2974",
-          "displayName": "P-B T x czri2974",
-          "avatar": "https://cdn.discordapp.com/avatars/404246293364604951/a2cae3463ef2ddddf611057f8d267df6.webp?size=64",
+          "id": "345835930273185792",
+          "username": "justlewn",
+          "displayName": "P-B T x justlewn",
+          "avatar": "https://cdn.discordapp.com/avatars/345835930273185792/c5628efe977d8b7eff083f4236bb2f6a.webp?size=64",
           "isTrial": true
         },
         {
