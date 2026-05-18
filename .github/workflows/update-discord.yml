@@ -2,8 +2,8 @@ name: Update Discord Data
 
 on:
   schedule:
-    - cron: '0 */6 * * *'  # Every 6 hours
-  workflow_dispatch:        # Manual trigger from GitHub Actions tab
+    - cron: '0 * * * *'  # Hourly fallback
+  workflow_dispatch:       # Triggered by bot in real-time
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
@@ -37,10 +37,9 @@ jobs:
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add data/
-          git diff --staged --quiet && echo "No changes to commit" && exit 0
-          git stash push --include-untracked -m "bot-data"
+          git stash
           git pull --rebase origin main
           git stash pop
           git add data/
-          git commit -m 'chore: update Discord data'
+          git diff --staged --quiet || git commit -m 'chore: update Discord data'
           git push
