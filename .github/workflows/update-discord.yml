@@ -1,10 +1,9 @@
 name: Update Discord Data
- 
+
 on:
   schedule:
     - cron: '0 */6 * * *'  # Every 6 hours
   workflow_dispatch:        # Manual trigger from GitHub Actions tab
-
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
@@ -14,25 +13,25 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
- 
+
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
- 
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '24'
- 
+
       - name: Install dependencies
         run: npm install node-fetch@2
- 
+
       - name: Fetch Discord data
         env:
           DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
           GUILD_ID: ${{ secrets.GUILD_ID }}
         run: node fetch-discord-data.js
- 
+
       - name: Commit and push data
         run: |
           git config --global user.name 'github-actions[bot]'
@@ -44,4 +43,3 @@ jobs:
           git add data/
           git diff --staged --quiet || git commit -m 'chore: update Discord data'
           git push
- 
