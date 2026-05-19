@@ -1,1 +1,23 @@
-{"goal":0,"goalLabel":"","donations":[]}
+{
+  "goal": 900000000,
+  "goalLabel": "INGAME DONATION FOR NEW FITS-LIVERYS",
+  "updatedAt": "2026-05-19T09:01:21.222Z",
+  "totalRaised": 86000001,
+  "donations": [
+    {
+      "amount": 1,
+      "month": "2026-05",
+      "timestamp": 1778883497134
+    },
+    {
+      "amount": 66000000,
+      "month": "2026-05",
+      "timestamp": 1778895067955
+    },
+    {
+      "amount": 20000000,
+      "month": "2026-05",
+      "timestamp": 1778895276334
+    }
+  ]
+}
