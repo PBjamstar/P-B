@@ -221,33 +221,31 @@ async function main() {
   // The website checks this before accepting an application
   const BLACKLIST_CHANNEL_ID = '1393335632947970098';
   try {
-    const blacklistChannel = guild.channels.cache.get(BLACKLIST_CHANNEL_ID);
     const blacklisted = [];
-    if (blacklistChannel) {
-      let lastId = null;
-      while (true) {
-        const opts = { limit: 100 };
-        if (lastId) opts.before = lastId;
-        const msgs = await blacklistChannel.messages.fetch(opts);
-        if (!msgs.size) break;
-        for (const msg of msgs.values()) {
-          if (!msg.embeds.length) continue;
-          const embed = msg.embeds[0];
-          const idField = embed.fields?.find(f => f.name.includes('Discord User'));
-          const ignField = embed.fields?.find(f => f.name.includes('In-Game Name'));
-          if (idField) {
-            const idMatch = idField.value.match(/\d{17,20}/);
-            if (idMatch) {
-              blacklisted.push({
-                userId: idMatch[0],
-                ign: ignField?.value?.toLowerCase() || ''
-              });
-            }
+    let lastId = null;
+    while (true) {
+      const url = `https://discord.com/api/v10/channels/${BLACKLIST_CHANNEL_ID}/messages?limit=100${lastId ? `&before=${lastId}` : ''}`;
+      const res = await fetch(url, { headers: { Authorization: `Bot ${TOKEN}` } });
+      if (!res.ok) throw new Error(`Failed to fetch blacklist messages: ${res.status}`);
+      const msgs = await res.json();
+      if (!msgs.length) break;
+      for (const msg of msgs) {
+        if (!msg.embeds.length) continue;
+        const embed = msg.embeds[0];
+        const idField = embed.fields?.find(f => f.name.includes('Discord User'));
+        const ignField = embed.fields?.find(f => f.name.includes('In-Game Name'));
+        if (idField) {
+          const idMatch = idField.value.match(/\d{17,20}/);
+          if (idMatch) {
+            blacklisted.push({
+              userId: idMatch[0],
+              ign: ignField?.value?.toLowerCase() || ''
+            });
           }
         }
-        lastId = msgs.last().id;
-        if (msgs.size < 100) break;
       }
+      lastId = msgs[msgs.length - 1].id;
+      if (msgs.length < 100) break;
     }
     fs.writeFileSync('data/blacklist.json', JSON.stringify(blacklisted, null, 2));
     console.log(`✅ Blacklist saved: ${blacklisted.length} entries`);
