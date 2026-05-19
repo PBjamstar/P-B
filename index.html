@@ -839,7 +839,7 @@ async function loadNews() {
     const news = await res.json();
     const grid = document.getElementById('news-grid');
     if (!news.length) {
-      grid.innerHTML = '<div class="news-card reveal" style="grid-column:1/-1;text-align:center;color:var(--pale);padding:3rem;"><span style="font-family:'Share Tech Mono',monospace;font-size:0.7rem;letter-spacing:0.2em;">No news yet — check back soon.</span></div>';
+      grid.innerHTML = `<div class="news-card reveal" style="grid-column:1/-1;text-align:center;color:var(--pale);padding:3rem;"><span style="font-family:'Share Tech Mono',monospace;font-size:0.7rem;letter-spacing:0.2em;">No news yet — check back soon.</span></div>`;
       return;
     }
     grid.innerHTML = '';
