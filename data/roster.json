@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-05-21T20:51:19.865Z",
-  "totalMembers": 57,
+  "updatedAt": "2026-05-21T22:20:11.142Z",
+  "totalMembers": 56,
   "trialCount": 0,
   "guildName": "P-B x Phantom Bloodline",
   "guildIcon": "https://cdn.discordapp.com/icons/1206571308456878100/e1cc24c334d945424b974f52ba89e727.webp?size=128",
-  "approximateMemberCount": 199,
-  "approximatePresenceCount": 63,
+  "approximateMemberCount": 198,
+  "approximatePresenceCount": 52,
   "ranks": [
     {
       "id": "1414318647836676146",
@@ -455,13 +455,6 @@
           "isTrial": false
         },
         {
-          "id": "752223157649408140",
-          "username": "tuhmagaga",
-          "displayName": "P-B x tuhmagaga",
-          "avatar": "https://cdn.discordapp.com/avatars/752223157649408140/3e7e6148d6c03658af678f78da01e85c.webp?size=64",
-          "isTrial": false
-        },
-        {
           "id": "1306672443305365564",
           "username": "shupashupzz",
           "displayName": "P-B x Wilson Fisk",
@@ -469,7 +462,7 @@
           "isTrial": false
         }
       ],
-      "count": 30
+      "count": 29
     }
   ]
 }
