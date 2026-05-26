@@ -39,15 +39,7 @@ jobs:
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          # Reset index and clean untracked files (node_modules etc)
-          git reset HEAD
-          git clean -fd
-          # Stage only data folder
           git add data/
           git diff --staged --quiet && echo "No changes to commit" && exit 0
-          # Pull latest then commit
-          git fetch origin main
-          git rebase -X theirs origin/main
-          git add data/
-          git diff --staged --quiet || git commit -m 'chore: update Discord data'
-          git push
+          git commit -m 'chore: update Discord data'
+          git push origin HEAD:main --force-with-lease
