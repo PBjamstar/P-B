@@ -1,1 +1,17 @@
-{"goal":0,"goalLabel":"","donations":[]}
+{
+  "goal": 900000000,
+  "goalLabel": "INGAME DONATION FOR NEW FITS-LIVERYS",
+  "updatedAt": "2026-05-26T21:26:08.575Z",
+  "totalRaised": 86000001,
+  "realTotal": 1,
+  "ingameLeaderboard": [],
+  "realLeaderboard": [
+    {
+      "rank": 1,
+      "userId": "396059469337067522",
+      "username": "P-B x jamstar OG",
+      "total": 1,
+      "displayAmount": "£1.00"
+    }
+  ]
+}
