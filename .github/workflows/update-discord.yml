@@ -2,8 +2,8 @@ name: Update Discord Data
 
 on:
   schedule:
-    - cron: '0 * * * *'  # Hourly fallback
-  workflow_dispatch:       # Triggered by bot in real-time
+    - cron: '0 * * * *'
+  workflow_dispatch:
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
@@ -39,10 +39,11 @@ jobs:
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          # Remove untracked files (node_modules etc) before rebase
+          git clean -fd
           git add data/
           git diff --staged --quiet && echo "No changes to commit" && exit 0
           git pull --rebase -X theirs origin main
           git add data/
           git commit -m 'chore: update Discord data'
           git push
-
