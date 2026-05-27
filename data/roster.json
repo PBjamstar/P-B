@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-05-27T09:53:55.824Z",
-  "totalMembers": 55,
+  "updatedAt": "2026-05-27T12:55:11.961Z",
+  "totalMembers": 54,
   "trialCount": 0,
   "guildName": "P-B x Phantom Bloodline",
   "guildIcon": "https://cdn.discordapp.com/icons/1206571308456878100/e1cc24c334d945424b974f52ba89e727.webp?size=128",
   "approximateMemberCount": 197,
-  "approximatePresenceCount": 43,
+  "approximatePresenceCount": 53,
   "ranks": [
     {
       "id": "1414318647836676146",
@@ -242,16 +242,9 @@
           "displayName": "P-B x W4xters",
           "avatar": "https://cdn.discordapp.com/embed/avatars/4.png",
           "isTrial": false
-        },
-        {
-          "id": "187649099632345088",
-          "username": "zeionic",
-          "displayName": "P-B x Zeionic",
-          "avatar": "https://cdn.discordapp.com/avatars/187649099632345088/acc50f8a63044218eb7c0d9ed6df513c.webp?size=64",
-          "isTrial": false
         }
       ],
-      "count": 13
+      "count": 12
     },
     {
       "id": "1393326848498209009",
