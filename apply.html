@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apply — Phantom Bloodline</title>
+<meta name="description" content="Apply to join Phantom Bloodline — the elite FiveM CNR crew on EU1.">
+<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/PBjamstar/P-B/main/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+:root {
+  --blood:#7a0000; --blood-mid:#a01010; --blood-bright:#c0392b;
+  --gold:#c9a84c; --gold-light:#e8c87a; --gold-dim:#7a5f28;
+  --smoke:#080808; --ash:#111111; --coal:#1a1a1a;
+  --bone:#e8dcc8; --parchment:#d4c4a8; --pale:#9a8870; --white:#f5f0e8;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--smoke);color:var(--bone);font-family:'Crimson Pro',serif;font-size:18px;line-height:1.75;overflow-x:hidden;}
+body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");pointer-events:none;z-index:9998;opacity:0.3;}
+
+/* LOADER */
+#loader{position:fixed;inset:0;z-index:99999;background:var(--smoke);display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity 0.8s ease,visibility 0.8s ease;}
+#loader.hidden{opacity:0;visibility:hidden;pointer-events:none;}
+.loader-logo{width:100px;height:100px;position:relative;animation:loader-pulse 2s ease-in-out infinite;}
+.loader-logo img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 0 30px rgba(192,57,43,0.8));}
+.loader-ring{position:absolute;inset:-14px;border:1px solid rgba(201,168,76,0.4);border-radius:50%;animation:spin-slow 3s linear infinite;}
+.loader-ring::before{content:'';position:absolute;top:-3px;left:50%;width:6px;height:6px;background:var(--gold);border-radius:50%;transform:translateX(-50%);}
+.loader-text{margin-top:1.5rem;font-family:'Share Tech Mono',monospace;font-size:0.62rem;letter-spacing:0.4em;color:var(--blood-bright);text-transform:uppercase;animation:loader-blink 1.2s ease-in-out infinite;}
+.loader-bar{width:180px;height:1px;background:rgba(122,0,0,0.2);margin-top:1.2rem;overflow:hidden;}
+.loader-bar-fill{height:100%;width:0%;background:linear-gradient(to right,var(--blood),var(--blood-bright));animation:loader-fill 1.8s ease-out forwards;}
+@keyframes loader-fill{to{width:100%}}
+@keyframes loader-pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+@keyframes loader-blink{0%,100%{opacity:1}50%{opacity:0.3}}
+@keyframes spin-slow{to{transform:rotate(360deg)}}
+
+/* PAGE TRANSITION */
+#page-transition{position:fixed;inset:0;z-index:9999;pointer-events:none;background:var(--blood);transform:scaleY(0);transform-origin:bottom;transition:transform 0.4s cubic-bezier(0.76,0,0.24,1);}
+#page-transition.out{transform:scaleY(1);transform-origin:bottom;}
+#page-transition.in{transform:scaleY(0);transform-origin:top;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1.2rem 3rem;display:flex;justify-content:space-between;align-items:center;background:rgba(5,5,5,0.97);border-bottom:1px solid rgba(122,0,0,0.25);backdrop-filter:blur(10px);}
+.nav-brand{font-family:'Cinzel',serif;font-weight:900;font-size:0.9rem;color:var(--gold);text-decoration:none;letter-spacing:0.2em;}
+.nav-back{font-family:'Share Tech Mono',monospace;font-size:0.62rem;letter-spacing:0.2em;color:var(--pale);text-decoration:none;text-transform:uppercase;transition:color 0.2s;display:flex;align-items:center;gap:0.5rem;}
+.nav-back:hover{color:var(--white);}
+.nav-back::before{content:'←';}
+
+/* HERO */
+.apply-hero{padding:10rem 3rem 5rem;text-align:center;position:relative;overflow:hidden;}
+.apply-hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 40% at 50% 100%,rgba(122,0,0,0.12) 0%,transparent 70%);pointer-events:none;}
+.apply-hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(122,0,0,0.06) 1px,transparent 1px),linear-gradient(90deg,rgba(122,0,0,0.06) 1px,transparent 1px);background-size:80px 80px;mask-image:radial-gradient(ellipse 80% 70% at 50% 50%,black 20%,transparent 75%);pointer-events:none;}
+.apply-eyebrow{display:inline-block;font-family:'Share Tech Mono',monospace;font-size:0.65rem;letter-spacing:0.4em;color:var(--blood-bright);text-transform:uppercase;margin-bottom:1rem;}
+.apply-title{font-family:'Cinzel Decorative',serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:900;color:var(--white);margin-bottom:0.8rem;position:relative;}
+.apply-sub{font-family:'Crimson Pro',serif;font-style:italic;color:var(--pale);font-size:1.1rem;max-width:500px;margin:0 auto;line-height:1.7;}
+
+/* REQUIREMENTS */
+.requirements{max-width:800px;margin:0 auto 3rem;padding:0 2rem;}
+.req-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1px;background:rgba(122,0,0,0.15);border:1px solid rgba(122,0,0,0.15);margin-top:2rem;}
+.req-item{background:var(--coal);padding:1.5rem;text-align:center;}
+.req-icon{font-size:1.5rem;display:block;margin-bottom:0.4rem;}
+.req-label{font-family:'Cinzel',serif;font-size:0.75rem;color:var(--gold);margin-bottom:0.3rem;}
+.req-desc{font-size:0.85rem;color:var(--pale);}
+
+/* FORM */
+.form-wrap{max-width:760px;margin:0 auto;padding:0 2rem 6rem;}
+.form-card{background:var(--coal);border:1px solid rgba(122,0,0,0.2);position:relative;overflow:hidden;}
+.form-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(to right,transparent,var(--blood-bright),transparent);}
+.form-inner{padding:3rem;}
+.form-section{margin-bottom:2.5rem;}
+.form-section-title{font-family:'Cinzel',serif;font-size:0.75rem;letter-spacing:0.25em;color:var(--gold);text-transform:uppercase;margin-bottom:1.5rem;padding-bottom:0.7rem;border-bottom:1px solid rgba(122,0,0,0.2);display:flex;align-items:center;gap:0.7rem;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:1.2rem;}
+.form-group{margin-bottom:1.2rem;}
+label{display:block;font-family:'Share Tech Mono',monospace;font-size:0.62rem;letter-spacing:0.2em;color:var(--pale);text-transform:uppercase;margin-bottom:0.5rem;}
+label .req-star{color:var(--blood-bright);}
+input,select,textarea{width:100%;background:rgba(5,5,5,0.8);border:1px solid rgba(122,0,0,0.25);color:var(--white);font-family:'Crimson Pro',serif;font-size:1rem;padding:0.75rem 1rem;outline:none;transition:border-color 0.25s,box-shadow 0.25s;appearance:none;-webkit-appearance:none;}
+input:focus,select:focus,textarea:focus{border-color:var(--blood-bright);box-shadow:0 0 0 2px rgba(192,57,43,0.15);}
+input.error,select.error,textarea.error{border-color:var(--blood-bright);animation:shake 0.35s ease;}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+input.valid,select.valid,textarea.valid{border-color:rgba(87,242,135,0.4);}
+select option{background:var(--ash);}
+textarea{resize:vertical;min-height:110px;line-height:1.6;}
+.field-hint{font-size:0.8rem;color:rgba(154,136,112,0.5);margin-top:0.3rem;font-style:italic;}
+.field-error{font-family:'Share Tech Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;color:var(--blood-bright);margin-top:0.3rem;display:none;}
+.field-error.show{display:block;}
+.char-count{font-family:'Share Tech Mono',monospace;font-size:0.58rem;color:var(--pale);text-align:right;margin-top:0.3rem;opacity:0.5;}
+.char-count.warn{color:var(--gold);}
+
+/* PROGRESS */
+.form-progress{display:flex;align-items:center;gap:0;margin-bottom:2.5rem;background:rgba(122,0,0,0.08);border:1px solid rgba(122,0,0,0.15);overflow:hidden;}
+.progress-step{flex:1;text-align:center;padding:0.7rem 0.5rem;font-family:'Share Tech Mono',monospace;font-size:0.58rem;letter-spacing:0.1em;color:rgba(154,136,112,0.4);text-transform:uppercase;transition:all 0.3s;border-right:1px solid rgba(122,0,0,0.15);}
+.progress-step:last-child{border-right:none;}
+.progress-step.active{color:var(--white);background:rgba(122,0,0,0.15);}
+.progress-step.done{color:var(--blood-bright);}
+
+/* SUBMIT BTN */
+.form-footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;padding:1.5rem 3rem;border-top:1px solid rgba(122,0,0,0.15);}
+.form-footer p{font-size:0.85rem;color:var(--pale);max-width:300px;line-height:1.5;}
+.submit-btn{font-family:'Cinzel',serif;font-size:0.7rem;letter-spacing:0.2em;padding:0.9rem 2.5rem;background:var(--blood);border:1px solid var(--blood-mid);color:var(--white);text-transform:uppercase;cursor:pointer;transition:all 0.3s;display:flex;align-items:center;gap:0.7rem;position:relative;overflow:hidden;}
+.submit-btn:hover{background:var(--blood-bright);transform:translateY(-1px);box-shadow:0 8px 30px rgba(122,0,0,0.4);}
+.submit-btn:disabled{opacity:0.5;cursor:not-allowed;transform:none;box-shadow:none;}
+.submit-btn .btn-spinner{width:14px;height:14px;border:2px solid rgba(255,255,255,0.3);border-top-color:white;border-radius:50%;animation:spin-slow 0.7s linear infinite;display:none;}
+.submit-btn.loading .btn-spinner{display:block;}
+.submit-btn.loading .btn-text{display:none;}
+
+/* SUCCESS */
+#success-screen{display:none;padding:4rem 3rem;text-align:center;}
+#success-screen.show{display:block;}
+.success-icon{font-size:3.5rem;display:block;margin-bottom:1.5rem;animation:bounce-in 0.5s cubic-bezier(0.16,1,0.3,1);}
+@keyframes bounce-in{0%{transform:scale(0)}100%{transform:scale(1)}}
+.success-title{font-family:'Cinzel',serif;font-size:1.8rem;color:var(--white);margin-bottom:0.8rem;}
+.success-msg{color:var(--pale);max-width:450px;margin:0 auto 2rem;line-height:1.7;}
+.success-steps{text-align:left;background:rgba(122,0,0,0.06);border:1px solid rgba(122,0,0,0.15);padding:1.5rem 2rem;margin:2rem auto;max-width:400px;}
+.success-steps h4{font-family:'Cinzel',serif;font-size:0.8rem;color:var(--gold);margin-bottom:1rem;letter-spacing:0.1em;}
+.success-step{display:flex;gap:0.8rem;align-items:flex-start;margin-bottom:0.8rem;font-size:0.95rem;color:var(--pale);}
+.success-step-num{font-family:'Cinzel',serif;color:var(--blood-bright);flex-shrink:0;font-weight:700;}
+
+/* ERROR MESSAGE */
+.form-error-msg{background:rgba(122,0,0,0.1);border:1px solid rgba(192,57,43,0.3);padding:1rem 1.5rem;margin:0 3rem 1.5rem;font-family:'Share Tech Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;color:var(--blood-bright);display:none;}
+.form-error-msg.show{display:block;}
+
+/* MOBILE */
+@media(max-width:700px){
+  .form-row{grid-template-columns:1fr;}
+  .form-inner{padding:2rem 1.5rem;}
+  .form-footer{flex-direction:column;padding:1.5rem;}
+  .submit-btn{width:100%;justify-content:center;}
+  nav{padding:1rem 1.5rem;}
+  .requirements{padding:0 1.5rem;}
+  .form-wrap{padding:0 1.5rem 4rem;}
+}
+</style>
+</head>
+<body>
+
+<div id="loader">
+  <div class="loader-logo">
+    <img src="https://raw.githubusercontent.com/PBjamstar/P-B/main/logo.png" alt="PB">
+    <div class="loader-ring"></div>
+  </div>
+  <div class="loader-text">Loading...</div>
+  <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+</div>
+<div id="page-transition"></div>
+
+<nav>
+  <a href="index.html" class="nav-back">Back to Site</a>
+  <a href="index.html" class="nav-brand">P·B</a>
+</nav>
+
+<div class="apply-hero">
+  <div class="apply-hero-bg"></div>
+  <div class="apply-hero-grid"></div>
+  <span class="apply-eyebrow">Recruitment</span>
+  <h1 class="apply-title">Apply to Join P-B</h1>
+  <p class="apply-sub">Think you have what it takes? Fill in the form below and our recruiters will review your application in Discord.</p>
+</div>
+
+<div class="requirements">
+  <div class="req-grid">
+    <div class="req-item"><span class="req-icon">🎮</span><div class="req-label">FiveM EU1</div><div class="req-desc">Active on FiveM EU1</div></div>
+    <div class="req-item"><span class="req-icon">🎤</span><div class="req-label">Microphone</div><div class="req-desc">Recommended but not required</div></div>
+    <div class="req-item"><span class="req-icon">🩸</span><div class="req-label">Loyalty</div><div class="req-desc">No double-clanning allowed</div></div>
+    <div class="req-item"><span class="req-icon">📋</span><div class="req-label">Clean Record</div><div class="req-desc">Minimal bans preferred</div></div>
+  </div>
+</div>
+
+<div class="form-wrap">
+  <div class="form-card">
+    <div class="form-inner" id="form-inner">
+      <div class="form-progress">
+        <div class="progress-step active" id="step-1">01 Identity</div>
+        <div class="progress-step" id="step-2">02 Background</div>
+        <div class="progress-step" id="step-3">03 Motivation</div>
+      </div>
+
+      <form id="apply-form" novalidate>
+        <!-- Honeypot: hidden from humans, bots fill this in -->
+        <input type="text" id="hp-field" name="website" style="display:none;position:absolute;left:-9999px;" tabindex="-1" autocomplete="off">
+        <!-- SECTION 1 -->
+        <div class="form-section" id="section-1">
+          <div class="form-section-title">🩸 Your Identity</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Discord Username <span class="req-star">*</span></label>
+              <input type="text" id="discord" name="discord" placeholder="e.g. jamstar" autocomplete="off">
+              <div class="field-error" id="err-discord">Please enter your Discord username</div>
+            </div>
+            <div class="form-group">
+              <label>In-Game Name <span class="req-star">*</span></label>
+              <input type="text" id="ign" name="ign" placeholder="Your FiveM character name">
+              <div class="field-error" id="err-ign">Please enter your in-game name</div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Age <span class="req-star">*</span></label>
+              <input type="number" id="age" name="age" placeholder="Your age" min="13" max="99">
+              <div class="field-error" id="err-age">Please enter a valid age (13+)</div>
+            </div>
+            <div class="form-group">
+              <label>Timezone <span class="req-star">*</span></label>
+              <select id="timezone" name="timezone">
+                <option value="">Select timezone</option>
+                <option value="GMT">GMT / UTC</option>
+                <option value="GMT+1">GMT+1 (BST)</option>
+                <option value="GMT+2">GMT+2 (CEST)</option>
+                <option value="GMT+3">GMT+3</option>
+                <option value="GMT-5">GMT-5 (EST)</option>
+                <option value="GMT-6">GMT-6 (CST)</option>
+                <option value="GMT-7">GMT-7 (MST)</option>
+                <option value="GMT-8">GMT-8 (PST)</option>
+                <option value="Other">Other</option>
+              </select>
+              <div class="field-error" id="err-timezone">Please select your timezone</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION 2 -->
+        <div class="form-section" id="section-2">
+          <div class="form-section-title">🎮 Your Background</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Do you have a microphone? <span class="req-star">*</span></label>
+              <select id="mic" name="mic">
+                <option value="">Select an option</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+              </select>
+              <div class="field-error" id="err-mic">Please select an option</div>
+            </div>
+            <div class="form-group">
+              <label>Previous Bans or Kicks <span class="req-star">*</span></label>
+              <select id="bans" name="bans">
+                <option value="">Select an option</option>
+                <option value="none">No bans or kicks</option>
+                <option value="1">1 ban/kick</option>
+                <option value="2-3">2–3 bans/kicks</option>
+                <option value="4+">4+ bans/kicks</option>
+              </select>
+              <p class="field-hint">Be honest — we may check</p>
+              <div class="field-error" id="err-bans">Please select an option</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Previous Crews</label>
+            <input type="text" id="crews" name="crews" placeholder="Any previous crews you have been in (optional)">
+          </div>
+        </div>
+
+        <!-- SECTION 3 -->
+        <div class="form-section" id="section-3">
+          <div class="form-section-title">🔥 Your Motivation</div>
+          <div class="form-group">
+            <label>Why do you want to join Phantom Bloodline? <span class="req-star">*</span></label>
+            <textarea id="why" name="why" placeholder="Tell us why you want to join. What makes you a good fit for the Bloodline?" rows="5" maxlength="1000"></textarea>
+            <div class="char-count" id="why-count">0 / 1000</div>
+            <div class="field-error" id="err-why">Please tell us why you want to join (min 50 characters)</div>
+          </div>
+          <div class="form-group">
+            <label>Anything else you want to tell us?</label>
+            <textarea id="extra" name="extra" placeholder="Any extra information, shoutouts, or questions (optional)" rows="3" maxlength="500"></textarea>
+            <div class="char-count" id="extra-count">0 / 500</div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div id="success-screen">
+      <span class="success-icon">🩸</span>
+      <h2 class="success-title">Application Submitted!</h2>
+      <p class="success-msg">Your application has been sent. A recruiter will reach out to you on Discord shortly. Make sure your DMs are open.</p>
+      <div class="success-steps">
+        <h4>What Happens Next</h4>
+        <div class="success-step"><span class="success-step-num">1.</span> A recruiter will DM you on Discord within 24–48 hours</div>
+        <div class="success-step"><span class="success-step-num">2.</span> You may be invited for a quick voice interview</div>
+        <div class="success-step"><span class="success-step-num">3.</span> If accepted, you will start as a Trial member</div>
+        <div class="success-step"><span class="success-step-num">4.</span> Prove your loyalty and earn your rank</div>
+      </div>
+      <a href="https://discord.gg/Pn7WB4ktjn" target="_blank" style="display:inline-flex;align-items:center;gap:0.6rem;padding:0.9rem 2.5rem;background:var(--blood);border:1px solid var(--blood-mid);color:var(--white);font-family:'Cinzel',serif;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;text-decoration:none;margin-top:1rem;">Join Discord While You Wait</a>
+    </div>
+
+    <div class="form-error-msg" id="form-error-msg">⚠ Something went wrong. Please try again or join our Discord directly.</div>
+
+    <div class="form-footer" id="form-footer">
+      <p>By submitting you confirm you have read and agree to the Phantom Bloodline rules.</p>
+      <button class="submit-btn" id="submit-btn" type="button" onclick="submitForm()">
+        <div class="btn-spinner"></div>
+        <span class="btn-text">Submit Application</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+// LOADER
+window.addEventListener('load',()=>setTimeout(()=>document.getElementById('loader').classList.add('hidden'),1800));
+
+// PAGE TRANSITIONS
+document.querySelectorAll('a[href]').forEach(link=>{
+  const href=link.getAttribute('href');
+  if(!href||href.startsWith('#')||href.startsWith('http')||href.startsWith('mailto'))return;
+  link.addEventListener('click',e=>{
+    e.preventDefault();
+    const pt=document.getElementById('page-transition');
+    pt.classList.add('out');
+    setTimeout(()=>{window.location.href=href;},400);
+  });
+});
+window.addEventListener('pageshow',()=>{
+  const pt=document.getElementById('page-transition');
+  pt.classList.remove('out');pt.classList.add('in');
+  setTimeout(()=>pt.classList.remove('in'),600);
+});
+
+// CHAR COUNTS
+document.getElementById('why').addEventListener('input',function(){
+  const c=this.value.length;
+  const el=document.getElementById('why-count');
+  el.textContent=c+' / 1000';
+  el.classList.toggle('warn',c>800);
+});
+document.getElementById('extra').addEventListener('input',function(){
+  const c=this.value.length;
+  const el=document.getElementById('extra-count');
+  el.textContent=c+' / 500';
+  el.classList.toggle('warn',c>400);
+});
+
+// PROGRESS STEPS
+const fields1=['discord','ign','age','timezone'];
+const fields2=['mic','bans'];
+function updateProgress(){
+  const s1=fields1.every(f=>document.getElementById(f).value.trim());
+  const s2=fields2.every(f=>document.getElementById(f).value.trim());
+  document.getElementById('step-1').className='progress-step'+(s1?' done':' active');
+  document.getElementById('step-2').className='progress-step'+(s2?' done':s1?' active':'');
+  document.getElementById('step-3').className='progress-step'+(document.getElementById('why').value.trim().length>=50?' done':s2?' active':'');
+}
+[...fields1,...fields2,'why'].forEach(id=>{
+  const el=document.getElementById(id);
+  if(el) el.addEventListener('input',updateProgress);
+  if(el) el.addEventListener('change',updateProgress);
+});
+
+// VALIDATION
+function validate(id,check){
+  const el=document.getElementById(id);
+  const err=document.getElementById('err-'+id);
+  const ok=check(el.value);
+  el.classList.toggle('error',!ok);
+  el.classList.toggle('valid',ok);
+  if(err) err.classList.toggle('show',!ok);
+  return ok;
+}
+function validateAll(){
+  const checks=[
+    validate('discord',v=>v.trim().length>=2),
+    validate('ign',v=>v.trim().length>=2),
+    validate('age',v=>{const n=parseInt(v);return !isNaN(n)&&n>=13&&n<=99;}),
+    validate('timezone',v=>v.trim()!==''),
+    validate('mic',v=>v.trim()!==''),
+    validate('bans',v=>v.trim()!==''),
+    validate('why',v=>v.trim().length>=50),
+  ];
+  return checks.every(Boolean);
+}
+
+// SUBMIT
+async function submitForm(){
+  if(!validateAll()) return;
+  const btn=document.getElementById('submit-btn');
+  btn.classList.add('loading');btn.disabled=true;
+
+  const payload={
+    discord:document.getElementById('discord').value.trim(),
+    ign:document.getElementById('ign').value.trim(),
+    age:document.getElementById('age').value.trim(),
+    timezone:document.getElementById('timezone').value,
+    mic:document.getElementById('mic').value,
+    bans:document.getElementById('bans').value,
+    crews:document.getElementById('crews').value.trim(),
+    why:document.getElementById('why').value.trim(),
+    extra:document.getElementById('extra').value.trim(),
+    submittedAt:new Date().toISOString()
+  };
+
+  // Store application locally and show success
+  // To receive applications: add a Discord webhook URL below
+  // Replace WEBHOOK_URL with your actual webhook, or leave blank to skip
+  // Blacklist check — fetch blacklist.json and check both Discord username and IGN
+  try {
+    const blRes = await fetch('data/blacklist.json?t=' + Date.now());
+    if (blRes.ok) {
+      const blacklist = await blRes.json();
+      const discordVal = document.getElementById('discord').value.trim().toLowerCase();
+      const ignVal = document.getElementById('ign').value.trim().toLowerCase();
+      // Normalise IGN — strip emojis, tags, trailing punctuation for reliable matching
+      const normaliseIgn = s => s
+        .replace(/[\u{1F000}-\u{1FFFF}]|[\u{2600}-\u{27BF}]|[\u{1F300}-\u{1F9FF}]/gu, '')
+        .replace(/\[.*?\]/g, '')
+        .replace(/,\s*$/, '')
+        .trim()
+        .toLowerCase();
+      const normIgnVal = normaliseIgn(ignVal);
+      const isBlacklisted = blacklist.some(entry => {
+        const entryIgn = normaliseIgn(entry.ign || '');
+        return (entryIgn && entryIgn === normIgnVal) ||
+               (entry.discordUsername && entry.discordUsername.toLowerCase() === discordVal) ||
+               (entry.userId && entry.userId === discordVal);
+      });
+      if (isBlacklisted) {
+        btn.classList.remove('loading'); btn.disabled = false;
+        const errEl = document.getElementById('form-error-msg');
+        errEl.textContent = '\u26a0 You are on the Phantom Bloodline blacklist and are not eligible to apply. If you believe this is a mistake, contact us on Discord.';
+        errEl.classList.add('show');
+        window.scrollTo({ top: errEl.offsetTop - 100, behavior: 'smooth' });
+        return;
+      }
+    }
+  } catch {}
+
+  // Rate limit: one submission per session
+  if (sessionStorage.getItem('pb-applied')) {
+    showSuccess(); // Already submitted this session, just show success
+    return;
+  }
+
+  // Honeypot check — bots fill hidden fields, humans don't
+  if (document.getElementById('hp-field').value) {
+    btn.classList.remove('loading'); btn.disabled = false;
+    return; // Silent fail for bots
+  }
+
+  try {
+    await fetch('https://discord.com/api/webhooks/1504211280633008159/vb8Um3veZE9ZuTRUq4elj_lzu1_At2-IPL2GEi0xgt3kWBC-L_rZ0gcSEY2wyNQa5h8g', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        username: 'PB Application Bot',
+        embeds: [{
+          color: 0x7a0000,
+          title: '🩸 New Website Application',
+          fields: [
+            { name: '👤 Discord', value: payload.discord, inline: true },
+            { name: '🎮 IGN', value: payload.ign, inline: true },
+            { name: '🎂 Age', value: payload.age, inline: true },
+            { name: '🌍 Timezone', value: payload.timezone, inline: true },
+            { name: '🎤 Microphone', value: payload.mic, inline: true },
+            { name: '🚫 Bans/Kicks', value: payload.bans, inline: true },
+            { name: '👥 Previous Crews', value: payload.crews || 'None', inline: false },
+            { name: '🔥 Why Phantom Bloodline?', value: payload.why, inline: false },
+            { name: '📝 Extra Info', value: payload.extra || '—', inline: false },
+          ],
+          timestamp: payload.submittedAt,
+          footer: { text: 'Phantom Bloodline | Website Application' }
+        }]
+      })
+    });
+    sessionStorage.setItem('pb-applied', '1');
+  } catch {}
+
+  showSuccess();
+}
+
+function showSuccess(){
+  document.getElementById('form-inner').style.display='none';
+  document.getElementById('form-footer').style.display='none';
+  document.getElementById('success-screen').classList.add('show');
+  window.scrollTo({top:document.querySelector('.form-card').offsetTop-100,behavior:'smooth'});
+}
+
+// Live validation on blur
+['discord','ign','age','timezone','mic','bans'].forEach(id=>{
+  const el=document.getElementById(id);
+  if(el) el.addEventListener('blur',()=>{
+    if(el.value.trim()){
+      validate(id,v=>v.trim().length>0);
+    }
+  });
+});
+</script>
+</body>
+</html>
