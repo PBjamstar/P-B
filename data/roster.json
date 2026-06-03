@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-06-03T09:27:22.962Z",
+  "updatedAt": "2026-06-03T14:42:36.932Z",
   "totalMembers": 52,
-  "trialCount": 1,
+  "trialCount": 0,
   "guildName": "P-B x Phantom Bloodline",
   "guildIcon": "https://cdn.discordapp.com/icons/1206571308456878100/e1cc24c334d945424b974f52ba89e727.webp?size=128",
   "approximateMemberCount": 196,
-  "approximatePresenceCount": 30,
+  "approximatePresenceCount": 62,
   "ranks": [
     {
       "id": "1414318647836676146",
@@ -329,6 +329,13 @@
           "isTrial": false
         },
         {
+          "id": "1168774443229782018",
+          "username": "jogurt_14446",
+          "displayName": "P-B x ESTONIA",
+          "avatar": "https://cdn.discordapp.com/avatars/1168774443229782018/9f83525df2c0e174980500dc6ac7c7ea.webp?size=64",
+          "isTrial": false
+        },
+        {
           "id": "333355261580410880",
           "username": "mormorsukka",
           "displayName": "P-B x Hasse Karlsson",
@@ -427,22 +434,7 @@
           "isTrial": false
         }
       ],
-      "count": 26
-    },
-    {
-      "id": "1393326878315516045",
-      "name": "Trial",
-      "emoji": "⏳",
-      "members": [
-        {
-          "id": "1168774443229782018",
-          "username": "jogurt_14446",
-          "displayName": "P-B T x ESTONIA",
-          "avatar": "https://cdn.discordapp.com/avatars/1168774443229782018/9f83525df2c0e174980500dc6ac7c7ea.webp?size=64",
-          "isTrial": true
-        }
-      ],
-      "count": 1
+      "count": 27
     }
   ]
 }
