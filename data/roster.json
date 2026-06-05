@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-06-05T17:57:42.266Z",
+  "updatedAt": "2026-06-05T20:04:30.792Z",
   "totalMembers": 53,
-  "trialCount": 1,
+  "trialCount": 0,
   "guildName": "P-B x Phantom Bloodline",
   "guildIcon": "https://cdn.discordapp.com/icons/1206571308456878100/e1cc24c334d945424b974f52ba89e727.webp?size=128",
   "approximateMemberCount": 198,
-  "approximatePresenceCount": 71,
+  "approximatePresenceCount": 74,
   "ranks": [
     {
       "id": "1414318647836676146",
@@ -212,7 +212,7 @@
           "id": "1338069132163289091",
           "username": "leviackerman201_.",
           "displayName": "P-B x Shelby - 🕊️ DYNAMIX🕊️",
-          "avatar": "https://cdn.discordapp.com/avatars/1338069132163289091/bcc3a287734a9b081743ff17c1487371.webp?size=64",
+          "avatar": "https://cdn.discordapp.com/avatars/1338069132163289091/d10015e128de5793905a7c3d5d385eb9.webp?size=64",
           "isTrial": false
         },
         {
@@ -371,6 +371,13 @@
           "isTrial": false
         },
         {
+          "id": "953949958262898728",
+          "username": "kidzz_3107",
+          "displayName": "P-B x kidzz_3107",
+          "avatar": "https://cdn.discordapp.com/embed/avatars/3.png",
+          "isTrial": false
+        },
+        {
           "id": "762051534749696011",
           "username": "kisses4cinna",
           "displayName": "P-B x kisses4cinna",
@@ -434,22 +441,7 @@
           "isTrial": false
         }
       ],
-      "count": 27
-    },
-    {
-      "id": "1393326878315516045",
-      "name": "Trial",
-      "emoji": "⏳",
-      "members": [
-        {
-          "id": "953949958262898728",
-          "username": "kidzz_3107",
-          "displayName": "P-B T x kidzz_3107",
-          "avatar": "https://cdn.discordapp.com/embed/avatars/3.png",
-          "isTrial": true
-        }
-      ],
-      "count": 1
+      "count": 28
     }
   ]
 }
