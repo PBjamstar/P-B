@@ -1,24 +1,17 @@
 {
-  "updatedAt": "2026-06-12T21:46:33.359Z",
+  "updatedAt": "2026-06-12T23:18:25.714Z",
   "totalMembers": 54,
   "trialCount": 0,
   "guildName": "P-B x Phantom Bloodline",
   "guildIcon": "https://cdn.discordapp.com/icons/1206571308456878100/e1cc24c334d945424b974f52ba89e727.webp?size=128",
   "approximateMemberCount": 200,
-  "approximatePresenceCount": 62,
+  "approximatePresenceCount": 54,
   "ranks": [
     {
       "id": "1414318647836676146",
       "name": "Founder",
       "emoji": "👑",
       "members": [
-        {
-          "id": "460482036247822346",
-          "username": "dynamix__",
-          "displayName": "P-B x Dynamix OG , R.I.P",
-          "avatar": "https://cdn.discordapp.com/avatars/460482036247822346/b885cdf038412be3326573723cd646d1.webp?size=64",
-          "isTrial": false
-        },
         {
           "id": "396059469337067522",
           "username": "jamstar09",
@@ -27,7 +20,7 @@
           "isTrial": false
         }
       ],
-      "count": 2
+      "count": 1
     },
     {
       "id": "1393326324927697017",
@@ -116,6 +109,13 @@
       "emoji": "📋",
       "members": [
         {
+          "id": "460482036247822346",
+          "username": "dynamix__",
+          "displayName": "P-B x Dynamix OG , R.I.P",
+          "avatar": "https://cdn.discordapp.com/avatars/460482036247822346/b885cdf038412be3326573723cd646d1.webp?size=64",
+          "isTrial": false
+        },
+        {
           "id": "1461811518323822652",
           "username": "jg65211",
           "displayName": "P-B x Hrxvy - 🕊️DYNAMIX🕊️",
@@ -137,7 +137,7 @@
           "isTrial": false
         }
       ],
-      "count": 3
+      "count": 4
     },
     {
       "id": "1393326769725247710",
