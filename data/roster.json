@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-06-16T04:19:21.761Z",
-  "totalMembers": 53,
+  "updatedAt": "2026-06-16T10:08:51.238Z",
+  "totalMembers": 49,
   "trialCount": 2,
   "guildName": "P-B x Phantom Bloodline",
   "guildIcon": "https://cdn.discordapp.com/icons/1206571308456878100/e1cc24c334d945424b974f52ba89e727.webp?size=128",
   "approximateMemberCount": 199,
-  "approximatePresenceCount": 33,
+  "approximatePresenceCount": 43,
   "ranks": [
     {
       "id": "1414318647836676146",
@@ -265,20 +265,6 @@
           "isTrial": false
         },
         {
-          "id": "685496736646824040",
-          "username": "billbilly",
-          "displayName": "P-B x billbilly",
-          "avatar": "https://cdn.discordapp.com/avatars/685496736646824040/5ceffa66f5f8d82a5dbbc5191fc27eac.webp?size=64",
-          "isTrial": false
-        },
-        {
-          "id": "698657405461856346",
-          "username": "bugraaa1",
-          "displayName": "P-B x Bugra1",
-          "avatar": "https://cdn.discordapp.com/avatars/698657405461856346/53d405d006267451e968abae4799d467.webp?size=64",
-          "isTrial": false
-        },
-        {
           "id": "679159490377023499",
           "username": "leftinsmoke1",
           "displayName": "P-B x Connor g",
@@ -290,13 +276,6 @@
           "username": "czri2974",
           "displayName": "P-B x Czri",
           "avatar": "https://cdn.discordapp.com/avatars/404246293364604951/293b38a274d74627ea23b9fce9d90c5d.webp?size=64",
-          "isTrial": false
-        },
-        {
-          "id": "718478536075378709",
-          "username": "modernanxiety.",
-          "displayName": "P-B x Damocles Faulkner",
-          "avatar": "https://cdn.discordapp.com/avatars/718478536075378709/090857dfc9de1d0eaa710cee83bc3b4e.webp?size=64",
           "isTrial": false
         },
         {
@@ -318,13 +297,6 @@
           "username": "ialexsss",
           "displayName": "P-B x ialexsss",
           "avatar": "https://cdn.discordapp.com/avatars/618140756418232320/f3bf61e58ce6c4e0047b2fc8d27e1cf8.webp?size=64",
-          "isTrial": false
-        },
-        {
-          "id": "268754930989268992",
-          "username": "intel1gent",
-          "displayName": "P-B x intel1gent",
-          "avatar": "https://cdn.discordapp.com/avatars/268754930989268992/6a6723f72c9c07614456545483eb1f23.webp?size=64",
           "isTrial": false
         },
         {
@@ -419,7 +391,7 @@
           "isTrial": false
         }
       ],
-      "count": 28
+      "count": 24
     },
     {
       "id": "1393326878315516045",
