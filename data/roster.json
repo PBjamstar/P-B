@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-06-16T10:08:51.238Z",
-  "totalMembers": 49,
+  "updatedAt": "2026-06-16T15:56:04.174Z",
+  "totalMembers": 48,
   "trialCount": 2,
   "guildName": "P-B x Phantom Bloodline",
   "guildIcon": "https://cdn.discordapp.com/icons/1206571308456878100/e1cc24c334d945424b974f52ba89e727.webp?size=128",
   "approximateMemberCount": 199,
-  "approximatePresenceCount": 43,
+  "approximatePresenceCount": 68,
   "ranks": [
     {
       "id": "1414318647836676146",
@@ -307,13 +307,6 @@
           "isTrial": false
         },
         {
-          "id": "1045820116765511780",
-          "username": "izzonline",
-          "displayName": "P-B x John Carlos",
-          "avatar": "https://cdn.discordapp.com/avatars/1045820116765511780/5904eefc2f8682dfb53626f63946d125.webp?size=64",
-          "isTrial": false
-        },
-        {
           "id": "345835930273185792",
           "username": "justlewn",
           "displayName": "P-B x justlewn",
@@ -391,7 +384,7 @@
           "isTrial": false
         }
       ],
-      "count": 24
+      "count": 23
     },
     {
       "id": "1393326878315516045",
