@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-06-17T21:08:20.401Z",
+  "updatedAt": "2026-06-17T23:26:09.558Z",
   "totalMembers": 47,
-  "trialCount": 2,
+  "trialCount": 1,
   "guildName": "P-B x Phantom Bloodline",
   "guildIcon": "https://cdn.discordapp.com/icons/1206571308456878100/e1cc24c334d945424b974f52ba89e727.webp?size=128",
   "approximateMemberCount": 198,
-  "approximatePresenceCount": 61,
+  "approximatePresenceCount": 40,
   "ranks": [
     {
       "id": "1414318647836676146",
@@ -279,6 +279,13 @@
           "isTrial": false
         },
         {
+          "id": "791744736594624524",
+          "username": "doggy309",
+          "displayName": "P-B x doggy309",
+          "avatar": "https://cdn.discordapp.com/avatars/791744736594624524/c5ee7da4076c8e3dbfe8110376785f01.webp?size=64",
+          "isTrial": false
+        },
+        {
           "id": "1168774443229782018",
           "username": "jogurt_14446",
           "displayName": "P-B x ESTONIA",
@@ -377,7 +384,7 @@
           "isTrial": false
         }
       ],
-      "count": 22
+      "count": 23
     },
     {
       "id": "1393326878315516045",
@@ -385,21 +392,14 @@
       "emoji": "⏳",
       "members": [
         {
-          "id": "791744736594624524",
-          "username": "doggy309",
-          "displayName": "P-B T x doggy309",
-          "avatar": "https://cdn.discordapp.com/avatars/791744736594624524/c5ee7da4076c8e3dbfe8110376785f01.webp?size=64",
-          "isTrial": true
-        },
-        {
           "id": "941074320040542238",
           "username": "29391.",
-          "displayName": "P-B T x scottish hobo",
+          "displayName": "P-B T x sct",
           "avatar": "https://cdn.discordapp.com/avatars/941074320040542238/21ed1004266cc26d3f9667434c611b5e.webp?size=64",
           "isTrial": true
         }
       ],
-      "count": 2
+      "count": 1
     }
   ]
 }
