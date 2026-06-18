@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roster — Phantom Bloodline</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,400&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+:root {
+  --blood: #7a0000;
+  --blood-mid: #a01010;
+  --blood-bright: #c0392b;
+  --gold: #c9a84c;
+  --gold-light: #e8c87a;
+  --gold-dim: #7a5f28;
+  --smoke: #080808;
+  --ash: #111111;
+  --coal: #1a1a1a;
+  --bone: #e8dcc8;
+  --parchment: #d4c4a8;
+  --pale: #9a8870;
+  --white: #f5f0e8;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { background:var(--smoke); color:var(--bone); font-family:'Crimson Pro',serif; font-size:18px; min-height:100vh; overflow-x:hidden; cursor:none !important; }
+*, *::before, *::after { cursor:none !important; }
+body::after { content:''; position:fixed; inset:0; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E"); pointer-events:none; z-index:9998; opacity:0.3; }
+
+/* Custom cursor */
+#cursor { position:fixed; width:10px; height:10px; background:var(--blood-bright); border-radius:50%; pointer-events:none; z-index:9999; transform:translate(-50%,-50%); transition:transform 0.1s ease; box-shadow:0 0 8px var(--blood); }
+#cursor-ring { position:fixed; width:30px; height:30px; border:1px solid rgba(192,57,43,0.5); border-radius:50%; pointer-events:none; z-index:9999; transform:translate(-50%,-50%); transition:all 0.15s ease; }
+
+/* Scroll progress */
+#scroll-progress { position:fixed; top:0; left:0; height:3px; width:0%; background:linear-gradient(to right, var(--blood), var(--blood-bright), var(--gold)); z-index:2000; box-shadow:0 0 10px rgba(192,57,43,0.6); }
+
+/* Watermark */
+.watermark { position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); width:min(140vw,1800px); opacity:0.025; pointer-events:none; z-index:0; filter:grayscale(100%); }
+
+/* Nav */
+#nav { position:fixed; top:0; left:0; right:0; z-index:1000; padding:1.5rem clamp(1.5rem,4vw,5rem); display:flex; justify-content:space-between; align-items:center; transition:all 0.4s; }
+#nav.solid { background:rgba(5,5,5,0.97); padding:1rem clamp(1.5rem,4vw,5rem); border-bottom:1px solid rgba(122,0,0,0.25); backdrop-filter:blur(10px); }
+.nav-brand { font-family:'Cinzel',serif; font-weight:900; font-size:clamp(0.7rem,0.9vw,1rem); color:var(--gold); text-decoration:none; letter-spacing:0.2em; white-space:nowrap; flex-shrink:0; }
+.nav-links { display:flex; gap:clamp(0.5rem,1vw,2rem); list-style:none; align-items:center; flex-wrap:nowrap; overflow:visible; }
+.nav-links a { font-family:'Cinzel',serif; font-size:clamp(0.5rem,0.6vw,0.65rem); letter-spacing:0.15em; color:var(--pale); text-decoration:none; text-transform:uppercase; transition:color 0.25s; }
+.nav-links a:hover, .nav-links a.active { color:var(--white); }
+.nav-links .cta { padding:0.5rem clamp(0.6rem,1vw,1.5rem); border:1px solid var(--blood); color:var(--white); transition:all 0.3s; white-space:nowrap; flex-shrink:0; }
+.nav-links .cta:hover { background:var(--blood); }
+.nav-more-wrap { position:relative; }
+.nav-more-trigger { cursor:none; display:flex; align-items:center; gap:0.3rem; font-family:'Cinzel',serif; font-size:clamp(0.5rem,0.6vw,0.65rem); letter-spacing:0.15em; color:var(--pale); text-transform:uppercase; transition:color 0.25s; }
+.nav-more-trigger:hover { color:var(--white); }
+.nav-more-trigger::after { content:'▾'; font-size:0.6rem; }
+.mega-menu { position:absolute; top:calc(100% + 1.2rem); left:50%; transform:translateX(-50%) translateY(-8px); background:rgba(8,8,8,0.98); border:1px solid rgba(122,0,0,0.25); backdrop-filter:blur(12px); padding:0.5rem; min-width:200px; opacity:0; pointer-events:none; transition:opacity 0.25s ease,transform 0.25s ease; box-shadow:0 20px 50px rgba(0,0,0,0.6); }
+.nav-more-wrap:hover .mega-menu { opacity:1; pointer-events:auto; transform:translateX(-50%) translateY(0); }
+.mega-menu a { display:block; padding:0.7rem 1.2rem; font-family:'Cinzel',serif; font-size:0.62rem; letter-spacing:0.15em; color:var(--pale); text-decoration:none; text-transform:uppercase; transition:all 0.2s; white-space:nowrap; }
+.mega-menu a:hover { color:var(--white); background:rgba(122,0,0,0.12); }
+.nav-hamburger { display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:none; padding:4px; }
+.nav-hamburger span { display:block; width:24px; height:2px; background:var(--bone); transition:all 0.3s; }
+
+/* Mobile menu */
+.mobile-menu { position:fixed; inset:0; background:rgba(5,5,5,0.98); z-index:999; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:2rem; transform:translateX(100%); transition:transform 0.4s ease; }
+.mobile-menu.open { transform:translateX(0); }
+.mobile-menu a { font-family:'Cinzel',serif; font-size:1.2rem; letter-spacing:0.3em; color:var(--bone); text-decoration:none; text-transform:uppercase; transition:color 0.2s; }
+.mobile-menu a:hover { color:var(--gold); }
+.mobile-menu .cta { padding:0.8rem 2rem; border:1px solid var(--blood); color:var(--white); }
+
+/* Page hero */
+.page-hero { padding:10rem 2rem 5rem; text-align:center; background:radial-gradient(ellipse 80% 60% at 50% 0%, rgba(122,0,0,0.15) 0%, transparent 65%); position:relative; }
+.page-hero::after { content:''; position:absolute; bottom:0; left:50%; transform:translateX(-50%); width:70%; max-width:900px; height:1px; background:linear-gradient(to right,transparent,rgba(192,57,43,0.4),var(--gold-dim),rgba(192,57,43,0.4),transparent); }
+.eyebrow { font-family:'Share Tech Mono',monospace; font-size:0.65rem; letter-spacing:0.4em; color:var(--blood-bright); text-transform:uppercase; display:block; margin-bottom:0.8rem; }
+.page-title { font-family:'Cinzel Decorative',serif; font-size:clamp(2rem,5vw,3.5rem); font-weight:700; color:var(--white); margin-bottom:0.5rem; text-shadow:0 0 30px rgba(192,57,43,0.3); }
+.page-subtitle { color:var(--pale); font-style:italic; font-size:1.05rem; }
+
+/* Wrap */
+.wrap { max-width:1000px; margin:0 auto; padding:3rem 2rem 6rem; position:relative; z-index:1; }
+
+/* Reveal animations */
+.reveal { opacity:0; transform:translateY(24px); transition:opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1); }
+.reveal.in { opacity:1; transform:translateY(0); }
+
+/* Common elements */
+.search-box { width:100%; background:rgba(255,255,255,0.03); border:1px solid rgba(122,0,0,0.2); color:var(--bone); font-family:'Crimson Pro',serif; font-size:1rem; padding:0.8rem 1.2rem; outline:none; transition:border-color 0.2s; margin-bottom:1.5rem; }
+.search-box:focus { border-color:var(--blood-bright); }
+.search-box::placeholder { color:rgba(154,136,112,0.4); }
+.count-bar { font-family:'Share Tech Mono',monospace; font-size:0.6rem; letter-spacing:0.15em; color:rgba(154,136,112,0.35); margin-bottom:1.5rem; }
+.loading-wrap { text-align:center; padding:5rem; }
+.spinner { width:40px; height:40px; border:2px solid rgba(122,0,0,0.2); border-top-color:var(--blood-bright); border-radius:50%; animation:spin 0.8s linear infinite; margin:0 auto 1rem; }
+@keyframes spin { to{transform:rotate(360deg)} }
+.loading-text { font-family:'Share Tech Mono',monospace; font-size:0.65rem; letter-spacing:0.3em; color:var(--pale); text-transform:uppercase; }
+.empty { text-align:center; padding:4rem; color:var(--pale); font-style:italic; }
+.hidden { display:none; }
+
+@media(max-width:1200px) { #nav,#nav.solid { padding:1rem 2rem; } .nav-links { gap:1.2rem; } }
+@media(max-width:900px) { #nav,#nav.solid { padding:1rem 1.5rem; } .nav-links { display:none; } .nav-hamburger { display:flex; } }
+</style>
+<style>
+.stats-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:rgba(122,0,0,0.15); border:1px solid rgba(122,0,0,0.15); margin-bottom:0.5rem; }
+.stat-cell { background:rgba(26,26,26,0.9); padding:1.5rem 1rem; text-align:center; }
+.stat-num { font-family:'Cinzel',serif; font-size:2rem; font-weight:900; color:var(--blood-bright); display:block; line-height:1; text-shadow:0 0 20px rgba(192,57,43,0.4); }
+.stat-lbl { font-family:'Share Tech Mono',monospace; font-size:0.55rem; letter-spacing:0.2em; color:var(--pale); text-transform:uppercase; margin-top:0.3rem; display:block; }
+.updated-bar { text-align:center; font-family:'Share Tech Mono',monospace; font-size:0.55rem; letter-spacing:0.15em; color:rgba(154,136,112,0.3); padding:0.5rem 0 2rem; }
+.controls { display:flex; gap:1rem; margin-bottom:2rem; flex-wrap:wrap; }
+.search-box { flex:1; min-width:200px; }
+.collapse-btn { padding:0.7rem 1.5rem; background:transparent; border:1px solid rgba(122,0,0,0.25); color:var(--pale); font-family:'Cinzel',serif; font-size:0.62rem; letter-spacing:0.15em; text-transform:uppercase; cursor:none; transition:all 0.2s; white-space:nowrap; }
+.collapse-btn:hover { border-color:var(--blood); color:var(--white); }
+.rank-section { margin-bottom:2px; }
+.rank-header { display:flex; align-items:center; gap:1rem; padding:1rem 1.5rem; background:rgba(122,0,0,0.06); border-left:3px solid var(--blood); cursor:none; user-select:none; transition:background 0.2s; }
+.rank-header:hover { background:rgba(122,0,0,0.1); }
+.rank-emoji { font-size:1.1rem; flex-shrink:0; }
+.rank-name { font-family:'Cinzel',serif; font-size:0.9rem; font-weight:700; color:var(--gold-light); letter-spacing:0.05em; flex:1; text-shadow:0 0 12px rgba(201,168,76,0.2); }
+.rank-count { font-family:'Share Tech Mono',monospace; font-size:0.6rem; letter-spacing:0.1em; color:var(--pale); }
+.rank-chevron { color:rgba(154,136,112,0.5); font-size:0.65rem; transition:transform 0.3s; margin-left:0.5rem; }
+.rank-section.open .rank-chevron { transform:rotate(180deg); }
+.members-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:1px; background:rgba(122,0,0,0.06); overflow:hidden; max-height:0; transition:max-height 0.4s ease; }
+.rank-section.open .members-grid { max-height:5000px; }
+.member-card { background:rgba(26,26,26,0.9); padding:0.85rem 1rem; display:flex; align-items:center; gap:0.85rem; transition:background 0.2s; }
+.member-card:hover { background:rgba(122,0,0,0.08); }
+.member-card.hidden { display:none; }
+.member-avatar { width:38px; height:38px; border-radius:50%; border:1px solid rgba(122,0,0,0.3); object-fit:cover; flex-shrink:0; transition:border-color 0.2s; }
+.member-card:hover .member-avatar { border-color:var(--blood-bright); }
+.member-name { font-size:0.92rem; color:var(--bone); line-height:1.3; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.member-trial { font-family:'Share Tech Mono',monospace; font-size:0.52rem; letter-spacing:0.12em; color:var(--gold); display:block; margin-top:0.1rem; }
+@media(max-width:700px) { .stats-grid { grid-template-columns:1fr 1fr; } .controls { flex-direction:column; } .members-grid { grid-template-columns:1fr 1fr; } }
+</style>
+</head>
+<body>
+<div id="scroll-progress"></div>
+<img class="watermark" src="logo.png" alt="" aria-hidden="true">
+<div id="cursor"></div><div id="cursor-ring"></div>
+<nav id="nav">
+  <a href="#hero" class="nav-brand">PHANTOM BLOODLINE</a>
+  <ul class="nav-links">
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#leaderboard">Leaderboard</a></li>
+    <li><a href="#timeline">History</a></li>
+    <li><a href="index.html#news">News</a></li>
+    <li><a href="https://discord.gg/Pn7WB4ktjn">Discord</a></li>
+    <li><a href="index.html#rules">Rules</a></li>
+    <li><a href="index.html#ranks">Ranks</a></li>
+    <li><a href="index.html#staff">Staff</a></li>
+    <li><a href="roster.html">Roster</a></li>
+    <li class="nav-more-wrap">
+      <span class="nav-more-trigger">More</span>
+      <div class="mega-menu">
+        <a href="blacklist.html">🚫 Blacklist</a>
+        <a href="former-members.html">🎖️ Alumni</a>
+        <a href="news.html">📰 Announcements</a>
+        <a href="status.html">⚙️ Bot Status</a>
+        <a href="appeal.html">📋 Appeal</a>
+      </div>
+    </li>
+    <li><a href="apply.html" class="cta">Apply Now</a></li>
+    <li><a href="https://discord.gg/Pn7WB4ktjn" target="_blank" class="cta">Join Us</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" onclick="toggleMobileMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="index.html" onclick="closeMobileMenu()">Home</a>
+  <a href="roster.html" onclick="closeMobileMenu()">Roster</a>
+  <a href="blacklist.html" onclick="closeMobileMenu()">Blacklist</a>
+  <a href="former-members.html" onclick="closeMobileMenu()">Alumni</a>
+  <a href="news.html" onclick="closeMobileMenu()">Announcements</a>
+  <a href="status.html" onclick="closeMobileMenu()">Status</a>
+  <a href="appeal.html" onclick="closeMobileMenu()">Appeal</a>
+  <a href="apply.html" class="cta" onclick="closeMobileMenu()">Apply Now</a>
+  <a href="https://discord.gg/Pn7WB4ktjn" target="_blank" class="cta" onclick="closeMobileMenu()">Join Us</a>
+</div>
+<div class="page-hero">
+  <span class="eyebrow">The Crew</span>
+  <h1 class="page-title">Phantom Bloodline Roster</h1>
+  <p class="page-subtitle">The full chain of command — every rank, every member</p>
+</div>
+
+<div class="wrap">
+  <div class="stats-grid reveal" id="stats-grid">
+    <div class="stat-cell"><span class="stat-num" id="stat-total">—</span><span class="stat-lbl">Total Members</span></div>
+    <div class="stat-cell"><span class="stat-num" id="stat-trials">—</span><span class="stat-lbl">Active Trials</span></div>
+    <div class="stat-cell"><span class="stat-num" id="stat-ranks">—</span><span class="stat-lbl">Active Ranks</span></div>
+    <div class="stat-cell"><span class="stat-num" id="stat-online">—</span><span class="stat-lbl">Online Now</span></div>
+  </div>
+  <div class="updated-bar" id="updated-at"></div>
+
+  <div class="controls reveal">
+    <input type="text" class="search-box" id="search" placeholder="Search members by name...">
+    <button class="collapse-btn" id="collapse-btn">Collapse All</button>
+  </div>
+
+  <div id="loading" class="loading-wrap"><div class="spinner"></div><p class="loading-text">Loading roster...</p></div>
+  <div id="error" style="display:none;text-align:center;padding:4rem;color:var(--pale)">Failed to load roster. <a href="https://discord.gg/Pn7WB4ktjn" target="_blank" style="color:var(--gold)">Join our Discord →</a></div>
+  <div id="ranks-container"></div>
+</div>
+
+<script>
+// Custom cursor
+const cur = document.getElementById('cursor');
+const ring = document.getElementById('cursor-ring');
+document.addEventListener('mousemove', e => {
+  if(cur) { cur.style.left=e.clientX+'px'; cur.style.top=e.clientY+'px'; }
+  if(ring) { ring.style.left=e.clientX+'px'; ring.style.top=e.clientY+'px'; }
+});
+
+// Scroll progress
+const prog = document.getElementById('scroll-progress');
+if(prog) window.addEventListener('scroll', () => {
+  const t = document.documentElement.scrollHeight - window.innerHeight;
+  prog.style.width = (t > 0 ? (window.scrollY/t)*100 : 0) + '%';
+}, {passive:true});
+
+// Nav solid on scroll
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('solid', window.scrollY > 50), {passive:true});
+
+// Mobile menu
+function toggleMobileMenu() {
+  document.getElementById('mobile-menu').classList.toggle('open');
+}
+function closeMobileMenu() {
+  document.getElementById('mobile-menu').classList.remove('open');
+}
+
+// Reveal on scroll
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+}, {threshold:0.05});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+<script>
+let allOpen = true;
+function esc(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+async function loadRoster() {
+  try {
+    const res = await fetch('data/roster.json?t=' + Date.now());
+    if (!res.ok) throw new Error();
+    const data = await res.json();
+    document.getElementById('loading').style.display = 'none';
+    document.getElementById('stat-total').textContent = data.totalMembers;
+    document.getElementById('stat-trials').textContent = data.trialCount;
+    document.getElementById('stat-ranks').textContent = data.ranks.length;
+    document.getElementById('stat-online').textContent = data.approximatePresenceCount || '—';
+    const updated = new Date(data.updatedAt);
+    document.getElementById('updated-at').textContent = 'Last updated: ' + updated.toLocaleDateString('en-GB', {day:'numeric',month:'long',year:'numeric',hour:'2-digit',minute:'2-digit'});
+    const container = document.getElementById('ranks-container');
+    for (const rank of data.ranks) {
+      const section = document.createElement('div');
+      section.className = 'rank-section open reveal';
+      const header = document.createElement('div');
+      header.className = 'rank-header';
+      header.innerHTML = '<span class="rank-emoji">' + rank.emoji + '</span><span class="rank-name">' + rank.name + '</span><span class="rank-count" id="count-' + rank.id + '">' + rank.count + ' member' + (rank.count !== 1 ? 's' : '') + '</span><span class="rank-chevron">▲</span>';
+      header.addEventListener('click', () => section.classList.toggle('open'));
+      const grid = document.createElement('div');
+      grid.className = 'members-grid';
+      for (const member of rank.members) {
+        const card = document.createElement('div');
+        card.className = 'member-card';
+        card.dataset.name = member.displayName.toLowerCase();
+        card.innerHTML = '<img class="member-avatar" src="' + member.avatar + '" alt="' + esc(member.displayName) + '" onerror="this.src=\'https://cdn.discordapp.com/embed/avatars/0.png\'"><div style="min-width:0"><div class="member-name">' + esc(member.displayName) + '</div>' + (member.isTrial ? '<span class="member-trial">TRIAL</span>' : '') + '</div>';
+        grid.appendChild(card);
+      }
+      section.appendChild(header);
+      section.appendChild(grid);
+      container.appendChild(section);
+    }
+    // Re-observe new reveal elements
+    const obs = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting){x.target.classList.add('in');obs.unobserve(x.target);} }), {threshold:0.05});
+    container.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    document.getElementById('search').addEventListener('input', function() {
+      const q = this.value.toLowerCase().trim();
+      container.querySelectorAll('.rank-section').forEach(section => {
+        const cards = section.querySelectorAll('.member-card');
+        let visible = 0;
+        cards.forEach(card => { const m = !q || card.dataset.name.includes(q); card.classList.toggle('hidden', !m); if(m) visible++; });
+        const countEl = section.querySelector('.rank-count');
+        if (countEl) countEl.textContent = q ? visible + ' / ' + cards.length : cards.length + ' member' + (cards.length !== 1 ? 's' : '');
+        if (q) section.classList.toggle('open', visible > 0);
+        section.style.display = (q && visible === 0) ? 'none' : '';
+      });
+    });
+    document.getElementById('collapse-btn').addEventListener('click', function() {
+      allOpen = !allOpen;
+      container.querySelectorAll('.rank-section').forEach(s => s.classList.toggle('open', allOpen));
+      this.textContent = allOpen ? 'Collapse All' : 'Expand All';
+    });
+  } catch {
+    document.getElementById('loading').style.display = 'none';
+    document.getElementById('error').style.display = 'block';
+  }
+}
+loadRoster();
+</script>
+</body>
+</html>
