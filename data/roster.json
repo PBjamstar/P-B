@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-07-29T20:56:53.601Z",
+  "updatedAt": "2026-07-29T22:04:55.212Z",
   "totalMembers": 44,
   "trialCount": 1,
   "guildName": "P-B x Phantom Bloodline",
   "guildIcon": "https://cdn.discordapp.com/icons/1206571308456878100/e1cc24c334d945424b974f52ba89e727.webp?size=128",
   "approximateMemberCount": 196,
-  "approximatePresenceCount": 53,
+  "approximatePresenceCount": 50,
   "ranks": [
     {
       "id": "1414318647836676146",
@@ -166,6 +166,13 @@
           "isTrial": false
         },
         {
+          "id": "679159490377023499",
+          "username": "leftinsmoke1",
+          "displayName": "P-B x Connor g",
+          "avatar": "https://cdn.discordapp.com/avatars/679159490377023499/bf4bda41e4caa8096bd221fe3de24489.webp?size=64",
+          "isTrial": false
+        },
+        {
           "id": "1139842810187620352",
           "username": "armandamilk3_87815",
           "displayName": "P-B x Enzo5",
@@ -222,7 +229,7 @@
           "isTrial": false
         }
       ],
-      "count": 10
+      "count": 11
     },
     {
       "id": "1393326848498209009",
@@ -269,13 +276,6 @@
           "username": "doggy309",
           "displayName": "P-B x Chicken_",
           "avatar": "https://cdn.discordapp.com/avatars/791744736594624524/c5ee7da4076c8e3dbfe8110376785f01.webp?size=64",
-          "isTrial": false
-        },
-        {
-          "id": "679159490377023499",
-          "username": "leftinsmoke1",
-          "displayName": "P-B x Connor g",
-          "avatar": "https://cdn.discordapp.com/avatars/679159490377023499/bf4bda41e4caa8096bd221fe3de24489.webp?size=64",
           "isTrial": false
         },
         {
@@ -363,7 +363,7 @@
           "isTrial": false
         }
       ],
-      "count": 19
+      "count": 18
     },
     {
       "id": "1393326878315516045",
