@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-07-29T10:40:09.746Z",
+  "updatedAt": "2026-07-29T13:01:19.582Z",
   "totalMembers": 45,
   "trialCount": 1,
   "guildName": "P-B x Phantom Bloodline",
   "guildIcon": "https://cdn.discordapp.com/icons/1206571308456878100/e1cc24c334d945424b974f52ba89e727.webp?size=128",
   "approximateMemberCount": 197,
-  "approximatePresenceCount": 39,
+  "approximatePresenceCount": 48,
   "ranks": [
     {
       "id": "1414318647836676146",
@@ -213,9 +213,16 @@
           "displayName": "P-B x W4xters",
           "avatar": "https://cdn.discordapp.com/embed/avatars/4.png",
           "isTrial": false
+        },
+        {
+          "id": "874744777013358642",
+          "username": "whityy_",
+          "displayName": "P-B x whityy_",
+          "avatar": "https://cdn.discordapp.com/avatars/874744777013358642/3f91afc836a4e855e6b8740e67913ff0.webp?size=64",
+          "isTrial": false
         }
       ],
-      "count": 9
+      "count": 10
     },
     {
       "id": "1393326848498209009",
@@ -356,13 +363,6 @@
           "isTrial": false
         },
         {
-          "id": "874744777013358642",
-          "username": "whityy_",
-          "displayName": "P-B x whityy_",
-          "avatar": "https://cdn.discordapp.com/avatars/874744777013358642/3f91afc836a4e855e6b8740e67913ff0.webp?size=64",
-          "isTrial": false
-        },
-        {
           "id": "844819473734041611",
           "username": "yuruyenklozetkapagi",
           "displayName": "P-B x Yusufi",
@@ -370,7 +370,7 @@
           "isTrial": false
         }
       ],
-      "count": 21
+      "count": 20
     },
     {
       "id": "1393326878315516045",
