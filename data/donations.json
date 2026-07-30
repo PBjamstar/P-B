@@ -1,9 +1,17 @@
 {
   "goal": 0,
   "goalLabel": "",
-  "updatedAt": "2026-07-30T18:16:40.414Z",
+  "updatedAt": "2026-07-30T20:14:59.499Z",
   "totalRaised": 0,
-  "realTotal": 0,
+  "realTotal": 1,
   "ingameLeaderboard": [],
-  "realLeaderboard": []
+  "realLeaderboard": [
+    {
+      "rank": 1,
+      "userId": "396059469337067522",
+      "username": "P-B x jamstar OG",
+      "total": 1,
+      "displayAmount": "£1.00"
+    }
+  ]
 }

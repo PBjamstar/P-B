@@ -1,8 +1,8 @@
 [
   {
-    "title": "📢 next for P-B",
-    "body": "hello as founder of P-B ( jamstar ) i would like to know what each member would like to see next for  P-B even idea's are welcomed  but please do this by submitting a support ticket and  list as  others https://discord.com/channels/1206571308456878100/1393393305819287563",
-    "date": "2026-06-02T19:04:43.764000+00:00",
+    "title": "📢 📢 New Feature — CnR Live Status Tracker",
+    "body": "Hey everyone! 🩸  We now have a live Cops and Robbers server status tracker in <#1531981511845216318> that updates every 5 minutes showing player counts across all servers.  To get yourself tracked when you're in-game, you need to link your CnR username:  Run this command in any channel:  /cnr-link set [your CnR username]  Example: If your in-game name shows as P-B x jamstar, just type:  /cnr-link set jamstar  Use your base username only — no P-B x prefix needed.  Once linked, the status channel will show your name whenever you're online on CnR! 🎮  — Phantom Bloodline Leadership 🩸",
+    "date": "2026-07-30T19:52:39.662000+00:00",
     "tag": "Announced by jamstar09",
     "color": 15158332
   }
