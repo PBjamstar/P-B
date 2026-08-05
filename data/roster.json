@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-08-05T21:10:05.847Z",
-  "totalMembers": 45,
+  "updatedAt": "2026-08-05T22:59:45.441Z",
+  "totalMembers": 46,
   "trialCount": 1,
   "guildName": "P-B x Phantom Bloodline",
   "guildIcon": "https://cdn.discordapp.com/icons/1206571308456878100/e1cc24c334d945424b974f52ba89e727.webp?size=128",
   "approximateMemberCount": 199,
-  "approximatePresenceCount": 56,
+  "approximatePresenceCount": 45,
   "ranks": [
     {
       "id": "1414318647836676146",
@@ -293,6 +293,13 @@
           "isTrial": false
         },
         {
+          "id": "547747792794157077",
+          "username": "emre94s",
+          "displayName": "P-B x EmreTheKidd",
+          "avatar": "https://cdn.discordapp.com/embed/avatars/2.png",
+          "isTrial": false
+        },
+        {
           "id": "1168774443229782018",
           "username": "jogurt_14446",
           "displayName": "P-B x ESTONIA",
@@ -370,7 +377,7 @@
           "isTrial": false
         }
       ],
-      "count": 19
+      "count": 20
     },
     {
       "id": "1393326878315516045",
