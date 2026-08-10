@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-08-10T17:51:51.803Z",
+  "updatedAt": "2026-08-10T18:57:55.366Z",
   "totalMembers": 48,
-  "trialCount": 2,
+  "trialCount": 1,
   "guildName": "P-B x Phantom Bloodline",
   "guildIcon": "https://cdn.discordapp.com/icons/1206571308456878100/e1cc24c334d945424b974f52ba89e727.webp?size=128",
   "approximateMemberCount": 203,
-  "approximatePresenceCount": 63,
+  "approximatePresenceCount": 69,
   "ranks": [
     {
       "id": "1414318647836676146",
@@ -293,6 +293,13 @@
           "isTrial": false
         },
         {
+          "id": "527179996499017728",
+          "username": "dom_zxbbb",
+          "displayName": "P-B x dom_zxbbb",
+          "avatar": "https://cdn.discordapp.com/avatars/527179996499017728/29a5f20a8b39c71befc59df32d4824b0.webp?size=64",
+          "isTrial": false
+        },
+        {
           "id": "547747792794157077",
           "username": "emre94s",
           "displayName": "P-B x EmreTheKidd",
@@ -384,20 +391,13 @@
           "isTrial": false
         }
       ],
-      "count": 21
+      "count": 22
     },
     {
       "id": "1393326878315516045",
       "name": "Trial",
       "emoji": "⏳",
       "members": [
-        {
-          "id": "527179996499017728",
-          "username": "dom_zxbbb",
-          "displayName": "P-B T x dom_zxbbb",
-          "avatar": "https://cdn.discordapp.com/avatars/527179996499017728/29a5f20a8b39c71befc59df32d4824b0.webp?size=64",
-          "isTrial": true
-        },
         {
           "id": "883382653351501894",
           "username": "mymomdadandi",
@@ -406,7 +406,7 @@
           "isTrial": true
         }
       ],
-      "count": 2
+      "count": 1
     }
   ]
 }
