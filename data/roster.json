@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-08-14T13:07:18.578Z",
+  "updatedAt": "2026-08-14T14:52:18.201Z",
   "totalMembers": 49,
   "trialCount": 1,
   "guildName": "P-B x Phantom Bloodline",
   "guildIcon": "https://cdn.discordapp.com/icons/1206571308456878100/e1cc24c334d945424b974f52ba89e727.webp?size=128",
   "approximateMemberCount": 205,
-  "approximatePresenceCount": 53,
+  "approximatePresenceCount": 54,
   "ranks": [
     {
       "id": "1414318647836676146",
@@ -17,7 +17,7 @@
           "username": "jamstar09",
           "displayName": "P-B x jamstar OG",
           "avatar": "https://cdn.discordapp.com/avatars/396059469337067522/b9b79c45fdb1bad114ef57b2871eafcf.webp?size=64",
-          "isTrial": false
+          "isTrial": true
         }
       ],
       "count": 1
@@ -204,7 +204,7 @@
           "id": "465840973830815744",
           "username": "stefanek911",
           "displayName": "P-B x StefaN OG",
-          "avatar": "https://cdn.discordapp.com/avatars/465840973830815744/0b8c5d5cdd98c241db0048e839688a9f.webp?size=64",
+          "avatar": "https://cdn.discordapp.com/avatars/465840973830815744/117d1036f63c14d3e65dd472d8f61b37.webp?size=64",
           "isTrial": false
         },
         {
