@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-08-21T11:26:25.481Z",
-  "totalMembers": 50,
+  "updatedAt": "2026-08-21T12:49:09.118Z",
+  "totalMembers": 51,
   "trialCount": 0,
   "guildName": "P-B x Phantom Bloodline",
   "guildIcon": "https://cdn.discordapp.com/icons/1206571308456878100/e1cc24c334d945424b974f52ba89e727.webp?size=128",
   "approximateMemberCount": 207,
-  "approximatePresenceCount": 49,
+  "approximatePresenceCount": 54,
   "ranks": [
     {
       "id": "1414318647836676146",
@@ -391,6 +391,13 @@
           "isTrial": false
         },
         {
+          "id": "943226307439919165",
+          "username": "synx216",
+          "displayName": "P-B x Synx",
+          "avatar": "https://cdn.discordapp.com/avatars/943226307439919165/a38618327a2c2f3be5729dda82c30a11.webp?size=64",
+          "isTrial": false
+        },
+        {
           "id": "1346464596566741054",
           "username": "thewormhimself",
           "displayName": "P-B x The Mosquito",
@@ -412,7 +419,7 @@
           "isTrial": false
         }
       ],
-      "count": 26
+      "count": 27
     }
   ]
 }
