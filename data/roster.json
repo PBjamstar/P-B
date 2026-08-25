@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-08-25T19:32:07.930Z",
-  "totalMembers": 54,
+  "updatedAt": "2026-08-25T20:29:15.932Z",
+  "totalMembers": 55,
   "trialCount": 3,
   "guildName": "P-B x Phantom Bloodline",
   "guildIcon": "https://cdn.discordapp.com/icons/1206571308456878100/e1cc24c334d945424b974f52ba89e727.webp?size=128",
-  "approximateMemberCount": 212,
-  "approximatePresenceCount": 66,
+  "approximateMemberCount": 213,
+  "approximatePresenceCount": 60,
   "ranks": [
     {
       "id": "1414318647836676146",
@@ -405,6 +405,13 @@
           "isTrial": false
         },
         {
+          "id": "1238553877582970992",
+          "username": "rusty05532",
+          "displayName": "P-B x smeggy leggy foxy",
+          "avatar": "https://cdn.discordapp.com/avatars/1238553877582970992/a5464994ddbc27155d76abd9b7bcab71.webp?size=64",
+          "isTrial": false
+        },
+        {
           "id": "1346464596566741054",
           "username": "thewormhimself",
           "displayName": "P-B x The Mosquito",
@@ -426,13 +433,20 @@
           "isTrial": false
         }
       ],
-      "count": 28
+      "count": 29
     },
     {
       "id": "1393326878315516045",
       "name": "Trial",
       "emoji": "⏳",
       "members": [
+        {
+          "id": "1178776453425397800",
+          "username": "_realwest_",
+          "displayName": "P-B T x _realwest_",
+          "avatar": "https://cdn.discordapp.com/avatars/1178776453425397800/b585794e4cdcb1cc6ea9d2dfc6b71c60.webp?size=64",
+          "isTrial": true
+        },
         {
           "id": "1291200298228121656",
           "username": "akblixky1",
@@ -445,13 +459,6 @@
           "username": "crucify4545",
           "displayName": "P-B T x Crucify.",
           "avatar": "https://cdn.discordapp.com/avatars/1379234213114417204/be0da37b5f074c8234a9d59ce52129aa.webp?size=64",
-          "isTrial": true
-        },
-        {
-          "id": "1238553877582970992",
-          "username": "rusty05532",
-          "displayName": "P-B T x loganfox450",
-          "avatar": "https://cdn.discordapp.com/avatars/1238553877582970992/a5464994ddbc27155d76abd9b7bcab71.webp?size=64",
           "isTrial": true
         }
       ],
