@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-08-25T23:25:06.607Z",
-  "totalMembers": 55,
+  "updatedAt": "2026-08-26T01:20:47.089Z",
+  "totalMembers": 53,
   "trialCount": 3,
   "guildName": "P-B x Phantom Bloodline",
   "guildIcon": "https://cdn.discordapp.com/icons/1206571308456878100/e1cc24c334d945424b974f52ba89e727.webp?size=128",
-  "approximateMemberCount": 213,
-  "approximatePresenceCount": 41,
+  "approximateMemberCount": 212,
+  "approximatePresenceCount": 34,
   "ranks": [
     {
       "id": "1414318647836676146",
@@ -265,13 +265,6 @@
           "isTrial": false
         },
         {
-          "id": "1446979066938003690",
-          "username": "summer_jacky",
-          "displayName": "P-B x Beckie hill",
-          "avatar": "https://cdn.discordapp.com/avatars/1446979066938003690/ceb294291164351d77fa80636b9d56b9.webp?size=64",
-          "isTrial": false
-        },
-        {
           "id": "791744736594624524",
           "username": "doggy309",
           "displayName": "P-B x Chicken_",
@@ -346,13 +339,6 @@
           "username": "kidzz_3107",
           "displayName": "P-B x kidzz_3107",
           "avatar": "https://cdn.discordapp.com/embed/avatars/3.png",
-          "isTrial": false
-        },
-        {
-          "id": "762051534749696011",
-          "username": "kisses4cinna",
-          "displayName": "P-B x kisses4cinna",
-          "avatar": "https://cdn.discordapp.com/avatars/762051534749696011/f102cc519ea8ac1de596a3cb3f0bdf16.webp?size=64",
           "isTrial": false
         },
         {
@@ -433,7 +419,7 @@
           "isTrial": false
         }
       ],
-      "count": 29
+      "count": 27
     },
     {
       "id": "1393326878315516045",
