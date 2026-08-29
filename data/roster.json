@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-08-29T06:00:52.579Z",
+  "updatedAt": "2026-08-29T12:59:00.044Z",
   "totalMembers": 53,
-  "trialCount": 4,
+  "trialCount": 3,
   "guildName": "P-B x Phantom Bloodline",
   "guildIcon": "https://cdn.discordapp.com/icons/1206571308456878100/e1cc24c334d945424b974f52ba89e727.webp?size=128",
   "approximateMemberCount": 214,
-  "approximatePresenceCount": 23,
+  "approximatePresenceCount": 57,
   "ranks": [
     {
       "id": "1414318647836676146",
@@ -314,6 +314,13 @@
           "isTrial": false
         },
         {
+          "id": "1178776453425397800",
+          "username": "_realwest_",
+          "displayName": "P-B x enzb",
+          "avatar": "https://cdn.discordapp.com/avatars/1178776453425397800/a6fac700faa7a82795824becadea25eb.webp?size=64",
+          "isTrial": true
+        },
+        {
           "id": "1168774443229782018",
           "username": "jogurt_14446",
           "displayName": "P-B x ESTONIA",
@@ -412,7 +419,7 @@
           "isTrial": false
         }
       ],
-      "count": 26
+      "count": 27
     },
     {
       "id": "1393326878315516045",
@@ -424,13 +431,6 @@
           "username": "crucify4545",
           "displayName": "P-B T x Crucify.",
           "avatar": "https://cdn.discordapp.com/avatars/1379234213114417204/be0da37b5f074c8234a9d59ce52129aa.webp?size=64",
-          "isTrial": true
-        },
-        {
-          "id": "1178776453425397800",
-          "username": "_realwest_",
-          "displayName": "P-B T x enzb",
-          "avatar": "https://cdn.discordapp.com/avatars/1178776453425397800/a6fac700faa7a82795824becadea25eb.webp?size=64",
           "isTrial": true
         },
         {
@@ -448,7 +448,7 @@
           "isTrial": true
         }
       ],
-      "count": 4
+      "count": 3
     }
   ]
 }
