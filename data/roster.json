@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-09-02T23:02:21.438Z",
+  "updatedAt": "2026-09-03T03:23:07.888Z",
   "totalMembers": 53,
-  "trialCount": 3,
+  "trialCount": 2,
   "guildName": "P-B x Phantom Bloodline",
   "guildIcon": "https://cdn.discordapp.com/icons/1206571308456878100/e1cc24c334d945424b974f52ba89e727.webp?size=128",
   "approximateMemberCount": 213,
-  "approximatePresenceCount": 52,
+  "approximatePresenceCount": 24,
   "ranks": [
     {
       "id": "1414318647836676146",
@@ -417,9 +417,16 @@
           "displayName": "P-B x VALTER 🇸🇪",
           "avatar": "https://cdn.discordapp.com/avatars/1244192747317891117/bd386702875dd668da5b64ddbb8e0784.webp?size=64",
           "isTrial": false
+        },
+        {
+          "id": "484607292818456587",
+          "username": "zimbaeray",
+          "displayName": "P-B x zimbaeray",
+          "avatar": "https://cdn.discordapp.com/avatars/484607292818456587/0f4e08e5e709bc7d254903216f9dd6ed.webp?size=64",
+          "isTrial": false
         }
       ],
-      "count": 27
+      "count": 28
     },
     {
       "id": "1393326878315516045",
@@ -439,16 +446,9 @@
           "displayName": "P-B T x shushyou1",
           "avatar": "https://cdn.discordapp.com/avatars/1194786740473438244/e372661553765c9fec11a4515a5ebba2.webp?size=64",
           "isTrial": true
-        },
-        {
-          "id": "484607292818456587",
-          "username": "zimbaeray",
-          "displayName": "P-B T x zimbaeray",
-          "avatar": "https://cdn.discordapp.com/avatars/484607292818456587/0f4e08e5e709bc7d254903216f9dd6ed.webp?size=64",
-          "isTrial": true
         }
       ],
-      "count": 3
+      "count": 2
     }
   ]
 }
