@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-09-04T13:12:25.056Z",
-  "totalMembers": 53,
+  "updatedAt": "2026-09-04T17:24:04.981Z",
+  "totalMembers": 54,
   "trialCount": 2,
   "guildName": "P-B x Phantom Bloodline",
   "guildIcon": "https://cdn.discordapp.com/icons/1206571308456878100/e1cc24c334d945424b974f52ba89e727.webp?size=128",
   "approximateMemberCount": 216,
-  "approximatePresenceCount": 59,
+  "approximatePresenceCount": 80,
   "ranks": [
     {
       "id": "1414318647836676146",
@@ -265,6 +265,13 @@
           "isTrial": false
         },
         {
+          "id": "702899394843770951",
+          "username": "lasquale429",
+          "displayName": "P-B x Beny.",
+          "avatar": "https://cdn.discordapp.com/avatars/702899394843770951/aca0c44aacd58012ad9c91608f3b0df9.webp?size=64",
+          "isTrial": false
+        },
+        {
           "id": "791744736594624524",
           "username": "doggy309",
           "displayName": "P-B x Chicken_",
@@ -426,7 +433,7 @@
           "isTrial": false
         }
       ],
-      "count": 28
+      "count": 29
     },
     {
       "id": "1393326878315516045",
