@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-09-05T10:05:23.007Z",
+  "updatedAt": "2026-09-05T13:41:53.880Z",
   "totalMembers": 55,
   "trialCount": 2,
   "guildName": "P-B x Phantom Bloodline",
   "guildIcon": "https://cdn.discordapp.com/icons/1206571308456878100/e1cc24c334d945424b974f52ba89e727.webp?size=128",
-  "approximateMemberCount": 216,
-  "approximatePresenceCount": 47,
+  "approximateMemberCount": 215,
+  "approximatePresenceCount": 62,
   "ranks": [
     {
       "id": "1414318647836676146",
@@ -322,7 +322,7 @@
         },
         {
           "id": "1178776453425397800",
-          "username": "_realwest_",
+          "username": "plutorz",
           "displayName": "P-B x enzb",
           "avatar": "https://cdn.discordapp.com/avatars/1178776453425397800/a6fac700faa7a82795824becadea25eb.webp?size=64",
           "isTrial": true
