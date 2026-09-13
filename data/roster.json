@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-09-13T20:36:58.964Z",
+  "updatedAt": "2026-09-13T22:56:25.564Z",
   "totalMembers": 57,
-  "trialCount": 4,
+  "trialCount": 3,
   "guildName": "P-B x Phantom Bloodline",
   "guildIcon": "https://cdn.discordapp.com/icons/1206571308456878100/e1cc24c334d945424b974f52ba89e727.webp?size=128",
-  "approximateMemberCount": 217,
-  "approximatePresenceCount": 61,
+  "approximateMemberCount": 216,
+  "approximatePresenceCount": 49,
   "ranks": [
     {
       "id": "1414318647836676146",
@@ -265,6 +265,13 @@
       "emoji": "🤝",
       "members": [
         {
+          "id": "518801371441659905",
+          "username": "davudr1107",
+          "displayName": "P-B x ACE",
+          "avatar": "https://cdn.discordapp.com/avatars/518801371441659905/eed7a6ca9b62764282c9957e95747674.webp?size=64",
+          "isTrial": false
+        },
+        {
           "id": "299953666406744064",
           "username": "chenlu",
           "displayName": "P-B x Anonymous8716",
@@ -440,7 +447,7 @@
           "isTrial": false
         }
       ],
-      "count": 25
+      "count": 26
     },
     {
       "id": "1393326878315516045",
@@ -452,13 +459,6 @@
           "username": "_.kurupt._",
           "displayName": "P-B T x _.kurupt._",
           "avatar": "https://cdn.discordapp.com/avatars/798880523606294539/d1dff70aa795e58f339eb152dbd69f19.webp?size=64",
-          "isTrial": true
-        },
-        {
-          "id": "518801371441659905",
-          "username": "davudr1107",
-          "displayName": "P-B T x ACE",
-          "avatar": "https://cdn.discordapp.com/avatars/518801371441659905/eed7a6ca9b62764282c9957e95747674.webp?size=64",
           "isTrial": true
         },
         {
@@ -476,7 +476,7 @@
           "isTrial": true
         }
       ],
-      "count": 4
+      "count": 3
     }
   ]
 }
