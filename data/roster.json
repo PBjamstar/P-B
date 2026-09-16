@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-09-16T19:23:51.905Z",
-  "totalMembers": 57,
+  "updatedAt": "2026-09-16T22:40:43.675Z",
+  "totalMembers": 59,
   "trialCount": 0,
   "guildName": "P-B x Phantom Bloodline",
   "guildIcon": "https://cdn.discordapp.com/icons/1206571308456878100/e1cc24c334d945424b974f52ba89e727.webp?size=128",
-  "approximateMemberCount": 217,
-  "approximatePresenceCount": 75,
+  "approximateMemberCount": 218,
+  "approximatePresenceCount": 47,
   "ranks": [
     {
       "id": "1414318647836676146",
@@ -250,6 +250,13 @@
           "isTrial": false
         },
         {
+          "id": "343039943628554240",
+          "username": "yiza",
+          "displayName": "P-B x YIZA",
+          "avatar": "https://cdn.discordapp.com/avatars/343039943628554240/c3f061d6bbc8add15fb1aa2443e427b6.webp?size=64",
+          "isTrial": false
+        },
+        {
           "id": "1523989973362020523",
           "username": "remarkable_courgette_07257",
           "displayName": "P-B x Зенокс™",
@@ -257,7 +264,7 @@
           "isTrial": false
         }
       ],
-      "count": 19
+      "count": 20
     },
     {
       "id": "1393326848498209009",
@@ -440,6 +447,13 @@
           "isTrial": false
         },
         {
+          "id": "974061028612653097",
+          "username": "spionhunter",
+          "displayName": "P-B x Spion D. Boss",
+          "avatar": "https://cdn.discordapp.com/avatars/974061028612653097/a_4b7d72608bf54df78b0c95de6abedc31.webp?size=64",
+          "isTrial": false
+        },
+        {
           "id": "1346464596566741054",
           "username": "thewormhimself",
           "displayName": "P-B x The Mosquito",
@@ -468,7 +482,7 @@
           "isTrial": false
         }
       ],
-      "count": 29
+      "count": 30
     }
   ]
 }
