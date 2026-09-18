@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-09-18T21:26:37.347Z",
+  "updatedAt": "2026-09-18T23:55:20.636Z",
   "totalMembers": 59,
   "trialCount": 1,
   "guildName": "P-B x Phantom Bloodline",
   "guildIcon": "https://cdn.discordapp.com/icons/1206571308456878100/e1cc24c334d945424b974f52ba89e727.webp?size=128",
-  "approximateMemberCount": 219,
-  "approximatePresenceCount": 63,
+  "approximateMemberCount": 220,
+  "approximatePresenceCount": 50,
   "ranks": [
     {
       "id": "1414318647836676146",
@@ -288,7 +288,7 @@
         {
           "id": "1269804104784416851",
           "username": "bigwsus0",
-          "displayName": "P-B x bigwsus0",
+          "displayName": "P-B x Bigw",
           "avatar": "https://cdn.discordapp.com/avatars/1269804104784416851/bf4ffabc53fd95ee593e3a022de2b86f.webp?size=64",
           "isTrial": false
         },
@@ -314,17 +314,17 @@
           "isTrial": false
         },
         {
+          "id": "527179996499017728",
+          "username": "dom_zxbbb",
+          "displayName": "P-B x daddy dom",
+          "avatar": "https://cdn.discordapp.com/avatars/527179996499017728/c633e82239691676bd98b46bb934b244.webp?size=64",
+          "isTrial": false
+        },
+        {
           "id": "952555319349874689",
           "username": "alphaxyz",
           "displayName": "P-B x Dextuhhh",
           "avatar": "https://cdn.discordapp.com/avatars/952555319349874689/68fa59d614ed0cb5d5bbce90a85e40e2.webp?size=64",
-          "isTrial": false
-        },
-        {
-          "id": "527179996499017728",
-          "username": "dom_zxbbb",
-          "displayName": "P-B x dom_zxbbb",
-          "avatar": "https://cdn.discordapp.com/avatars/527179996499017728/c633e82239691676bd98b46bb934b244.webp?size=64",
           "isTrial": false
         },
         {
@@ -372,7 +372,7 @@
         {
           "id": "953949958262898728",
           "username": "kidzz_3107",
-          "displayName": "P-B x kidzz_3107",
+          "displayName": "P-B x kidzz",
           "avatar": "https://cdn.discordapp.com/embed/avatars/3.png",
           "isTrial": false
         },
@@ -412,13 +412,6 @@
           "isTrial": false
         },
         {
-          "id": "1238553877582970992",
-          "username": "rusty05532",
-          "displayName": "P-B x Rahul kumar",
-          "avatar": "https://cdn.discordapp.com/avatars/1238553877582970992/a5464994ddbc27155d76abd9b7bcab71.webp?size=64",
-          "isTrial": false
-        },
-        {
           "id": "1338069132163289091",
           "username": "leviackerman201_.",
           "displayName": "P-B x Shelby - 🕊️ DYNAMIX🕊️",
@@ -444,6 +437,13 @@
           "username": "spionhunter",
           "displayName": "P-B x Spion D. Boss",
           "avatar": "https://cdn.discordapp.com/avatars/974061028612653097/a_4b7d72608bf54df78b0c95de6abedc31.webp?size=64",
+          "isTrial": false
+        },
+        {
+          "id": "1238553877582970992",
+          "username": "rusty05532",
+          "displayName": "P-B x strawberry bon bons",
+          "avatar": "https://cdn.discordapp.com/avatars/1238553877582970992/a5464994ddbc27155d76abd9b7bcab71.webp?size=64",
           "isTrial": false
         },
         {
@@ -485,7 +485,7 @@
         {
           "id": "1370392849933275230",
           "username": "easy025125",
-          "displayName": "P-B T x easy025125",
+          "displayName": "P-B T x bmw m3",
           "avatar": "https://cdn.discordapp.com/avatars/1370392849933275230/6550e6702bbc4f538921dc0b8d88f93b.webp?size=64",
           "isTrial": true
         }
