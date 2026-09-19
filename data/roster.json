@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-09-19T16:18:25.341Z",
-  "totalMembers": 59,
-  "trialCount": 1,
+  "updatedAt": "2026-09-19T19:12:36.093Z",
+  "totalMembers": 60,
+  "trialCount": 2,
   "guildName": "P-B x Phantom Bloodline",
   "guildIcon": "https://cdn.discordapp.com/icons/1206571308456878100/e1cc24c334d945424b974f52ba89e727.webp?size=128",
-  "approximateMemberCount": 220,
-  "approximatePresenceCount": 66,
+  "approximateMemberCount": 221,
+  "approximatePresenceCount": 72,
   "ranks": [
     {
       "id": "1414318647836676146",
@@ -488,9 +488,16 @@
           "displayName": "P-B T x bmw m3",
           "avatar": "https://cdn.discordapp.com/avatars/1370392849933275230/6550e6702bbc4f538921dc0b8d88f93b.webp?size=64",
           "isTrial": true
+        },
+        {
+          "id": "844202826762027020",
+          "username": "bad_lucifer",
+          "displayName": "P-B T x Lucifer.",
+          "avatar": "https://cdn.discordapp.com/avatars/844202826762027020/2bbef850c696d0c970ad6fef5832e0d2.webp?size=64",
+          "isTrial": true
         }
       ],
-      "count": 1
+      "count": 2
     }
   ]
 }
