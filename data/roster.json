@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-09-26T16:53:44.146Z",
+  "updatedAt": "2026-09-26T19:33:09.434Z",
   "totalMembers": 59,
   "trialCount": 2,
   "guildName": "P-B x Phantom Bloodline",
   "guildIcon": "https://cdn.discordapp.com/icons/1206571308456878100/e1cc24c334d945424b974f52ba89e727.webp?size=128",
   "approximateMemberCount": 220,
-  "approximatePresenceCount": 65,
+  "approximatePresenceCount": 66,
   "ranks": [
     {
       "id": "1414318647836676146",
@@ -413,7 +413,7 @@
         },
         {
           "id": "898850579101646878",
-          "username": "nekovampire",
+          "username": "skylifeboss1",
           "displayName": "P-B x Sky Life",
           "avatar": "https://cdn.discordapp.com/avatars/898850579101646878/a_15ae467305fc04f3ddfa25d83c2d826c.webp?size=64",
           "isTrial": false
