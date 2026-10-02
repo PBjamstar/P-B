@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-10-02T01:21:25.650Z",
-  "totalMembers": 58,
-  "trialCount": 1,
+  "updatedAt": "2026-10-02T08:01:52.933Z",
+  "totalMembers": 59,
+  "trialCount": 2,
   "guildName": "P-B x Phantom Bloodline",
   "guildIcon": "https://cdn.discordapp.com/icons/1206571308456878100/e1cc24c334d945424b974f52ba89e727.webp?size=128",
-  "approximateMemberCount": 221,
-  "approximatePresenceCount": 28,
+  "approximateMemberCount": 222,
+  "approximatePresenceCount": 23,
   "ranks": [
     {
       "id": "1414318647836676146",
@@ -114,9 +114,16 @@
           "displayName": "P-B x 𝕋𝕨𝕚ℤ𝕫𝕪💎",
           "avatar": "https://cdn.discordapp.com/avatars/1396456833333465268/ef6cbfb1c3019c1aeadba274111bb3da.webp?size=64",
           "isTrial": false
+        },
+        {
+          "id": "874744777013358642",
+          "username": "whityy_",
+          "displayName": "P-B x whityy_",
+          "avatar": "https://cdn.discordapp.com/avatars/874744777013358642/d91cd91bbee38115ba93bd9a90902865.webp?size=64",
+          "isTrial": false
         }
       ],
-      "count": 1
+      "count": 2
     },
     {
       "id": "1393326818576040058",
@@ -222,13 +229,6 @@
           "isTrial": false
         },
         {
-          "id": "874744777013358642",
-          "username": "whityy_",
-          "displayName": "P-B x whityy_",
-          "avatar": "https://cdn.discordapp.com/avatars/874744777013358642/d91cd91bbee38115ba93bd9a90902865.webp?size=64",
-          "isTrial": false
-        },
-        {
           "id": "1523989973362020523",
           "username": "remarkable_courgette_07257",
           "displayName": "P-B x Зенокс™",
@@ -236,7 +236,7 @@
           "isTrial": false
         }
       ],
-      "count": 16
+      "count": 15
     },
     {
       "id": "1393326848498209009",
@@ -476,6 +476,13 @@
       "emoji": "⏳",
       "members": [
         {
+          "id": "746422617145082086",
+          "username": "karzmajoo911",
+          "displayName": "P-B T x karzmajoo911",
+          "avatar": "https://cdn.discordapp.com/avatars/746422617145082086/e4be83b1b8a1d769d928dbe9d707128c.webp?size=64",
+          "isTrial": true
+        },
+        {
           "id": "724672201441148968",
           "username": "oldo76",
           "displayName": "P-B T x oldo",
@@ -483,7 +490,7 @@
           "isTrial": true
         }
       ],
-      "count": 1
+      "count": 2
     }
   ]
 }
