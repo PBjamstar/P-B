@@ -7,13 +7,6 @@
     "order": 1
   },
   {
-    "name": "P-B x MrFrup!OG",
-    "rank": "Manager",
-    "emoji": "🎩",
-    "avatar": "https://cdn.discordapp.com/avatars/683750652039528452/a430aabfe6a535cec1f26bf969fb1204.webp?size=64",
-    "order": 2
-  },
-  {
     "name": "P-B x Squ4ty OG",
     "rank": "Manager",
     "emoji": "🎩",
@@ -32,6 +25,13 @@
     "rank": "Boss",
     "emoji": "🔱",
     "avatar": "https://cdn.discordapp.com/avatars/518084411342848000/d211bc5537a7c1359bff6c6e8af0d3a9.webp?size=64",
+    "order": 3
+  },
+  {
+    "name": "P-B x MrFrup!OG",
+    "rank": "Boss",
+    "emoji": "🔱",
+    "avatar": "https://cdn.discordapp.com/avatars/683750652039528452/a430aabfe6a535cec1f26bf969fb1204.webp?size=64",
     "order": 3
   }
 ]
