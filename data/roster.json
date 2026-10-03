@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-10-03T06:06:14.800Z",
-  "totalMembers": 61,
-  "trialCount": 4,
+  "updatedAt": "2026-10-03T12:16:31.860Z",
+  "totalMembers": 62,
+  "trialCount": 5,
   "guildName": "P-B x Phantom Bloodline",
   "guildIcon": "https://cdn.discordapp.com/icons/1206571308456878100/e1cc24c334d945424b974f52ba89e727.webp?size=128",
-  "approximateMemberCount": 224,
-  "approximatePresenceCount": 27,
+  "approximateMemberCount": 225,
+  "approximatePresenceCount": 51,
   "ranks": [
     {
       "id": "1414318647836676146",
@@ -112,7 +112,7 @@
           "id": "1396456833333465268",
           "username": "twizzy0_0_",
           "displayName": "P-B x 𝕋𝕨𝕚ℤ𝕫𝕪💎",
-          "avatar": "https://cdn.discordapp.com/avatars/1396456833333465268/ef6cbfb1c3019c1aeadba274111bb3da.webp?size=64",
+          "avatar": "https://cdn.discordapp.com/avatars/1396456833333465268/0977259e0001d737958b1c7615980f79.webp?size=64",
           "isTrial": false
         },
         {
@@ -497,6 +497,13 @@
           "isTrial": true
         },
         {
+          "id": "694886826803986493",
+          "username": "talel_",
+          "displayName": "P-B T x talel_",
+          "avatar": "https://cdn.discordapp.com/avatars/694886826803986493/ff6584627f4e9015ee81ef6936cfd647.webp?size=64",
+          "isTrial": true
+        },
+        {
           "id": "1279873284933947404",
           "username": "74ghostbusters",
           "displayName": "P-B T x Torbaci",
@@ -504,7 +511,7 @@
           "isTrial": true
         }
       ],
-      "count": 4
+      "count": 5
     }
   ]
 }
