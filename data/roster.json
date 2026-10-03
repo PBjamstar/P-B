@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-10-02T20:24:07.635Z",
-  "totalMembers": 60,
-  "trialCount": 3,
+  "updatedAt": "2026-10-03T00:11:53.680Z",
+  "totalMembers": 61,
+  "trialCount": 4,
   "guildName": "P-B x Phantom Bloodline",
   "guildIcon": "https://cdn.discordapp.com/icons/1206571308456878100/e1cc24c334d945424b974f52ba89e727.webp?size=128",
-  "approximateMemberCount": 223,
-  "approximatePresenceCount": 60,
+  "approximateMemberCount": 224,
+  "approximatePresenceCount": 39,
   "ranks": [
     {
       "id": "1414318647836676146",
@@ -476,10 +476,10 @@
       "emoji": "⏳",
       "members": [
         {
-          "id": "1279873284933947404",
-          "username": "74ghostbusters",
-          "displayName": "P-B T x 74ghostbusters",
-          "avatar": "https://cdn.discordapp.com/avatars/1279873284933947404/8ad3374c48e2c86a0dfe51b4f6b13f9b.webp?size=64",
+          "id": "1025581666200191037",
+          "username": "makarov_999",
+          "displayName": "P-B T x makarov_999",
+          "avatar": "https://cdn.discordapp.com/avatars/1025581666200191037/0f3be584402535e9a83efd2936915f5d.webp?size=64",
           "isTrial": true
         },
         {
@@ -495,9 +495,16 @@
           "displayName": "P-B T x Sovx.!",
           "avatar": "https://cdn.discordapp.com/avatars/746422617145082086/e4be83b1b8a1d769d928dbe9d707128c.webp?size=64",
           "isTrial": true
+        },
+        {
+          "id": "1279873284933947404",
+          "username": "74ghostbusters",
+          "displayName": "P-B T x Torbaci",
+          "avatar": "https://cdn.discordapp.com/avatars/1279873284933947404/8ad3374c48e2c86a0dfe51b4f6b13f9b.webp?size=64",
+          "isTrial": true
         }
       ],
-      "count": 3
+      "count": 4
     }
   ]
 }
