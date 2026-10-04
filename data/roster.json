@@ -1,31 +1,16 @@
 {
-  "updatedAt": "2026-10-04T10:57:04.739Z",
-  "totalMembers": 62,
+  "updatedAt": "2026-10-04T15:43:04.258Z",
+  "totalMembers": 61,
   "trialCount": 6,
   "guildName": "P-B x Phantom Bloodline",
   "guildIcon": "https://cdn.discordapp.com/icons/1206571308456878100/e1cc24c334d945424b974f52ba89e727.webp?size=128",
   "approximateMemberCount": 225,
-  "approximatePresenceCount": 44,
+  "approximatePresenceCount": 62,
   "ranks": [
     {
       "id": "1414318647836676146",
       "name": "Founder",
       "emoji": "👑",
-      "members": [
-        {
-          "id": "396059469337067522",
-          "username": "jamstar09",
-          "displayName": "P-B x jamstar OG",
-          "avatar": "https://cdn.discordapp.com/avatars/396059469337067522/b9b79c45fdb1bad114ef57b2871eafcf.webp?size=64",
-          "isTrial": true
-        }
-      ],
-      "count": 1
-    },
-    {
-      "id": "1393326324927697017",
-      "name": "Manager",
-      "emoji": "🎩",
       "members": [
         {
           "id": "870010056576475236",
@@ -35,6 +20,21 @@
           "isTrial": false
         },
         {
+          "id": "396059469337067522",
+          "username": "jamstar09",
+          "displayName": "P-B x jamstar OG",
+          "avatar": "https://cdn.discordapp.com/avatars/396059469337067522/b9b79c45fdb1bad114ef57b2871eafcf.webp?size=64",
+          "isTrial": true
+        }
+      ],
+      "count": 2
+    },
+    {
+      "id": "1393326324927697017",
+      "name": "Manager",
+      "emoji": "🎩",
+      "members": [
+        {
           "id": "755766386826936340",
           "username": "squ4ty",
           "displayName": "P-B x Squ4ty OG",
@@ -42,7 +42,7 @@
           "isTrial": false
         }
       ],
-      "count": 2
+      "count": 1
     },
     {
       "id": "1393326479592521728",
@@ -55,16 +55,9 @@
           "displayName": "P-B x lucaf2850 - 🕊️ DYNAMIX🕊️",
           "avatar": "https://cdn.discordapp.com/avatars/518084411342848000/d211bc5537a7c1359bff6c6e8af0d3a9.webp?size=64",
           "isTrial": false
-        },
-        {
-          "id": "683750652039528452",
-          "username": "mrfrup",
-          "displayName": "P-B x MrFrup!OG",
-          "avatar": "https://cdn.discordapp.com/avatars/683750652039528452/a430aabfe6a535cec1f26bf969fb1204.webp?size=64",
-          "isTrial": false
         }
       ],
-      "count": 2
+      "count": 1
     },
     {
       "id": "1393326608621895851",
