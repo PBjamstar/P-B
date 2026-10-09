@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-10-09T12:43:37.266Z",
+  "updatedAt": "2026-10-09T18:40:32.139Z",
   "totalMembers": 50,
-  "trialCount": 4,
+  "trialCount": 3,
   "guildName": "P-B x Phantom Bloodline",
   "guildIcon": "https://cdn.discordapp.com/icons/1206571308456878100/e1cc24c334d945424b974f52ba89e727.webp?size=128",
   "approximateMemberCount": 233,
-  "approximatePresenceCount": 40,
+  "approximatePresenceCount": 66,
   "ranks": [
     {
       "id": "1414318647836676146",
@@ -307,6 +307,13 @@
           "isTrial": true
         },
         {
+          "id": "844202826762027020",
+          "username": "bad_lucifer",
+          "displayName": "P-B x lucifer",
+          "avatar": "https://cdn.discordapp.com/avatars/844202826762027020/2bbef850c696d0c970ad6fef5832e0d2.webp?size=64",
+          "isTrial": false
+        },
+        {
           "id": "1025581666200191037",
           "username": "makarov_999",
           "displayName": "P-B x makarov",
@@ -391,7 +398,7 @@
           "isTrial": false
         }
       ],
-      "count": 26
+      "count": 27
     },
     {
       "id": "1393326878315516045",
@@ -413,13 +420,6 @@
           "isTrial": true
         },
         {
-          "id": "844202826762027020",
-          "username": "bad_lucifer",
-          "displayName": "P-B T x lucifer",
-          "avatar": "https://cdn.discordapp.com/avatars/844202826762027020/2bbef850c696d0c970ad6fef5832e0d2.webp?size=64",
-          "isTrial": true
-        },
-        {
           "id": "1386814461267939401",
           "username": "pishat24",
           "displayName": "P-B T x W 0 n k s",
@@ -427,7 +427,7 @@
           "isTrial": true
         }
       ],
-      "count": 4
+      "count": 3
     }
   ]
 }
