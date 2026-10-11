@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-10-10T20:30:05.650Z",
+  "updatedAt": "2026-10-11T00:07:57.208Z",
   "totalMembers": 51,
-  "trialCount": 4,
+  "trialCount": 3,
   "guildName": "P-B x Phantom Bloodline",
   "guildIcon": "https://cdn.discordapp.com/icons/1206571308456878100/e1cc24c334d945424b974f52ba89e727.webp?size=128",
-  "approximateMemberCount": 234,
-  "approximatePresenceCount": 62,
+  "approximateMemberCount": 235,
+  "approximatePresenceCount": 40,
   "ranks": [
     {
       "id": "1414318647836676146",
@@ -268,7 +268,7 @@
           "id": "1073265402987167805",
           "username": "swelash",
           "displayName": "P-B x Dufka",
-          "avatar": "https://cdn.discordapp.com/avatars/1073265402987167805/c6342b05ddc063b5d70348a5dd2c7d8f.webp?size=64",
+          "avatar": "https://cdn.discordapp.com/avatars/1073265402987167805/96f339a0c7b37c530036f43e0aaf47f9.webp?size=64",
           "isTrial": false
         },
         {
@@ -276,6 +276,13 @@
           "username": "emre94s",
           "displayName": "P-B x EmreTheKidd",
           "avatar": "https://cdn.discordapp.com/embed/avatars/2.png",
+          "isTrial": false
+        },
+        {
+          "id": "1054839616131317831",
+          "username": "envyessin",
+          "displayName": "P-B x envyessin",
+          "avatar": "https://cdn.discordapp.com/avatars/1054839616131317831/e0cc454c0069d9dedcf868add33b11e8.webp?size=64",
           "isTrial": false
         },
         {
@@ -398,20 +405,13 @@
           "isTrial": false
         }
       ],
-      "count": 27
+      "count": 28
     },
     {
       "id": "1393326878315516045",
       "name": "Trial",
       "emoji": "⏳",
       "members": [
-        {
-          "id": "1054839616131317831",
-          "username": "envyessin",
-          "displayName": "P-B T x envyessin",
-          "avatar": "https://cdn.discordapp.com/avatars/1054839616131317831/e0cc454c0069d9dedcf868add33b11e8.webp?size=64",
-          "isTrial": true
-        },
         {
           "id": "477043024568909835",
           "username": "happyh1d.",
@@ -434,7 +434,7 @@
           "isTrial": true
         }
       ],
-      "count": 4
+      "count": 3
     }
   ]
 }
