@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-10-12T10:22:21.539Z",
+  "updatedAt": "2026-10-12T20:09:19.641Z",
   "totalMembers": 51,
-  "trialCount": 3,
+  "trialCount": 1,
   "guildName": "P-B x Phantom Bloodline",
   "guildIcon": "https://cdn.discordapp.com/icons/1206571308456878100/e1cc24c334d945424b974f52ba89e727.webp?size=128",
-  "approximateMemberCount": 235,
-  "approximatePresenceCount": 34,
+  "approximateMemberCount": 236,
+  "approximatePresenceCount": 65,
   "ranks": [
     {
       "id": "1414318647836676146",
@@ -391,6 +391,13 @@
           "isTrial": false
         },
         {
+          "id": "1386814461267939401",
+          "username": "pishat24",
+          "displayName": "P-B x wonks1989",
+          "avatar": "https://cdn.discordapp.com/avatars/1386814461267939401/3b7cc535210f833732b0873db5a715a8.webp?size=64",
+          "isTrial": false
+        },
+        {
           "id": "1543975237123571847",
           "username": "sque_dd",
           "displayName": "P-B x X sophie X",
@@ -405,7 +412,7 @@
           "isTrial": false
         }
       ],
-      "count": 28
+      "count": 29
     },
     {
       "id": "1393326878315516045",
@@ -413,28 +420,14 @@
       "emoji": "⏳",
       "members": [
         {
-          "id": "477043024568909835",
-          "username": "happyh1d.",
-          "displayName": "P-B T x HappyH1D",
-          "avatar": "https://cdn.discordapp.com/avatars/477043024568909835/093d9606f3fe82a149b99bae2ee4ac4a.webp?size=64",
-          "isTrial": true
-        },
-        {
           "id": "1069409709527941250",
           "username": "faras3413",
           "displayName": "P-B T x Syrian Faras",
           "avatar": "https://cdn.discordapp.com/avatars/1069409709527941250/91387449e2b881e0558b865e1a578083.webp?size=64",
           "isTrial": true
-        },
-        {
-          "id": "1386814461267939401",
-          "username": "pishat24",
-          "displayName": "P-B T x wonks1989",
-          "avatar": "https://cdn.discordapp.com/avatars/1386814461267939401/3b7cc535210f833732b0873db5a715a8.webp?size=64",
-          "isTrial": true
         }
       ],
-      "count": 3
+      "count": 1
     }
   ]
 }
