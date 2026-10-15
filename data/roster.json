@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-10-14T22:05:28.914Z",
+  "updatedAt": "2026-10-15T01:15:26.975Z",
   "totalMembers": 52,
-  "trialCount": 3,
+  "trialCount": 2,
   "guildName": "P-B x Phantom Bloodline",
   "guildIcon": "https://cdn.discordapp.com/icons/1206571308456878100/e1cc24c334d945424b974f52ba89e727.webp?size=128",
   "approximateMemberCount": 238,
-  "approximatePresenceCount": 60,
+  "approximatePresenceCount": 28,
   "ranks": [
     {
       "id": "1414318647836676146",
@@ -377,6 +377,13 @@
           "isTrial": false
         },
         {
+          "id": "1069409709527941250",
+          "username": "faras3413",
+          "displayName": "P-B x Syrian Faras",
+          "avatar": "https://cdn.discordapp.com/avatars/1069409709527941250/91387449e2b881e0558b865e1a578083.webp?size=64",
+          "isTrial": false
+        },
+        {
           "id": "694886826803986493",
           "username": "talel_",
           "displayName": "P-B x talel_",
@@ -412,7 +419,7 @@
           "isTrial": false
         }
       ],
-      "count": 29
+      "count": 30
     },
     {
       "id": "1393326878315516045",
@@ -432,16 +439,9 @@
           "displayName": "P-B T x LewisTheOG",
           "avatar": "https://cdn.discordapp.com/avatars/949914637070127144/5dd6dba993d453931d48cd1b49311bd0.webp?size=64",
           "isTrial": true
-        },
-        {
-          "id": "1069409709527941250",
-          "username": "faras3413",
-          "displayName": "P-B T x Syrian Faras",
-          "avatar": "https://cdn.discordapp.com/avatars/1069409709527941250/91387449e2b881e0558b865e1a578083.webp?size=64",
-          "isTrial": true
         }
       ],
-      "count": 3
+      "count": 2
     }
   ]
 }
