@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-10-18T03:27:20.221Z",
-  "totalMembers": 53,
+  "updatedAt": "2026-10-18T08:37:49.792Z",
+  "totalMembers": 54,
   "trialCount": 1,
   "guildName": "P-B x Phantom Bloodline",
   "guildIcon": "https://cdn.discordapp.com/icons/1206571308456878100/e1cc24c334d945424b974f52ba89e727.webp?size=128",
   "approximateMemberCount": 237,
-  "approximatePresenceCount": 23,
+  "approximatePresenceCount": 34,
   "ranks": [
     {
       "id": "1414318647836676146",
@@ -335,6 +335,13 @@
           "isTrial": false
         },
         {
+          "id": "337002748430254081",
+          "username": "emmalost44",
+          "displayName": "P-B x Meow.exe",
+          "avatar": "https://cdn.discordapp.com/avatars/337002748430254081/2c1d86f696351d146f13afbe89ef3a28.webp?size=64",
+          "isTrial": false
+        },
+        {
           "id": "556890762017505291",
           "username": "mouse_st",
           "displayName": "P-B x Mouse_ST",
@@ -433,7 +440,7 @@
           "isTrial": false
         }
       ],
-      "count": 32
+      "count": 33
     },
     {
       "id": "1393326878315516045",
