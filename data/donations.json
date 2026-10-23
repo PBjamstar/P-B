@@ -1,13 +1,20 @@
 {
   "goal": 0,
   "goalLabel": "",
-  "updatedAt": "2026-10-23T13:08:31.306Z",
+  "updatedAt": "2026-10-23T18:07:43.757Z",
   "totalRaised": 0,
-  "realTotal": 1,
+  "realTotal": 0,
   "ingameLeaderboard": [],
   "realLeaderboard": [
     {
       "rank": 1,
+      "userId": "1396456833333465268",
+      "username": "𝙋-𝘽 𝙭 𝙏𝙬𝙞𝙕𝙯𝙮💎",
+      "total": 4,
+      "displayAmount": "£4.00"
+    },
+    {
+      "rank": 2,
       "userId": "396059469337067522",
       "username": "P-B x jamstar OG",
       "total": 1,
