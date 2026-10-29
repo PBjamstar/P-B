@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-10-28T22:28:29.174Z",
-  "totalMembers": 46,
+  "updatedAt": "2026-10-29T02:10:20.573Z",
+  "totalMembers": 45,
   "trialCount": 0,
   "guildName": "P-B x Phantom Bloodline",
   "guildIcon": "https://cdn.discordapp.com/icons/1206571308456878100/e1cc24c334d945424b974f52ba89e727.webp?size=128",
-  "approximateMemberCount": 237,
-  "approximatePresenceCount": 69,
+  "approximateMemberCount": 236,
+  "approximatePresenceCount": 32,
   "ranks": [
     {
       "id": "1414318647836676146",
@@ -301,13 +301,6 @@
           "isTrial": false
         },
         {
-          "id": "367789785546358784",
-          "username": "obi_wancumblowme97",
-          "displayName": "P-B x Nigga the 8th",
-          "avatar": "https://cdn.discordapp.com/avatars/367789785546358784/1e5cc218a9d1467df878882a650c26bc.webp?size=64",
-          "isTrial": false
-        },
-        {
           "id": "943226307439919165",
           "username": "synx216",
           "displayName": "P-B x nothereanymore",
@@ -399,7 +392,7 @@
           "isTrial": false
         }
       ],
-      "count": 26
+      "count": 25
     }
   ]
 }
