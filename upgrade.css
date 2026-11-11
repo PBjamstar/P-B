@@ -1,0 +1,65 @@
+/* Phantom Bloodline — upgrade layer. Loaded after each page's own <style>, so it overrides without touching page code. */
+:root { --display: 'Anton', 'Impact', 'Arial Narrow', sans-serif; }
+html { scroll-padding-top: 5rem; }
+
+/* Type: heavy condensed caps taken from the logo lettering; Cinzel stays for small UI labels only */
+.hero-title, .section-title, .page-title, .stat-number, .stats-bar-num, .rule-num, .lb-total, .join-stat-num, .funding-raised, .tl-year {
+  font-family: var(--display); font-weight: 400; text-transform: uppercase; letter-spacing: 0.03em;
+}
+.hero-title { font-size: clamp(3.6rem, 12vw, 9rem); line-height: 0.9; color: var(--blood-bright); text-shadow: 0 0 60px rgba(192,57,43,0.35); }
+.hero-title em { display: block; font-style: normal; color: inherit; background: none; -webkit-text-fill-color: currentColor; }
+.section-title, .page-title { font-size: clamp(2.2rem, 5vw, 3.8rem); line-height: 1; text-shadow: none; color: var(--white); }
+.stats-bar-num, .stat-number { color: var(--blood-bright); text-shadow: none; }
+.rule-num { color: rgba(192,57,43,0.55); font-size: 2.4rem; }
+
+/* Headings read left to right; drop the ornament dividers */
+.section-header { text-align: left; margin-bottom: 3.5rem; }
+.section-header .gold-rule, .gold-rule { display: none; }
+.page-hero { text-align: left; max-width: 1000px; margin: 0 auto; padding-left: 2rem; padding-right: 2rem; }
+.page-hero::after { left: 2rem; transform: none; }
+
+/* Readable small text (was 8–10px in places) */
+.eyebrow, .news-date, .count-bar, .loading-text, .hero-badge, .funding-label, .stats-bar-lbl, .stat-label, .join-stat-label {
+  font-size: 0.75rem; letter-spacing: 0.08em; text-transform: none;
+}
+.count-bar { color: var(--pale); }
+.nav-links a, .nav-more-trigger { font-size: 0.72rem; letter-spacing: 0.12em; }
+.mega-menu a { font-size: 0.72rem; }
+.news-body, .rule-desc, .rank-desc-text, .tl-text { font-size: 1.05rem; line-height: 1.7; }
+
+/* Nav: 11 items need room, so switch to the menu button earlier */
+@media (max-width: 1280px) {
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+}
+@media (max-width: 700px) {
+  .rank-row { grid-template-columns: 1fr; gap: 0.4rem; }
+  .section { padding: 4rem 0; }
+}
+
+/* Buttons: real touch targets */
+.btn-primary, .btn-secondary, .submit-btn, .nav-links .cta { min-height: 44px; }
+
+/* Calmer hover: no lift on every control */
+.btn-primary:hover, .btn-secondary:hover { transform: none; }
+
+/* Keyboard + touch + motion */
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+input, textarea, select { cursor: text !important; }
+@media (hover: none), (pointer: coarse) {
+  body, body *, *::before, *::after { cursor: auto !important; }
+  #cursor, #cursor-ring { display: none !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+  .reveal, .reveal-l, .reveal-r { opacity: 1 !important; transform: none !important; }
+}
+
+/* How to join: a red band between ranks and staff — the page's one real call to action */
+.join-band { background: linear-gradient(135deg, #2a0505 0%, #120303 60%, var(--smoke) 100%); border-block: 1px solid rgba(192,57,43,0.35); padding: 5rem 0; }
+.join-steps { list-style: none; counter-reset: step; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; margin: 0 0 2.5rem; padding: 0; }
+.join-steps li { counter-increment: step; padding-top: 1rem; border-top: 2px solid var(--blood-bright); }
+.join-steps li::before { content: counter(step); display: block; font-family: var(--display); font-size: 3rem; line-height: 1; color: rgba(192,57,43,0.6); }
+.join-steps h3 { font-family: var(--display); font-weight: 400; font-size: 1.6rem; letter-spacing: 0.03em; text-transform: uppercase; color: var(--white); margin: 0.4rem 0; }
+.join-steps p { color: var(--bone); line-height: 1.7; max-width: 32ch; }
+.join-cta { display: flex; flex-wrap: wrap; gap: 1rem; }

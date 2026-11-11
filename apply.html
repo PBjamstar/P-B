@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Apply — Phantom Bloodline</title>
 <meta name="description" content="Apply to join Phantom Bloodline — the elite FiveM CNR crew on EU1.">
-<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/PBjamstar/P-B/main/logo.png">
+<link rel="icon" type="image/png" href="logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 <style>
@@ -136,7 +136,7 @@ textarea{resize:vertical;min-height:110px;line-height:1.6;}
 
 <div id="loader">
   <div class="loader-logo">
-    <img src="https://raw.githubusercontent.com/PBjamstar/P-B/main/logo.png" alt="PB">
+    <img src="logo.png" alt="PB">
     <div class="loader-ring"></div>
   </div>
   <div class="loader-text">Loading...</div>
@@ -428,7 +428,7 @@ async function submitForm(){
   }
 
   try {
-    await fetch('https://discord.com/api/webhooks/1504211280633008159/vb8Um3veZE9ZuTRUq4elj_lzu1_At2-IPL2GEi0xgt3kWBC-L_rZ0gcSEY2wyNQa5h8g', {
+    const subRes = await fetch('https://discord.com/api/webhooks/1504211280633008159/vb8Um3veZE9ZuTRUq4elj_lzu1_At2-IPL2GEi0xgt3kWBC-L_rZ0gcSEY2wyNQa5h8g', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -452,7 +452,14 @@ async function submitForm(){
         }]
       })
     });
-  } catch {}
+    if (!subRes.ok) throw new Error('webhook ' + subRes.status);
+  } catch {
+    btn.classList.remove('loading'); btn.disabled = false;
+    const errEl = document.getElementById('form-error-msg');
+    errEl.textContent = '\u26a0 Your application could not be sent. Please try again, or message us on Discord.';
+    errEl.classList.add('show');
+    return;
+  }
 
   showSuccess();
 }

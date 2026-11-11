@@ -412,6 +412,9 @@ footer { background:#030303; border-top:1px solid rgba(122,0,0,0.2); padding:4re
   .funding-inner { padding:0 1.5rem; }
 }
 </style>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="upgrade.css">
 </head>
 <body>
 <div id="scroll-progress"></div>
@@ -457,6 +460,9 @@ footer { background:#030303; border-top:1px solid rgba(122,0,0,0.2); padding:4re
   <a href="former-members.html" onclick="closeMobileMenu()">Alumni</a>
   <a href="news.html" onclick="closeMobileMenu()">Announcements</a>
   <a href="status.html" onclick="closeMobileMenu()">Status</a>
+  <a href="appeal.html" onclick="closeMobileMenu()">Appeal</a>
+  <a href="faq.html" onclick="closeMobileMenu()">FAQ</a>
+  <a href="crew-stats.html" onclick="closeMobileMenu()">Crew Stats</a>
   <a href="apply.html" class="cta" onclick="closeMobileMenu()">Apply Now</a>
   <a href="https://discord.gg/Pn7WB4ktjn" target="_blank" class="cta">Join Us</a>
 </div>
@@ -481,6 +487,8 @@ footer { background:#030303; border-top:1px solid rgba(122,0,0,0.2); padding:4re
         <a href="news.html">📰 Announcements</a>
         <a href="status.html">⚙️ Bot Status</a>
         <a href="appeal.html">📋 Appeal</a>
+        <a href="faq.html">❓ FAQ</a>
+        <a href="crew-stats.html">📊 Crew Stats</a>
       </div>
     </li>
     <li><a href="apply.html" class="cta">Apply Now</a></li>
@@ -499,7 +507,7 @@ footer { background:#030303; border-top:1px solid rgba(122,0,0,0.2); padding:4re
   <div class="hero-content">
     <div class="hero-badge">Est. Birmingham · 1919</div>
     <div class="hero-logo-wrap">
-      <img src="https://raw.githubusercontent.com/PBjamstar/P-B/main/logo.png" alt="Phantom Bloodline">
+      <img src="logo.png" alt="Phantom Bloodline" width="500" height="500">
       <div class="hero-ring"></div>
     </div>
     <h1 class="hero-title">Phantom<em>Bloodline</em></h1>
@@ -612,7 +620,7 @@ footer { background:#030303; border-top:1px solid rgba(122,0,0,0.2); padding:4re
           <div class="stat-cell"><span class="stat-number">#<sup>1</sup></span><span class="stat-label">CNR Crew</span></div>
         </div>
         <div class="about-img">
-          <img src="https://raw.githubusercontent.com/PBjamstar/P-B/main/background.png" alt="Phantom Bloodline crew" loading="lazy" onerror="this.style.display='none'">
+          <img src="background.webp" width="1024" height="1024" alt="Phantom Bloodline crew" loading="lazy" onerror="this.style.display='none'">
           <div class="about-img-caption">Phantom Bloodline — EU1 Operations</div>
         </div>
       </div>
@@ -711,6 +719,23 @@ footer { background:#030303; border-top:1px solid rgba(122,0,0,0.2); padding:4re
     </div>
     <div class="ranks-table" id="ranks-table">
       <!-- Populated from data/roster.json -->
+    </div>
+  </div>
+</section>
+
+<section id="how-to-join" class="join-band">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">How to join</h2>
+    </div>
+    <ol class="join-steps">
+      <li><h3>Apply</h3><p>Fill in the application on this site.</p></li>
+      <li><h3>Get reviewed</h3><p>Leadership reads every application and replies on Discord. Keep your DMs open.</p></li>
+      <li><h3>Earn your rank</h3><p>New members start on trial and move up the ranks through activity and loyalty.</p></li>
+    </ol>
+    <div class="join-cta">
+      <a href="apply.html" class="btn-primary">Apply now</a>
+      <a href="https://discord.gg/Pn7WB4ktjn" target="_blank" rel="noopener" class="btn-secondary">Join the Discord</a>
     </div>
   </div>
 </section>
@@ -938,9 +963,9 @@ async function loadStaffData() {
       const card = document.createElement('div');
       card.className = 'staff-card reveal';
       card.innerHTML = member.avatar
-        ? `<img class="staff-avatar" src="${member.avatar}" alt="${member.name}" loading="lazy" onerror="this.style.display='none'">`
+        ? `<img class="staff-avatar" src="${escHtml(member.avatar)}" alt="${escHtml(member.name)}" loading="lazy" onerror="this.style.display='none'">`
         : `<div class="staff-avatar-placeholder">${member.emoji||'🩸'}</div>`;
-      card.innerHTML += `<div class="staff-name">${member.name}</div><div class="staff-rank">${member.rank}</div>`;
+      card.innerHTML += `<div class="staff-name">${escHtml(member.name)}</div><div class="staff-rank">${escHtml(member.rank)}</div>`;
       grid.appendChild(card);
       obs.observe(card);
     });
@@ -972,7 +997,7 @@ async function loadNews() {
       return;
     }
     grid.innerHTML = '';
-    news.forEach(item => {
+    news.slice(0, 3).forEach(item => {
       const date = new Date(item.date);
       const dateStr = date.toLocaleDateString('en-GB', { month: 'long', year: 'numeric' });
       const card = document.createElement('div');

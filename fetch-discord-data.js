@@ -278,12 +278,17 @@ async function main() {
         const embed = msg.embeds[0];
         const idField = embed.fields?.find(f => f.name.includes('Discord User'));
         const ignField = embed.fields?.find(f => f.name.includes('In-Game Name'));
+        const reasonField = embed.fields?.find(f => /reason/i.test(f.name));
         if (idField) {
           const idMatch = idField.value.match(/\d{17,20}/);
           if (idMatch) {
+            const member = allMembers.find(m => m.user.id === idMatch[0]);
             blacklisted.push({
               userId: idMatch[0],
-              ign: ignField?.value?.toLowerCase() || ''
+              discordUsername: member ? member.user.username : '',
+              ign: ignField?.value?.toLowerCase() || '',
+              reason: (reasonField?.value || '').slice(0, 300),
+              date: msg.timestamp
             });
           }
         }
@@ -297,6 +302,8 @@ async function main() {
     console.warn('⚠️ Blacklist export failed:', err.message);
     fs.writeFileSync('data/blacklist.json', JSON.stringify([], null, 2));
   }
+
+  return allMembers;
 }
 
 // ── Channel message fetcher ────────────────────────────────────────────────────
@@ -311,21 +318,42 @@ async function fetchChannelMessages(channelId, limit = 50) {
 
 // ── Pinned messages fetcher ─────────────────────────────────────────────────
 async function fetchPinnedMessages(channelId) {
-  const res = await fetch(
-    `https://discord.com/api/v10/channels/${channelId}/pins`,
-    { headers: { Authorization: `Bot ${TOKEN}`, 'Accept-Encoding': 'identity' } }
-  );
+  const headers = { Authorization: `Bot ${TOKEN}`, 'Accept-Encoding': 'identity' };
+  // Discord's newer pins endpoint wraps each pin as { message }; fall back to the old one if it isn't available
+  let res = await fetch(`https://discord.com/api/v10/channels/${channelId}/messages/pins?limit=50`, { headers });
+  if (res.ok) {
+    const data = await res.json();
+    return (data.items || []).map(i => i.message).filter(Boolean);
+  }
+  res = await fetch(`https://discord.com/api/v10/channels/${channelId}/pins`, { headers });
   if (!res.ok) throw new Error(`Failed to fetch pins from ${channelId}: ${res.status}`);
   return res.json();
+}
+
+// The bot stores data in pins as "||STORE:<name>:chunk<N>||\n<json>" (older builds: "||STORE:<name>||\n<json>").
+// Reassembles every chunk for <name> in order and returns the parsed object, or null if none found.
+function readStore(pins, name) {
+  const re = new RegExp(`^\\|\\|STORE:${name}(?::chunk(\\d+))?\\|\\|`);
+  const hits = pins
+    .map(m => {
+      const hit = re.exec(m.content || '');
+      return hit ? { chunked: hit[1] !== undefined, i: Number(hit[1] || 0), body: m.content.slice(hit[0].length).replace(/^\r?\n/, '') } : null;
+    })
+    .filter(Boolean);
+  // Prefer the chunked format; only fall back to a legacy single pin if no chunks exist
+  const chunked = hits.filter(h => h.chunked).sort((a, b) => a.i - b.i);
+  const parts = chunked.length ? chunked : hits.filter(h => !h.chunked);
+  if (!parts.length) return null;
+  return JSON.parse(parts.map(p => p.body).join(''));
 }
 
 async function exportNews() {
   const NEWS_CHANNEL_ID = '1211108754091810876';
   try {
-    const messages = await fetchChannelMessages(NEWS_CHANNEL_ID, 5);
+    const messages = await fetchChannelMessages(NEWS_CHANNEL_ID, 30);
     const news = messages
       .filter(m => !m.author.bot || m.embeds.length > 0)
-      .slice(0, 1)
+      .slice(0, 10)
       .map(msg => {
         // Use embed if present, otherwise use message content
         if (msg.embeds.length > 0) {
@@ -340,7 +368,7 @@ async function exportNews() {
         }
         return {
           title: msg.content.split('\n')[0].replace(/[*_#>]/g, '').trim().slice(0, 80) || 'Announcement',
-          body: msg.content.split('\n').slice(1).join('\n').trim().slice(0, 400) || msg.content.trim().slice(0, 400),
+          body: msg.content.split('\n').slice(1).join('\n').trim().slice(0, 1500) || msg.content.trim().slice(0, 1500),
           date: msg.timestamp,
           tag: 'Update',
           color: null
@@ -368,21 +396,15 @@ async function exportDonations(allMembers) {
   try {
     // ── Goal + total from data channel pin ─────────────────────────────────
     const pins = await fetchPinnedMessages(DATA_CHANNEL_ID);
-    const donationPin = pins.find(m => m.content.startsWith('||STORE:donations||'));
-    if (donationPin) {
-      const lines = donationPin.content.split('\n');
-      lines.shift();
-      const data = JSON.parse(lines.join('\n'));
-      goal = data.goal || 0;
-      goalLabel = data.goalLabel || '';
-      totalRaised = (data.donations || []).reduce((s, d) => s + Number(d.amount), 0);
+    const donationData = readStore(pins, 'donations');
+    if (donationData) {
+      goal = donationData.goal || 0;
+      goalLabel = donationData.goalLabel || '';
+      totalRaised = (donationData.donations || []).reduce((s, d) => s + Number(d.amount), 0);
     }
-    const realPin = pins.find(m => m.content.startsWith('||STORE:real_donations||'));
-    if (realPin) {
-      const lines = realPin.content.split('\n');
-      lines.shift();
-      const data = JSON.parse(lines.join('\n'));
-      realTotal = (data.donations || []).reduce((s, d) => s + Number(d.amount), 0);
+    const realData = readStore(pins, 'real_donations');
+    if (realData) {
+      realTotal = (realData.donations || []).reduce((s, d) => s + Number(d.amount), 0);
     }
   } catch (err) {
     console.warn('⚠️ Could not read donation store pins:', err.message);
@@ -501,15 +523,12 @@ async function exportDonations(allMembers) {
   }
 }
 
-main().catch(err => {
+(async () => {
+  const allMembers = await main();
+  await exportNews().catch(err => console.warn('News export error:', err.message));
+  await exportDonations(allMembers).catch(err => console.warn('Donations export error:', err.message));
+})().catch(err => {
   console.error('Error:', err);
   process.exit(1);
 });
-
-// Run additional exports after main
-(async () => {
-  const allMembers = await fetchAllMembers();
-  await exportNews();
-  await exportDonations(allMembers);
-})().catch(err => console.warn('Export error:', err.message));
 

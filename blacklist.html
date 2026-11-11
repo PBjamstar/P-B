@@ -107,17 +107,20 @@ body::after { content:''; position:fixed; inset:0; background-image:url("data:im
 .bl-date { font-family:'Share Tech Mono',monospace; font-size:0.62rem; color:rgba(154,136,112,0.5); white-space:nowrap; }
 @media(max-width:600px) { .bl-table th:nth-child(3),.bl-table td:nth-child(3) { display:none; } }
 </style>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="upgrade.css">
 </head>
 <body>
 <div id="scroll-progress"></div>
 <img class="watermark" src="logo.png" alt="" aria-hidden="true">
 <div id="cursor"></div><div id="cursor-ring"></div>
 <nav id="nav">
-  <a href="#hero" class="nav-brand">PHANTOM BLOODLINE</a>
+  <a href="index.html" class="nav-brand">PHANTOM BLOODLINE</a>
   <ul class="nav-links">
     <li><a href="index.html#about">About</a></li>
     <li><a href="index.html#leaderboard">Leaderboard</a></li>
-    <li><a href="#timeline">History</a></li>
+    <li><a href="index.html#timeline">History</a></li>
     <li><a href="index.html#news">News</a></li>
     <li><a href="https://discord.gg/Pn7WB4ktjn">Discord</a></li>
     <li><a href="index.html#rules">Rules</a></li>
@@ -132,6 +135,8 @@ body::after { content:''; position:fixed; inset:0; background-image:url("data:im
         <a href="news.html">📰 Announcements</a>
         <a href="status.html">⚙️ Bot Status</a>
         <a href="appeal.html">📋 Appeal</a>
+        <a href="faq.html">❓ FAQ</a>
+        <a href="crew-stats.html">📊 Crew Stats</a>
       </div>
     </li>
     <li><a href="apply.html" class="cta">Apply Now</a></li>
@@ -150,6 +155,8 @@ body::after { content:''; position:fixed; inset:0; background-image:url("data:im
   <a href="news.html" onclick="closeMobileMenu()">Announcements</a>
   <a href="status.html" onclick="closeMobileMenu()">Status</a>
   <a href="appeal.html" onclick="closeMobileMenu()">Appeal</a>
+  <a href="faq.html" onclick="closeMobileMenu()">FAQ</a>
+  <a href="crew-stats.html" onclick="closeMobileMenu()">Crew Stats</a>
   <a href="apply.html" class="cta" onclick="closeMobileMenu()">Apply Now</a>
   <a href="https://discord.gg/Pn7WB4ktjn" target="_blank" class="cta" onclick="closeMobileMenu()">Join Us</a>
 </div>
