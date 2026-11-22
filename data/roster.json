@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-11-22T07:55:40.737Z",
-  "totalMembers": 47,
+  "updatedAt": "2026-11-22T16:00:53.342Z",
+  "totalMembers": 46,
   "trialCount": 0,
   "guildName": "P-B x Phantom Bloodline",
   "guildIcon": "https://cdn.discordapp.com/icons/1206571308456878100/e1cc24c334d945424b974f52ba89e727.webp?size=128",
-  "approximateMemberCount": 246,
-  "approximatePresenceCount": 33,
+  "approximateMemberCount": 245,
+  "approximatePresenceCount": 67,
   "ranks": [
     {
       "id": "1414318647836676146",
@@ -173,6 +173,13 @@
           "isTrial": false
         },
         {
+          "id": "1364377696888426617",
+          "username": "kinglawbinder.",
+          "displayName": "P-B x ragnar",
+          "avatar": "https://cdn.discordapp.com/avatars/1364377696888426617/d39cb50d3d18e5709be6a54faa2a5d03.webp?size=64",
+          "isTrial": false
+        },
+        {
           "id": "398066539250712577",
           "username": "simonk6551",
           "displayName": "P-B x Simon",
@@ -191,13 +198,6 @@
           "username": "braham123",
           "displayName": "P-B x W4xters",
           "avatar": "https://cdn.discordapp.com/avatars/790156853627715584/a_94d16ac20dadbab1e106afb92fcc8981.webp?size=64",
-          "isTrial": false
-        },
-        {
-          "id": "1364377696888426617",
-          "username": "kinglawbinder.",
-          "displayName": "ragnar",
-          "avatar": "https://cdn.discordapp.com/avatars/1364377696888426617/d39cb50d3d18e5709be6a54faa2a5d03.webp?size=64",
           "isTrial": false
         }
       ],
@@ -335,13 +335,6 @@
           "isTrial": false
         },
         {
-          "id": "974061028612653097",
-          "username": "spionhunter",
-          "displayName": "P-B x Spion D. Boss",
-          "avatar": "https://cdn.discordapp.com/avatars/974061028612653097/a_4b7d72608bf54df78b0c95de6abedc31.webp?size=64",
-          "isTrial": false
-        },
-        {
           "id": "1069409709527941250",
           "username": "faras3413",
           "displayName": "P-B x Syrian Faras",
@@ -398,7 +391,7 @@
           "isTrial": false
         }
       ],
-      "count": 27
+      "count": 26
     }
   ]
 }
