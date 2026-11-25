@@ -10,7 +10,9 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/PBjamstar/P-B/main/logo.png">
 <meta property="og:url" content="https://pbjamstar.github.io/P-B/">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/PBjamstar/P-B/main/logo.png">
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="preload" as="image" href="logo.png" fetchpriority="high">
+<meta name="theme-color" content="#080808">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Share+Tech+Mono&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <noscript><link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Share+Tech+Mono&display=swap" rel="stylesheet"></noscript>
@@ -415,7 +417,7 @@ footer { background:#030303; border-top:1px solid rgba(122,0,0,0.2); padding:4re
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
 <script>try{if(sessionStorage.getItem("pb-seen"))document.documentElement.classList.add("no-loader");sessionStorage.setItem("pb-seen","1")}catch(e){}</script>
-<link rel="stylesheet" href="upgrade.css?v=3">
+<link rel="stylesheet" href="upgrade.css?v=4">
 </head>
 <body>
 <div id="scroll-progress"></div>
@@ -424,7 +426,7 @@ footer { background:#030303; border-top:1px solid rgba(122,0,0,0.2); padding:4re
 <!-- LOADER -->
 <div id="loader">
   <div class="loader-logo">
-    <img src="https://raw.githubusercontent.com/PBjamstar/P-B/main/logo.png" alt="PB">
+    <img src="logo.png" alt="PB" width="40" height="40" decoding="async">
     <div class="loader-ring"></div>
   </div>
   <div class="loader-text">Loading...</div>
@@ -508,7 +510,7 @@ footer { background:#030303; border-top:1px solid rgba(122,0,0,0.2); padding:4re
   <div class="hero-content">
     <div class="hero-badge">Est. Birmingham · 1919</div>
     <div class="hero-logo-wrap">
-      <img src="logo.png" alt="Phantom Bloodline" width="500" height="500">
+      <img src="logo.png" alt="Phantom Bloodline" width="500" height="500" fetchpriority="high" decoding="async">
       <div class="hero-ring"></div>
     </div>
     <h1 class="hero-title">Phantom<em>Bloodline</em></h1>
@@ -1208,5 +1210,6 @@ async function loadStats() {
 loadStats();
 </script>
 <a class="mobile-apply" href="apply.html">Apply to join</a>
+<script src="site.js?v=1" defer></script>
 </body>
 </html>

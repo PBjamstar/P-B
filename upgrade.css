@@ -205,3 +205,43 @@ cite { color: var(--red-text) !important; }
 .member-avatar { width: 42px; height: 42px; }
 .member-name { font-size: 0.95rem; }
 @media (max-width: 600px) { .members-grid { grid-template-columns: 1fr !important; } }
+
+/* ═════════════ v4: wider layout, nav highlight, back-to-top, ranks, staff, card polish ═════════════ */
+@media (min-width: 1280px) { .container { max-width: 1240px; } .stats-bar-grid { max-width: 1240px; } }
+
+/* Nav: current section */
+.nav-links a.active { color: var(--gold-light, #e8c87a); }
+.nav-links a.active:not(.cta)::after { transform: scaleX(1); }
+
+/* Back-to-top */
+.to-top {
+  position: fixed; right: 1rem; bottom: 1rem; z-index: 800; width: 46px; height: 46px; border-radius: 50%;
+  background: rgba(10,10,10,0.85); color: var(--gold-light, #e8c87a); border: 1px solid rgba(192,57,43,0.5);
+  font-size: 1.25rem; line-height: 1; cursor: pointer; opacity: 0; pointer-events: none; transform: translateY(10px);
+  transition: opacity 0.25s, transform 0.25s, background 0.2s; backdrop-filter: blur(6px);
+}
+.to-top.show { opacity: 1; pointer-events: auto; transform: none; }
+.to-top:hover { background: var(--blood, #7a0000); }
+@media (max-width: 760px) { .to-top { bottom: 4.7rem; } }
+
+/* Staff: centred, roomier cards */
+.staff-grid { display: flex !important; flex-wrap: wrap; justify-content: center; gap: 1rem !important; background: none !important; border: none !important; }
+.staff-grid > * { flex: 1 1 210px; max-width: 280px; border: 1px solid rgba(192,57,43,0.18); border-radius: 8px; }
+.staff-grid > *:hover { border-color: rgba(192,57,43,0.6); box-shadow: 0 10px 34px rgba(122,0,0,0.3); transform: translateY(-3px); }
+.staff-grid > * { transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s; }
+
+/* Ranks: clearer hierarchy */
+.rank-row { border-radius: 6px; padding: 1.3rem 1.2rem; }
+.rank-row:hover { background: rgba(122,0,0,0.08); }
+.rank-title { font-size: 1rem; }
+
+/* Cards: soft red glow on hover instead of flat */
+.rule-item:hover, .news-card:hover, .stat-cell:hover { box-shadow: inset 0 0 0 1px rgba(192,57,43,0.35), 0 8px 30px rgba(122,0,0,0.25); }
+.rule-item, .news-card { transition: box-shadow 0.25s, background 0.25s; }
+
+/* A little grain so the black is not flat */
+body::after {
+  content: ''; position: fixed; inset: 0; z-index: 1; pointer-events: none; opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+@media (prefers-reduced-motion: reduce) { .to-top { transition: none; } }
