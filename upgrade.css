@@ -63,3 +63,145 @@ input, textarea, select { cursor: text !important; }
 .join-steps h3 { font-family: var(--display); font-weight: 400; font-size: 1.6rem; letter-spacing: 0.03em; text-transform: uppercase; color: var(--white); margin: 0.4rem 0; }
 .join-steps p { color: var(--bone); line-height: 1.7; max-width: 32ch; }
 .join-cta { display: flex; flex-wrap: wrap; gap: 1rem; }
+
+/* ═════════════ v2: readability, touch, overflow, mobile polish ═════════════ */
+:root { --red-text: #e8695a; --muted-text: #b09f86; }
+
+/* No sideways wobble: off-screen reveal animations used to widen the page by a few px on phones */
+html, body { overflow-x: clip; }
+img, video, canvas, svg { max-width: 100%; }
+
+/* Red and grey text that sat below the 4.5:1 contrast minimum on the dark background */
+.eyebrow, .apply-eyebrow, .hero-badge, .card-label, .staff-rank, .funding-label, .req-star,
+.stats-bar-num, .stat-num, .stat-number, .big-num, .join-stat-num, .funding-raised, cite, .lb-total {
+  color: var(--red-text);
+}
+.rank-chevron, .lb-empty, .progress-step, .join-note, .field-hint, .updated-bar, .brand-est,
+.stat-label, .stats-bar-lbl, .join-stat-label, .count-bar, .loading-text {
+  color: var(--muted-text);
+}
+h4 { color: #b8924a; }
+.rule-num { color: rgba(232,105,90,0.7); }
+::placeholder { color: #8f8068; opacity: 1; }
+.news-date, .tl-year { color: var(--muted-text); }
+
+/* Small text floor */
+.card-label, .staff-rank, .progress-step, .join-note, .updated-bar, .brand-est, .rank-chevron, .lb-empty { font-size: max(0.75rem, 11px); }
+
+/* Touch: every tappable thing at least 44px on phones and tablets */
+@media (hover: none), (pointer: coarse), (max-width: 900px) {
+  .nav-hamburger { min-width: 44px; min-height: 44px; display: inline-flex; align-items: center; justify-content: center; }
+  .nav-brand, .nav-back { display: inline-flex; align-items: center; min-height: 44px; }
+  .cookie-btn, .collapse-btn, .faq-q, summary, select, input[type=submit], input[type=button] { min-height: 44px; }
+  .cookie-btn { padding-inline: 1.1rem; }
+  footer a, .footer-links a, .mobile-menu a, .nav-mobile a { display: inline-flex; align-items: center; min-height: 44px; padding-block: 0.35rem; }
+  input, textarea, select { font-size: 16px; } /* stops iOS zooming into fields */
+}
+
+/* Phones */
+@media (max-width: 600px) {
+  .section { padding: 3.5rem 0; }
+  .container, .section-inner, .wrap { padding-left: 1.25rem; padding-right: 1.25rem; }
+  .hero-title { font-size: clamp(3rem, 15vw, 5rem); }
+  .page-hero { padding-left: 1.25rem; padding-right: 1.25rem; }
+  .page-hero::after { left: 1.25rem; }
+  .stats-grid, .stat-grid { grid-template-columns: 1fr 1fr; }
+  .stat-cell { padding: 1.4rem 1rem; }
+  .join-cta, .hero-btns, .hero-cta { flex-direction: column; align-items: stretch; }
+  .join-cta > *, .hero-btns > *, .hero-cta > * { text-align: center; justify-content: center; }
+  .news-card, .rule-item, .rank-row { word-break: break-word; }
+  table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+}
+
+/* Big screens: keep line length and content width comfortable */
+@media (min-width: 1600px) {
+  html { font-size: 17px; }
+}
+.news-body, .rule-desc, .faq-a, .faq-answer { max-width: 70ch; }
+
+/* Notched phones */
+@supports (padding: max(0px)) {
+  nav, .nav { padding-left: max(1rem, env(safe-area-inset-left)); padding-right: max(1rem, env(safe-area-inset-right)); }
+  footer { padding-bottom: max(1rem, env(safe-area-inset-bottom)); }
+}
+
+/* Text that was still under ~11px on phones */
+.cookie-btn, #hero-member-count, .hero-scroll span, .lb-total, cite, .nav-back, .apply-eyebrow,
+.form-group label, .char-count, .stat-lbl, .rank-count, .collapse-btn, .brand-est {
+  font-size: max(0.72rem, 11.5px) !important;
+}
+.req-star, .hero-live span, #hero-member-count, .hero-scroll span { color: var(--red-text) !important; }
+.brand-est { color: var(--muted-text) !important; }
+.faq-a a, .faq-answer a { display: inline-block; padding-block: 0.6rem; }
+footer h4, .footer-nav h4, .footer-join h4 { color: #c9a45a !important; font-size: max(0.75rem, 11.5px) !important; }
+cite { color: var(--red-text) !important; }
+.rank-title span, .about-img-caption { font-size: max(0.72rem, 11.5px) !important; color: var(--muted-text); }
+.cookie-text a { display: inline-block; padding-block: 0.7rem; }
+
+/* Apply page: four requirement cards fill the row on desktop and sit 2x2 on phones (were a 3+1 gap / a tall stack) */
+.req-grid { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 760px) { .req-grid { grid-template-columns: 1fr 1fr; } .req-item { padding: 1.2rem 0.8rem; } }
+
+/* ═════════════ v3: bigger hero, live status, corner cookie card, loader once, sticky apply ═════════════ */
+
+/* Loader only on a visitor's first page view of a session */
+.no-loader #loader { display: none !important; }
+
+/* Hero: the crest is the star */
+#hero { min-height: 100svh; padding-top: 5.5rem; padding-bottom: 3rem; }
+.hero-logo-wrap { width: clamp(150px, 27vmin, 320px); height: clamp(150px, 27vmin, 320px); margin-bottom: 2rem; }
+.hero-logo-wrap::before {
+  content: ''; position: absolute; inset: -30%; z-index: -1; border-radius: 50%;
+  background: radial-gradient(circle, rgba(192,57,43,0.42) 0%, rgba(122,0,0,0.18) 38%, transparent 68%);
+  animation: hero-glow 5s ease-in-out infinite;
+}
+@keyframes hero-glow { 0%,100% { opacity: 0.75; transform: scale(1); } 50% { opacity: 1; transform: scale(1.08); } }
+.hero-tagline { font-size: clamp(1rem, 2vw, 1.35rem); }
+.hero-actions .btn-primary, .hero-actions .btn-secondary { padding: 1rem 2.2rem; font-size: 0.85rem; }
+
+/* Live server chips under the buttons */
+.hero-status { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem; margin: 1.6rem auto 0; max-width: 760px; }
+.hero-status[hidden] { display: none; }
+.hs-item {
+  display: inline-flex; align-items: center; gap: 0.55rem; padding: 0.55rem 0.95rem; font-size: 0.8rem;
+  background: rgba(10,10,10,0.7); border: 1px solid rgba(192,57,43,0.35); border-radius: 999px;
+  color: var(--pale, #b09f86); backdrop-filter: blur(6px); letter-spacing: 0.03em;
+}
+.hs-item b { color: var(--white, #fff); font-weight: 600; letter-spacing: 0.08em; }
+.hs-item.off { opacity: 0.6; }
+.hs-dot { width: 8px; height: 8px; border-radius: 50%; background: #57F287; box-shadow: 0 0 8px #57F287; flex: none; }
+.hs-item.off .hs-dot { background: #e74c3c; box-shadow: 0 0 8px #e74c3c; }
+.hs-restart { color: var(--red-text); }
+@media (max-width: 600px) { .hs-item { font-size: 0.72rem; padding: 0.45rem 0.7rem; gap: 0.4rem; flex-wrap: wrap; justify-content: center; } .hero-status { margin-top: 1.2rem; } }
+
+/* Cookie notice: a small corner card, not a full-width bar over the page */
+#cookie-banner {
+  left: auto !important; right: 1rem; bottom: 1rem; width: min(380px, calc(100% - 2rem));
+  flex-direction: column; align-items: stretch; gap: 0.9rem; padding: 1.1rem 1.2rem;
+  border: 1px solid rgba(192,57,43,0.4); border-radius: 10px; box-shadow: 0 12px 40px rgba(0,0,0,0.6);
+}
+#cookie-banner .cookie-btns { justify-content: flex-end; }
+#cookie-banner .cookie-text { font-size: 0.85rem; max-width: none; line-height: 1.5; }
+@media (max-width: 600px) { #cookie-banner { left: 0.75rem !important; right: 0.75rem; bottom: 4.6rem; width: auto; } }
+
+/* Sticky "Apply to join" on phones */
+.mobile-apply { display: none; }
+@media (max-width: 760px) {
+  .mobile-apply {
+    display: flex; align-items: center; justify-content: center; position: fixed; z-index: 900;
+    left: 0.75rem; right: 0.75rem; bottom: max(0.75rem, env(safe-area-inset-bottom)); min-height: 50px;
+    background: linear-gradient(135deg, var(--blood-bright, #c0392b), var(--blood, #7a0000)); color: #fff;
+    font-family: var(--display); font-size: 1.1rem; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none;
+    border-radius: 10px; box-shadow: 0 8px 28px rgba(0,0,0,0.6), 0 0 22px rgba(192,57,43,0.35);
+  }
+  body { padding-bottom: 76px; }
+}
+@media (max-width: 600px) { .hero-badge { display: none; } #hero { padding-top: 6.5rem; } }
+
+/* Roster: cards never overflow; one column on phones; a bit more presence */
+.members-grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr)) !important; }
+.member-card { min-width: 0; border-left: 2px solid transparent; transition: background 0.2s, border-color 0.2s, transform 0.2s; }
+.member-card:hover { border-left-color: var(--blood-bright); background: rgba(122,0,0,0.14); }
+.member-avatar { width: 42px; height: 42px; }
+.member-name { font-size: 0.95rem; }
+@media (max-width: 600px) { .members-grid { grid-template-columns: 1fr !important; } }

@@ -414,7 +414,8 @@ footer { background:#030303; border-top:1px solid rgba(122,0,0,0.2); padding:4re
 </style>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="upgrade.css">
+<script>try{if(sessionStorage.getItem("pb-seen"))document.documentElement.classList.add("no-loader");sessionStorage.setItem("pb-seen","1")}catch(e){}</script>
+<link rel="stylesheet" href="upgrade.css?v=3">
 </head>
 <body>
 <div id="scroll-progress"></div>
@@ -517,6 +518,7 @@ footer { background:#030303; border-top:1px solid rgba(122,0,0,0.2); padding:4re
       <a href="apply.html" class="btn-secondary">Apply Now</a>
       <a href="#about" class="btn-secondary">Learn More</a>
     </div>
+    <div class="hero-status" id="hero-status" hidden aria-live="polite"></div>
     <div class="hero-live">
       <span class="live-dot"></span>
       <span id="hero-member-count">—</span> members online
@@ -798,14 +800,42 @@ footer { background:#030303; border-top:1px solid rgba(122,0,0,0.2); padding:4re
 </footer>
 
 <script>
+// ── LIVE SERVER STATUS (hero) ───────────────────────────────
+// Reads data/server.json, written by the bot. Hidden if missing or stale, so the page never shows wrong numbers.
+(function () {
+  const box = document.getElementById('hero-status');
+  if (!box) return;
+  let servers = [];
+  const esc = t => String(t).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const fmt = ms => {
+    const s = Math.max(0, Math.floor(ms / 1000)), h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60);
+    return h ? h + 'h ' + String(m).padStart(2, '0') + 'm' : m + 'm';
+  };
+  function render() {
+    const now = Date.now();
+    box.innerHTML = servers.map(sv => {
+      const cap = sv.max ? '/' + sv.max : '';
+      const rs = sv.online && sv.nextRestartAt && sv.nextRestartAt > now ? '<span class="hs-restart">restarts in ' + fmt(sv.nextRestartAt - now) + '</span>' : '';
+      return '<span class="hs-item' + (sv.online ? '' : ' off') + '"><i class="hs-dot"></i><b>' + esc(sv.label) + '</b>' +
+        (sv.online ? '<span>' + sv.players + cap + ' players</span>' + rs : '<span>offline</span>') + '</span>';
+    }).join('');
+  }
+  fetch('data/server.json?t=' + Date.now()).then(r => r.ok ? r.json() : Promise.reject()).then(d => {
+    const age = Date.now() - new Date(d.updatedAt).getTime();
+    if (!Array.isArray(d.servers) || !d.servers.length || !(age < 45 * 60 * 1000)) return;
+    servers = d.servers.filter(s => s.id === 'EU1').concat(d.servers.filter(s => s.id !== 'EU1')).slice(0, 3);
+    box.hidden = false; render(); setInterval(render, 30000);
+  }).catch(() => {});
+})();
+
 // ── LOADER ─────────────────────────────────────────────────────────────────
 // Loader always hides - nothing can block this
 const hideLoader = () => {
   const l = document.getElementById('loader');
   if (l) l.classList.add('hidden');
 };
-setTimeout(hideLoader, 2500);
-document.addEventListener('DOMContentLoaded', () => setTimeout(hideLoader, 800));
+setTimeout(hideLoader, 1800);
+document.addEventListener('DOMContentLoaded', () => setTimeout(hideLoader, 450));
 
 // ── PAGE TRANSITIONS ───────────────────────────────────────────────────────
 try {
@@ -931,6 +961,8 @@ async function loadDonationData() {
     const total = data.totalRaised || (data.donations || []).reduce((s,d)=>s+Number(d.amount),0);
     const goal = data.goal || 0;
     const goalLabel = data.goalLabel || 'Current Goal';
+    // Nothing raised and no goal: hide the block rather than show an empty "$0" bar
+    if (!goal && !total) { const fb = document.getElementById('funding'); if (fb) fb.style.display = 'none'; return; }
 
     document.getElementById('funding-goal-label').textContent = goalLabel;
     document.getElementById('funding-raised').textContent = formatAmount(total);
@@ -1175,5 +1207,6 @@ async function loadStats() {
 }
 loadStats();
 </script>
+<a class="mobile-apply" href="apply.html">Apply to join</a>
 </body>
 </html>

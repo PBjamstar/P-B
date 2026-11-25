@@ -113,7 +113,7 @@ body::after { content:''; position:fixed; inset:0; background-image:url("data:im
 </style>style>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="upgrade.css">
+<link rel="stylesheet" href="upgrade.css?v=3">
 </head>
 <body>
 <div id="scroll-progress"></div>
@@ -249,5 +249,6 @@ const gbp = n => '£' + Number(n).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',
   if (!isNaN(t)) document.getElementById('updated').textContent = 'Last updated ' + t.toLocaleString('en-GB', { day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit' }) + '. Refreshes about every hour.';
 })();
 </script>
+<a class="mobile-apply" href="apply.html">Apply to join</a>
 </body>
 </html>
